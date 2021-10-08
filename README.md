@@ -15,7 +15,7 @@ A continuación veremos que también se agregan algunas funcionalidades extra co
 
 ## Comenzando 🚀
 
-Primeramente te aviso que el proyecto fué desarrollado con **JAVA 1.8.x** pero los métodos utilizados no deberían dar problemas en posteriores versiones.
+Primeramente te aviso que el proyecto fué desarrollado con **JAVA 8** pero los métodos utilizados no deberían dar problemas en posteriores versiones.
 
 ## Descargas 📁
 
