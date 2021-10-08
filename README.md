@@ -21,7 +21,7 @@ Primeramente te aviso que el proyecto fué desarrollado con **JAVA 8** pero los 
 
 Versiones disponibles:
 
-08-10-2021 | [MyStyles v1.0.0](https://drive.google.com/file/d/1kbMJpoXLzu3adX4CygeAvaButAwCVHGN/view?usp=sharing)
+08-10-2021 | [MyStyles v1.0.0](https://github.com/Israel-ICM/MyStyles/releases/download/v1.0.0-beta/MyStylesv1.0.0.jar)
 
 ## Ejecutando las pruebas ⚙️
 Como verás a continuación el funcionamiento es bastante simple:
