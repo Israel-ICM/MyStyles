@@ -59,6 +59,28 @@ public class MyStylesTest {
 ```
 En este ejemplo se vé como se inicializan los estilos de **METRO_UI** que es la primera librería que se creó para los primeros usos, posteriormente se crearán mas estilos, los disponibles por el momento en esta primera versión **1.0.0** son **METRO_UI** y **METRO_UI_DARK**.
 
+## Soporte ✔
+
+Por el momento los componentes que son soportados por la librería son:
+
+- JButton
+- JCheckBox
+- JComboBox
+- JLabel
+- JList
+- JMenuBar
+- JMenuItem
+- JOptionPane
+- JPanel
+- JPasswordField
+- JRadioButton
+- JScrollBar
+- JSlider
+- JTabbedPane
+- JTable
+- JTextArea
+- JTextField
+
 ## Autores ✒️
 
 _Por el momento soy el único contribuidor de éste proyecto_
