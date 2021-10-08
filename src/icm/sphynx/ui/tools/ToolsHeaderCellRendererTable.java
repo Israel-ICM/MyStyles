@@ -31,6 +31,7 @@ public class ToolsHeaderCellRendererTable implements TableCellRenderer{
         jcomponent.setBorder(BorderFactory.createMatteBorder(0, 0, 1, 1, Color.decode("#CCCCCC")));
         jcomponent.setOpaque(true);
         jcomponent.setBackground(Color.decode(UITools.COLOR_PRIMARY));
+        jcomponent.setForeground(Color.decode("#FFFFFF"));
         //jcomponent.setToolTipText("Colum No. "+(column+1));
         return jcomponent;
     }
