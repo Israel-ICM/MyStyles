@@ -24,7 +24,7 @@ Como verás a continuación el funcionamiento es bastante simple:
 
 Primeramente se debe agregar la libreria *".jar"* al proyecto donde se quiere aplicar los estilos.
 
-Una vez agregada la libreria al proyecto, solo debe instanciar la clase **MyStyles** y llamar al método estático **install(style)** el parámetro es una variable estática también declarada en la clase **MyStyles** siendo la única línea de código `MyStyles.install(MyStyles.METRO_UI);` que debe importarse de: `import icm.sphynx.styles.MyStyles;`, a continuacion se muestra un ejemplo básico:
+Una vez agregada la librería al proyecto, solo debe instanciar la clase **MyStyles** y llamar al método estático **install(style)** el parámetro es una variable estática también declarada en la clase **MyStyles** siendo la única línea de código `MyStyles.install(MyStyles.METRO_UI);` que debe importarse de: `import icm.sphynx.styles.MyStyles;`, a continuación se muestra un ejemplo básico:
 
 Un main común en java se vé de la siguiente forma:
 
@@ -60,6 +60,11 @@ En este ejemplo se vé como se inicializan los estilos de **METRO_UI** que es la
 _Por el momento soy el único contribuidor de éste proyecto_
 
 * **Israel Condori Mañueco** - *Trabajo Inicial* - [Israel-ICM](https://www.youtube.com/channel/UCGmN_BvrLlCeSREmZ0tykSw)
+
+## ¿Quieres invitarme un café? ☕
+Puedes hacerlo haciendo click en el siguiente link:
+
+[Quiero invitarte un café](https://www.buymeacoffee.com/israel.icm)
 
 ## Licencia 📄
 
