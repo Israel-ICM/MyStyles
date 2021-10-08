@@ -13,18 +13,16 @@ public class UILookAndFeel extends BasicLookAndFeel {
     
     public void initialize() {
         super.initialize();
-        System.out.println("jiji");
     }
 
     @Override
     public String getName() {
-        System.out.println("jijiji");
-        return "sirve";
+        return "";
     }
 
     @Override
     public String getID() {
-        return "personalizado";
+        return "";
     }
 
     @Override

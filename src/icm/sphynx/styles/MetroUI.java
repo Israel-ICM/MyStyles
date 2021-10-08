@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package icm.sphynx.styles;
 
 import icm.sphynx.ui.components.metro.UIButton;
@@ -30,10 +25,12 @@ import java.awt.Color;
 import javax.swing.UIManager;
 
 /**
- *
  * @author israel-icm
  */
 public class MetroUI {
+    /**
+     * Instala la versión normal del estilo
+     */
     public void installLight() {
         installComponents();
         UIManager.put("Panel.background", Color.decode(MaterialColors.LIGHT_BACKGROUND_PANEL));
@@ -49,6 +46,9 @@ public class MetroUI {
         UIManager.put("Table.foreground", Color.decode(MaterialColors.LIGHT_FOREGROUND));
     }
     
+    /**
+     * Instala la versión oscura del estilo
+     */
     public void installDark() {
         installComponents();
         UIManager.put("Panel.background", Color.decode(MaterialColors.DARK_BACKGROUND_PANEL));
@@ -65,6 +65,9 @@ public class MetroUI {
         // UIManager.put("ScrollPane.background", Color.red);
     }
     
+    /**
+     * Cambia los estilos componente a componente
+     */
     private void installComponents() {
         // MetalLookAndFeel.setCurrentTheme(new ThemeMaterialUI());
         UIManager.put("LookAndFeelUI", UILookAndFeel.class.getName());

@@ -8,7 +8,8 @@ import javax.swing.plaf.FontUIResource;
 import javax.swing.plaf.metal.DefaultMetalTheme;
 
 /**
- * @author josue
+ * Cambio para valores default del tema utilizado (Por el momento no se lo utilizará)
+ * @author israel-icm
  */
 public class ThemeMaterialUI extends DefaultMetalTheme {
     private final ColorUIResource primary1 = new ColorUIResource(Color.decode("#FFFFFF"));

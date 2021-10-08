@@ -1,6 +1,5 @@
 package icm.sphynx.ui.components.metro;
 
-import java.awt.AlphaComposite;
 import java.awt.BasicStroke;
 import java.awt.BorderLayout;
 import java.awt.Color;
@@ -20,6 +19,7 @@ import javax.swing.plaf.ComponentUI;
 import javax.swing.plaf.basic.BasicOptionPaneUI;
 
 /**
+ * Asigna los estilos para los mensajes de alerta (OptionPane)
  * @author israel-icm
  */
 public class UIOptionPane extends BasicOptionPaneUI {
@@ -27,6 +27,10 @@ public class UIOptionPane extends BasicOptionPaneUI {
         return new UIOptionPane();
     }
     
+    /**
+     * Se modifican los iconos según el tipo de mensaje
+     * @param top 
+     */
     @Override
     protected void addIcon(Container top) {
         JLabel iconLabel = new JLabel();

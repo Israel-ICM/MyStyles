@@ -23,10 +23,10 @@ import javax.swing.plaf.ComponentUI;
 import javax.swing.plaf.basic.BasicPasswordFieldUI;
 
 /**
+ * Asigna los estilos de todas las cajas de password
  * @author israel-icm
  */
 public class UIPasswordField extends BasicPasswordFieldUI {
-    
     private JPasswordField passwordField;
     private final JLabel btnVerPassword = new JLabel();
     private Dimension dimensionTextField = new Dimension(150, 38);
@@ -128,7 +128,9 @@ public class UIPasswordField extends BasicPasswordFieldUI {
             g.drawString(strPasswordAux, passwordField.getMargin().left, (passwordField.getSize().height)/2 + passwordField.getFont().getSize()/2 );
         }
     }
-    
+    /**
+     * Agrega el botón de ver password
+     */
     private void addButtonVerPassword(){
         btnVerPassword.setText("");
         btnVerPassword.setCursor(new Cursor(Cursor.HAND_CURSOR));
@@ -138,7 +140,9 @@ public class UIPasswordField extends BasicPasswordFieldUI {
         passwordField.setSelectionColor(btnVerPassword.getBackground());
         buttonVerPasswordResized();
     }
-    /** Ajusta la dimension y posicion del boton X*/
+    /**
+     * Ajusta la dimension y posicion del boton X
+     */
     private void buttonVerPasswordResized() {
         //tamaño boton
         heightButton = passwordField.getSize().height - 10;
@@ -148,6 +152,14 @@ public class UIPasswordField extends BasicPasswordFieldUI {
         btnVerPassword.setLocation(passwordField.getWidth() - btnVerPassword.getWidth() - 5, 5);
     }
     
+    /**
+     * Genera la imagen para el icono de ver password
+     * @param width
+     * @param height
+     * @param colorHex
+     * @param stroke
+     * @return 
+     */
     private ImageIcon createClearImage(int width, int height, String colorHex, int stroke) {
         BufferedImage image = new BufferedImage(width + 5, height + 5, BufferedImage.TYPE_INT_ARGB);
         Graphics2D graphics = (Graphics2D)image.getGraphics();

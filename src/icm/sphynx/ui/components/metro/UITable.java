@@ -8,7 +8,8 @@ import javax.swing.plaf.ComponentUI;
 import javax.swing.plaf.basic.BasicTableUI;
 
 /**
- * @author josue
+ * Asigna los estilos de las tablas
+ * @author israel-icm
  */
 public class UITable extends BasicTableUI {
     public static ComponentUI createUI(JComponent c) {
@@ -20,6 +21,7 @@ public class UITable extends BasicTableUI {
         super.paint(g, c);
         table.setSelectionBackground(Color.decode(UITools.COLOR_PRIMARY));
         table.setSelectionForeground(Color.WHITE);
+        // Los estilos de las celdas son agregadas mediante un renderer
         table.setDefaultRenderer(Object.class, new ToolsCellRendererTable());
         table.setGridColor(Color.decode(UITools.COLOR_PRIMARY));
         table.setRowHeight(30);

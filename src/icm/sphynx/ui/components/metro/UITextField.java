@@ -22,6 +22,7 @@ import javax.swing.plaf.ComponentUI;
 import javax.swing.plaf.basic.BasicTextFieldUI;
 
 /**
+ * Asigna estilos a todas las cajas de texto
  * @author israel-icm
  */
 public class UITextField extends BasicTextFieldUI  {
@@ -111,7 +112,10 @@ public class UITextField extends BasicTextFieldUI  {
             inicializado = true;
         }
     }
-    
+
+    /**
+     * Agrega el botón para borrar el texto
+     */
     private void addButtonClear(){
         btnClear.setText("");
         btnClear.setCursor(new Cursor(Cursor.HAND_CURSOR));
@@ -121,7 +125,9 @@ public class UITextField extends BasicTextFieldUI  {
         textField.setSelectionColor(btnClear.getBackground());
         buttonClearResized();
     }
-    /** Ajusta la dimension y posicion del boton X*/
+    /**
+     * Ajusta la dimension y posicion del boton X
+     */
     private void buttonClearResized() {
         //tamaño boton
         heightButton = textField.getSize().height - 10;
@@ -130,7 +136,15 @@ public class UITextField extends BasicTextFieldUI  {
         //posicion
         btnClear.setLocation(textField.getWidth() - btnClear.getWidth() - 5, 5);
     }
-    
+
+    /**
+     * Genera la imagen del icono para borrar el texto de la caja
+     * @param width
+     * @param height
+     * @param colorHex
+     * @param stroke
+     * @return 
+     */
     private ImageIcon createClearImage(int width, int height, String colorHex, int stroke) {
         BufferedImage image = new BufferedImage(width + 5, height + 5, BufferedImage.TYPE_INT_ARGB);
         Graphics2D graphics = (Graphics2D)image.getGraphics();

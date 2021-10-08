@@ -1,12 +1,11 @@
 package icm.sphynx.ui.components.metro;
 
-import java.awt.Color;
-import java.awt.Graphics;
 import javax.swing.JComponent;
 import javax.swing.plaf.ComponentUI;
 import javax.swing.plaf.basic.BasicProgressBarUI;
 
 /**
+ * Asigna los estilos para las barras de carga
  * @author israel-icm
  */
 public class UIProgressBar extends BasicProgressBarUI {

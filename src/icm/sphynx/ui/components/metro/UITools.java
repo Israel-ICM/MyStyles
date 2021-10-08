@@ -1,6 +1,7 @@
 package icm.sphynx.ui.components.metro;
 
 /**
+ * Variables para valores por default de toda la librería
  * @author israel-icm
  */
 public class UITools {

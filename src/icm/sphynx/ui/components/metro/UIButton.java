@@ -1,23 +1,19 @@
 package icm.sphynx.ui.components.metro;
 
 import java.awt.AlphaComposite;
-import java.awt.BorderLayout;
 import java.awt.Color;
-import java.awt.Dimension;
 import java.awt.Font;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
 import java.awt.Rectangle;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
-import javax.swing.AbstractButton;
-import javax.swing.JComponent;
-import javax.swing.border.Border;
-import javax.swing.border.LineBorder;
+import javax.swing.JComponent;;
 import javax.swing.plaf.ComponentUI;
 import javax.swing.plaf.basic.BasicButtonUI;
 
 /**
+ * Estilos para los botones
  * @author israel-icm
  */
 public class UIButton extends BasicButtonUI implements MouseListener {
@@ -77,8 +73,6 @@ public class UIButton extends BasicButtonUI implements MouseListener {
 
     @Override
     public void mouseEntered(MouseEvent e) {
-        
-        
         /*g.setColor(Color.decode(UITools.COLOR_BUTTON_DEFAULT));
         g.fillRect(0, 0, b.getWidth(), b.getHeight());
         LineBorder border = new LineBorder(Color.decode(UITools.COLOR_BUTTON_DEFAULT), 2);

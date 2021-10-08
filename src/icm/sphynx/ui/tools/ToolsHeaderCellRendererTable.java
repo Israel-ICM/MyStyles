@@ -11,7 +11,7 @@ import javax.swing.JTable;
 import javax.swing.table.TableCellRenderer;
 
 /**
- * 
+ * Renderer para asignar estilos a las celdas de la cabecera de los tables
  * @author Israel-ICM
  */
 public class ToolsHeaderCellRendererTable implements TableCellRenderer{

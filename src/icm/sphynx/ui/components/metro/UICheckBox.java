@@ -15,6 +15,7 @@ import javax.swing.plaf.ComponentUI;
 import javax.swing.plaf.basic.BasicCheckBoxUI;
 
 /**
+ * Asigna los estilos a todos los checkbox
  * @author israel-icm
  */
 public class UICheckBox extends BasicCheckBoxUI {
@@ -33,6 +34,13 @@ public class UICheckBox extends BasicCheckBoxUI {
         chk.setIcon(createCheckImage(18, 18, chk.isSelected()));
     }
     
+    /**
+     * Crea la imagen del checkbox
+     * @param width Ancho de la imagen
+     * @param height Alto de la imagen
+     * @param checked Define si el checkbox esta seleccionado o no
+     * @return Retorna la imagen generada
+     */
     private ImageIcon createCheckImage(int width, int height, boolean checked) {
         BufferedImage image = new BufferedImage(width + 5, height + 5, BufferedImage.TYPE_INT_ARGB);
         Graphics2D g2d = (Graphics2D)image.getGraphics();

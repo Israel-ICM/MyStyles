@@ -9,7 +9,8 @@ import javax.swing.JTable;
 import javax.swing.table.DefaultTableCellRenderer;
 
 /**
- * @author Israel-ICM
+ * Renderer para asignar estilos a las celdas de las tablas
+ * @author israel-ICM
  */
 public class ToolsCellRendererTable extends DefaultTableCellRenderer {
     private String _selected_color = UITools.COLOR_PRIMARY;

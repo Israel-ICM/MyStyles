@@ -16,6 +16,7 @@ import javax.swing.plaf.ComponentUI;
 import javax.swing.plaf.basic.BasicListUI;
 
 /**
+ * Asigna los estilos para todos los list
  * @author israel-icm
  */
 public class UIList extends BasicListUI {

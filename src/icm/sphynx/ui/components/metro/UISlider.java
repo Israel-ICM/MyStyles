@@ -12,6 +12,7 @@ import javax.swing.plaf.ComponentUI;
 import javax.swing.plaf.basic.BasicSliderUI;
 
 /**
+ * Asina los estilos para los slider
  * @author israel-icm
  */
 public class UISlider extends BasicSliderUI {
@@ -31,7 +32,11 @@ public class UISlider extends BasicSliderUI {
         super.paint(g, c);
         c.setBackground(null);
     }
-    
+
+    /**
+     * Dibuja la línea para movimiento del slider
+     * @param g 
+     */
     @Override
     public void paintTrack(Graphics g) {
         Graphics2D g2d = (Graphics2D)g;
@@ -45,6 +50,10 @@ public class UISlider extends BasicSliderUI {
             g2d.drawLine(slider.getWidth() / 2, 0, slider.getWidth()/ 2, slider.getHeight());
     }
     
+    /**
+     * Crea el componente que asigna el valor, para vertical se crea una vista diferente a la de horizontal
+     * @param g 
+     */
     @Override
     public void paintThumb(Graphics g) {
         Graphics2D g2d = (Graphics2D) g;
@@ -63,7 +72,7 @@ public class UISlider extends BasicSliderUI {
         }
     }
     
-/*    public void paintTicks(Graphics g)  {
+    /* public void paintTicks(Graphics g)  {
         
     }
     

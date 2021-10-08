@@ -14,6 +14,7 @@ import javax.swing.plaf.ComponentUI;
 import javax.swing.plaf.basic.BasicTabbedPaneUI;
 
 /**
+ * Asigna estilos al componente de tabs para paneles
  * @author israel-icm
  */
 public class UITabbedPane extends BasicTabbedPaneUI {
@@ -32,6 +33,17 @@ public class UITabbedPane extends BasicTabbedPaneUI {
         g.fillRect(0, 0, tabPane.getWidth(), tabPane.getHeight());*/
     }
 
+    /**
+     * Estilos de cada uno de los tabs estén seleccionados o no
+     * @param g
+     * @param tabPlacement
+     * @param tabIndex
+     * @param x
+     * @param y
+     * @param w
+     * @param h
+     * @param isSelected 
+     */
     @Override
     protected void paintTabBackground(Graphics g, int tabPlacement, int tabIndex, int x, int y, int w, int h, boolean isSelected) {
         Graphics2D g2d = (Graphics2D)g;
@@ -47,6 +59,17 @@ public class UITabbedPane extends BasicTabbedPaneUI {
         }
     }
 
+    /**
+     * Se pintan los bordes de cada tab esten seleccionados o no
+     * @param g
+     * @param tabPlacement
+     * @param tabIndex
+     * @param x
+     * @param y
+     * @param w
+     * @param h
+     * @param isSelected 
+     */
     @Override
     protected void paintTabBorder(Graphics g, int tabPlacement, int tabIndex, int x, int y, int w, int h, boolean isSelected) {
         Graphics2D g2d = (Graphics2D)g;
@@ -69,6 +92,17 @@ public class UITabbedPane extends BasicTabbedPaneUI {
         }
     }
 
+    /**
+     * Estilos del texto de cada uno de los tabs seleccionados o no
+     * @param g
+     * @param tabPlacement
+     * @param font
+     * @param metrics
+     * @param tabIndex
+     * @param title
+     * @param textRect
+     * @param isSelected 
+     */
     @Override
     protected void paintText(Graphics g, int tabPlacement, Font font, FontMetrics metrics, int tabIndex, String title, Rectangle textRect, boolean isSelected) {
         Graphics2D g2d = (Graphics2D)g;
@@ -84,6 +118,12 @@ public class UITabbedPane extends BasicTabbedPaneUI {
         }
     }
     
+    /**
+     * Borden del componente principal
+     * @param g
+     * @param tabPlacement
+     * @param selectedIndex 
+     */
     @Override
     protected void paintContentBorder(Graphics g, int tabPlacement, int selectedIndex) {
         tabPane.setBorder(BorderFactory.createEmptyBorder(1, 1, 1, 1));
@@ -96,6 +136,13 @@ public class UITabbedPane extends BasicTabbedPaneUI {
         super.paintTab(g, tabPlacement, rects, tabIndex, iconRect, textRect);
     }
 
+    /**
+     * Asignamos un nuevo alto a los tabs
+     * @param tabPlacement
+     * @param tabIndex
+     * @param fontHeight
+     * @return 
+     */
     @Override
     protected int calculateTabHeight(int tabPlacement, int tabIndex, int fontHeight) {
         // Esto es para que el alto de los tabs no sea tan pequeño

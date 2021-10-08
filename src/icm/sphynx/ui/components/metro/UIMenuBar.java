@@ -1,11 +1,11 @@
 package icm.sphynx.ui.components.metro;
 
-import java.awt.Color;
 import javax.swing.JComponent;
 import javax.swing.plaf.ComponentUI;
 import javax.swing.plaf.basic.BasicMenuBarUI;
 
 /**
+ * Asigna los estilos para las barras de menú
  * @author israel-icm
  */
 public class UIMenuBar extends BasicMenuBarUI {

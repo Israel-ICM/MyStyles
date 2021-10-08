@@ -7,6 +7,7 @@ import javax.swing.plaf.ComponentUI;
 import javax.swing.plaf.basic.BasicTableHeaderUI;
 
 /**
+ * Asigna estilos a la cabecera de las tablas
  * @author israel-icm
  */
 public class UITableHeader extends BasicTableHeaderUI {
@@ -20,6 +21,8 @@ public class UITableHeader extends BasicTableHeaderUI {
         /*header.setForeground(Color.WHITE);
         header.setBackground(Color.decode(UITools.COLOR_PRIMARY));
         header.setFont(new Font(UITools.FONT_DEFAULT, header.getFont().getStyle(), header.getFont().getSize()));*/
+
+        // Los estilos se asignan a travez de un renderer
         header.setDefaultRenderer(new ToolsHeaderCellRendererTable());
     }
 }

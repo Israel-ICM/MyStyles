@@ -10,6 +10,7 @@ import javax.swing.plaf.ComponentUI;
 import javax.swing.plaf.basic.BasicLabelUI;
 
 /**
+ * Asigna los estilos para todos los labels
  * @author israel-icm
  */
 public class UILabel extends BasicLabelUI {

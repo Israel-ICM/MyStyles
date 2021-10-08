@@ -5,7 +5,6 @@ import java.awt.Color;
 import java.awt.Font;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
-import javax.swing.BorderFactory;
 import javax.swing.JComponent;
 import javax.swing.JTextArea;
 import javax.swing.border.LineBorder;
@@ -13,6 +12,7 @@ import javax.swing.plaf.ComponentUI;
 import javax.swing.plaf.basic.BasicTextAreaUI;
 
 /**
+ * Asigna estilos a todas las areas de texto
  * @author israel-icm
  */
 public class UITextArea extends BasicTextAreaUI {

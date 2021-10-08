@@ -17,6 +17,7 @@ import javax.swing.plaf.ComponentUI;
 import javax.swing.plaf.basic.BasicScrollBarUI;
 
 /**
+ * Asigna estilos a las barras de scroll horizontal y vertical
  * @author israel-icm
  */
 public class UIScrollBar extends BasicScrollBarUI implements MouseListener {
@@ -114,7 +115,14 @@ public class UIScrollBar extends BasicScrollBarUI implements MouseListener {
         button.setBorder(null);
         return button;
     }
-    
+    /**
+     * Se crea la imagen del scroll
+     * @param width
+     * @param height
+     * @param colorHex
+     * @param alpha
+     * @return 
+     */
     private Image createImageThumb(int width, int height, String colorHex, float alpha) {
         BufferedImage image = new BufferedImage(width, height, BufferedImage.TYPE_INT_ARGB);
         Graphics2D graphics = (Graphics2D)image.getGraphics();
