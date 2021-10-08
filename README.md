@@ -3,11 +3,11 @@ Es una librería para modificar la interfaz de cualquier programa JAVA con una s
 
 Con esta librería convertirá un programa que se vé así:
 
-![alt text](https://github.com/Israel-ICM/MyStyles/blob/master/examples/example1.PNG)
+![Captura de pantalla 1](https://github.com/Israel-ICM/MyStyles/blob/master/captures/example1.PNG)
 
 Utilizando una simple línea de código conseguirá que se vea de la siguiente forma:
 
-![alt text](https://github.com/Israel-ICM/MyStyles/blob/master/examples/example2.PNG)
+![Captura de pantalla 2](https://github.com/Israel-ICM/MyStyles/blob/master/captures/example2.PNG)
 
 ## Comenzando 🚀
 
