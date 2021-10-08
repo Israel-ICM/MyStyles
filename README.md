@@ -5,6 +5,12 @@ Es una librería para modificar la interfaz de cualquier programa JAVA con una s
 
 Primeramente te aviso que el proyecto fué desarrollado con **JAVA 1.8.x** pero los métodos utilizados no denerían dar problemas en posteriores versiones.
 
+## Descargas
+
+Versiones disponibles:
+
+08-10-2021 | [MyStyles v1.0.0](https://drive.google.com/file/d/1RHS3FeNgmsC0ImJ-f8PbyONAQ1NIxEkZ/view?usp=sharing)
+
 ## Ejecutando las pruebas ⚙️
 Como verás a continuación el funcionamiento es bastante simple:
 
