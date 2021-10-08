@@ -1,15 +1,23 @@
 # MyStyles
 Es una librería para modificar la interfaz de cualquier programa JAVA con una sencilla línea de código que corresponde a la instalación del estilo en la aplicación que necesita.
 
+Con esta librería convertirá un programa que se vé así:
+
+![alt text](https://github.com/Israel-ICM/MyStyles/blob/master/examples/example1.PNG)
+
+Utilizando una simple línea de código conseguirá que se vea de la siguiente forma:
+
+![alt text](https://github.com/Israel-ICM/MyStyles/blob/master/examples/example2.PNG)
+
 ## Comenzando 🚀
 
-Primeramente te aviso que el proyecto fué desarrollado con **JAVA 1.8.x** pero los métodos utilizados no denerían dar problemas en posteriores versiones.
+Primeramente te aviso que el proyecto fué desarrollado con **JAVA 1.8.x** pero los métodos utilizados no deberían dar problemas en posteriores versiones.
 
-## Descargas
+## Descargas 📁
 
 Versiones disponibles:
 
-08-10-2021 | [MyStyles v1.0.0](https://drive.google.com/file/d/1RHS3FeNgmsC0ImJ-f8PbyONAQ1NIxEkZ/view?usp=sharing)
+08-10-2021 | [MyStyles v1.0.0](https://drive.google.com/file/d/1kbMJpoXLzu3adX4CygeAvaButAwCVHGN/view?usp=sharing)
 
 ## Ejecutando las pruebas ⚙️
 Como verás a continuación el funcionamiento es bastante simple:
