@@ -49,7 +49,7 @@ _Por el momento soy el único contribuidor de éste proyecto_
 
 ## Licencia 📄
 
-Este proyecto está bajo la Licencia (MIT) - mira el archivo [LICENSE.md](LICENSE.md) para más detalles
+Este proyecto está bajo la Licencia (MIT) - mira el archivo [LICENSE.md](https://github.com/Israel-ICM/MyStyles/blob/master/LICENSE) para más detalles
 
 ---
 ⌨️ Con ❤️ por [Israel-ICM](https://github.com/Israel-ICM) 😊
