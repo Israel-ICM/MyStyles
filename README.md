@@ -1,5 +1,5 @@
 # MyStyles
-Es una librería para modificar la interfaz de cualquier programa JAVA con una sencilla línea de código que corresponde a la instalación del estilo en la aplicación que necesita.
+Es una librería para modificar la interfaz de cualquier programa JAVA Swing con una sencilla línea de código que corresponde a la instalación del estilo en la aplicación que necesita.
 
 Con esta librería convertirá un programa que se vé así:
 
