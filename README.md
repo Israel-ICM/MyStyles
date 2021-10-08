@@ -9,6 +9,10 @@ Utilizando una simple línea de código conseguirá que se vea de la siguiente f
 
 ![Captura de pantalla 2](https://github.com/Israel-ICM/MyStyles/blob/master/captures/example2.PNG)
 
+A continuación veremos que también se agregan algunas funcionalidades extra como el botón para ver el password en el passwordfield o el botón para limpiar los textfield:
+
+![Gif funcionamiento](https://github.com/Israel-ICM/MyStyles/blob/master/captures/vista.gif)
+
 ## Comenzando 🚀
 
 Primeramente te aviso que el proyecto fué desarrollado con **JAVA 1.8.x** pero los métodos utilizados no deberían dar problemas en posteriores versiones.
