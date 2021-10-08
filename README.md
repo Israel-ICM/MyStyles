@@ -14,7 +14,7 @@ Una vez agregada la libreria al proyecto, solo debe instanciar la clase **MyStyl
 
 Un main común en java se vé de la siguiente forma:
 
-```
+```java
 package mystylestest;
 
 public class MyStylesTest {
@@ -26,7 +26,7 @@ public class MyStylesTest {
 En este caso particular `Test` es nuestro **JFrame** razón por la que se inicializa en el main
 
 Ahora si queremos asignarle los estilos de la librería **MyStyles** lo único que haremos será agregar la línea de instalación antes de todos los métodos, por ejemplo:
-```
+```java
 package mystylestest;
 
 import icm.sphynx.styles.MyStyles;
