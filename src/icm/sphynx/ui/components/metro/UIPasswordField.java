@@ -63,6 +63,7 @@ public class UIPasswordField extends BasicPasswordFieldUI {
         passwordField.setBorder(BorderFactory.createCompoundBorder(passwordField.getBorder(), BorderFactory.createEmptyBorder(UITools.PADDING_CONTENTS, UITools.PADDING_CONTENTS, UITools.PADDING_CONTENTS, heightButton + UITools.PADDING_CONTENTS)));
 
         if (!inicializado) {
+            passwordField.setSize(new Dimension(passwordField.getWidth(), 30));
             btnVerPassword.setVisible(false);
             btnVerPassword.addMouseListener(new MouseListener() {
                 @Override

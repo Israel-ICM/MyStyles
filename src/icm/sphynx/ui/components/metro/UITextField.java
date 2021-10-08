@@ -59,6 +59,7 @@ public class UITextField extends BasicTextFieldUI  {
         textField.setBorder(BorderFactory.createCompoundBorder(textField.getBorder(), BorderFactory.createEmptyBorder(UITools.PADDING_CONTENTS, UITools.PADDING_CONTENTS, UITools.PADDING_CONTENTS, heightButton + UITools.PADDING_CONTENTS)));
 
         if (!inicializado) {
+            textField.setSize(new Dimension(textField.getWidth(), 30));
             btnClear.setVisible(false);
             btnClear.addMouseListener(new MouseListener() {
                 @Override

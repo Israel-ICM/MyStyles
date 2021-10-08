@@ -65,24 +65,31 @@ public class UIScrollBar extends BasicScrollBarUI implements MouseListener {
         // La variable scrollbar viene de la herencia de BasicScrollBarUI
         switch (scrollbar.getOrientation()) {
             case JScrollBar.VERTICAL:
-                graphicsBarra.drawImage(createImageThumb(WIDTH_SCROLL, HEIGHT_SCROLL, UITools.COLOR_SCROLL_DEFAULT, 1f), thumbBounds.x, thumbBounds.y, thumbBounds.width, thumbBounds.height, null);
-                if (estadoBarra == UIScrollBar.OVER)
+                // graphicsBarra.drawImage(createImageThumb(WIDTH_SCROLL, HEIGHT_SCROLL, UITools.COLOR_SCROLL_DEFAULT, 1f), thumbBounds.x, thumbBounds.y, thumbBounds.width, thumbBounds.height, null);
+                if (estadoBarra == UIScrollBar.OVER) {
                     scrollbar.setPreferredSize(new Dimension(16, scrollbar.getHeight()));
+                    graphicsBarra.drawImage(createImageThumb(WIDTH_SCROLL, HEIGHT_SCROLL, UITools.COLOR_SCROLL_DEFAULT, 0.9f), thumbBounds.x, thumbBounds.y, thumbBounds.width, thumbBounds.height, null);
+                }
                 // else if (estadoBarra == UIScrollBar.PRESSED)
                 //     graphicsBarra.drawImage(createImageThumb(WIDTH_SCROLL, WIDTH_SCROLL_DEFAULT, COLOR_DEFAULT, 0.7f), WIDTH_SCROLL_DEFAULT - WIDTH_SCROLL, thumbBounds.y, WIDTH_SCROLL, thumbBounds.height, null);
-                else
+                else {
                     scrollbar.setPreferredSize(new Dimension(8, scrollbar.getHeight()));
+                    graphicsBarra.drawImage(createImageThumb(WIDTH_SCROLL, HEIGHT_SCROLL, UITools.COLOR_SCROLL_DEFAULT, 0.6f), thumbBounds.x, thumbBounds.y, thumbBounds.width, thumbBounds.height, null);
                     // Con esto el el thumb del scroll se vuelve menos ancho
                     // graphicsBarra.drawImage(createImageThumb(WIDTH_SCROLL, HEIGHT_SCROLL, UITools.COLOR_SCROLL_DEFAULT, 0.7f), WIDTH_SCROLL_DEFAULT - WIDTH_SCROLL, thumbBounds.y, thumbBounds.width, thumbBounds.height, null);
+                }
                 break;
             case JScrollBar.HORIZONTAL:
-                graphicsBarra.drawImage(createImageThumb(WIDTH_SCROLL, HEIGHT_SCROLL, UITools.COLOR_SCROLL_DEFAULT, 1f), thumbBounds.x, thumbBounds.y, thumbBounds.width, thumbBounds.height, null);
-                if (estadoBarra == UIScrollBar.OVER)
+                
+                if (estadoBarra == UIScrollBar.OVER) {
                     scrollbar.setPreferredSize(new Dimension(scrollbar.getWidth(), 16));
+                    graphicsBarra.drawImage(createImageThumb(WIDTH_SCROLL, HEIGHT_SCROLL, UITools.COLOR_SCROLL_DEFAULT, 0.9f), thumbBounds.x, thumbBounds.y, thumbBounds.width, thumbBounds.height, null);
+                }
                 // else if (estadoBarra == UIScrollBar.PRESSED)
                 //     graphicsBarra.drawImage(createImageThumb(WIDTH_SCROLL, WIDTH_SCROLL_DEFAULT, COLOR_DEFAULT, 0.7f), WIDTH_SCROLL_DEFAULT - WIDTH_SCROLL, thumbBounds.y, WIDTH_SCROLL, thumbBounds.height, null);
                 else {
                     scrollbar.setPreferredSize(new Dimension(scrollbar.getWidth(), 8));
+                    graphicsBarra.drawImage(createImageThumb(WIDTH_SCROLL, HEIGHT_SCROLL, UITools.COLOR_SCROLL_DEFAULT, 0.6f), thumbBounds.x, thumbBounds.y, thumbBounds.width, thumbBounds.height, null);
                     // graphicsBarra.drawImage(createImageThumb(WIDTH_SCROLL, HEIGHT_SCROLL, UITools.COLOR_SCROLL_DEFAULT, 0.7f), thumbBounds.x, HEIGHT_SCROLL_DEFAULT - HEIGHT_SCROLL, thumbBounds.width, thumbBounds.height, null);
                 }
                 break;
