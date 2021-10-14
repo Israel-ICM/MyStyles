@@ -3,15 +3,19 @@ Es una librería para modificar la interfaz de cualquier programa JAVA Swing con
 
 Con esta librería convertirá un programa que se vé así:
 
-![Captura de pantalla 1](https://github.com/Israel-ICM/MyStyles/blob/master/captures/example1.PNG)
+![Captura de pantalla 1](https://github.com/Israel-ICM/MyStyles/blob/master/captures/version1.0.1/simple.PNG)
 
 Utilizando una simple línea de código conseguirá que se vea de la siguiente forma:
 
-![Captura de pantalla 2](https://github.com/Israel-ICM/MyStyles/blob/master/captures/example2.PNG)
+![Captura de pantalla 2](https://github.com/Israel-ICM/MyStyles/blob/master/captures/version1.0.1/aplicado.PNG)
+
+Pudiendo también cambiar los colores primarios:
+
+![Captura de pantalla 2](https://github.com/Israel-ICM/MyStyles/blob/master/captures/version1.0.1/aplicado_color.PNG)
 
 A continuación veremos que también se agregan algunas funcionalidades extra como el botón para ver el password en el passwordfield o el botón para limpiar los textfield:
 
-![Gif funcionamiento](https://github.com/Israel-ICM/MyStyles/blob/master/captures/vista.gif)
+![Gif funcionamiento](https://github.com/Israel-ICM/MyStyles/blob/master/captures/version1.0.1/animation.gif)
 
 ## Comenzando 🚀
 
@@ -22,6 +26,7 @@ Primeramente te aviso que el proyecto fué desarrollado con **JAVA 8** pero los 
 Versiones disponibles:
 
 08-10-2021 | [MyStyles v1.0.0](https://github.com/Israel-ICM/MyStyles/releases/download/v1.0.0-beta/MyStylesv1.0.0.jar)
+08-10-2021 | [MyStyles v1.0.1](https://github.com/Israel-ICM/MyStyles/releases/download/v1.0.1-beta/MyStylesv1.0.1.jar)
 
 ## Ejecutando las pruebas ⚙️
 Como verás a continuación el funcionamiento es bastante simple:
@@ -59,6 +64,26 @@ public class MyStylesTest {
 ```
 En este ejemplo se vé como se inicializan los estilos de **METRO_UI** que es la primera librería que se creó para los primeros usos, posteriormente se crearán mas estilos, los disponibles por el momento en esta primera versión **1.0.0** son **METRO_UI** y **METRO_UI_DARK**.
 
+Si lo que quieres es cambiar el color del tema lograrás hacerlo simplemente agregando la siguiente linea donde quieras, en un botón en un menú o en cualquier evento que hayas programado:
+
+```java
+MetroUIConfigTheme.setPrimaryColor(MyStyles.COLOR_YELLOW, true);
+```
+Los colores disponibles son los siguientes:
+
+```java
+MyStyles.COLOR_YELLOW
+MyStyles.COLOR_BLUE_LIGHT
+MyStyles.COLOR_BLUE_DARK
+MyStyles.COLOR_ORANGE
+MyStyles.COLOR_RED
+MyStyles.COLOR_ROSE
+MyStyles.COLOR_PURPLE_LIGHT
+MyStyles.COLOR_PURPLE_DARK
+MyStyles.COLOR_GREEN_LIGHT
+MyStyles.COLOR_GREEN_DARK
+```
+
 ## Soporte ✔
 
 Por el momento los componentes que son soportados por la librería son:
@@ -66,20 +91,26 @@ Por el momento los componentes que son soportados por la librería son:
 - JButton
 - JCheckBox
 - JComboBox
+- JFormattedTextField
 - JLabel
 - JList
 - JMenuBar
 - JMenuItem
+- JMenu
 - JOptionPane
 - JPanel
 - JPasswordField
+- JProgressBar
 - JRadioButton
 - JScrollBar
 - JSlider
+- JSpinner
+- JSplitPane
 - JTabbedPane
 - JTable
 - JTextArea
 - JTextField
+- JToggleButton
 
 ## Autores ✒️
 
