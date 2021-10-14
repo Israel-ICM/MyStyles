@@ -1,8 +1,13 @@
 package icm.sphynx.ui.components.metro;
 
 import icm.sphynx.ui.tools.ToolsHeaderCellRendererTable;
+import java.awt.Color;
+import java.awt.Font;
 import java.awt.Graphics;
+import javax.swing.BorderFactory;
 import javax.swing.JComponent;
+import javax.swing.border.CompoundBorder;
+import javax.swing.border.MatteBorder;
 import javax.swing.plaf.ComponentUI;
 import javax.swing.plaf.basic.BasicTableHeaderUI;
 
@@ -18,11 +23,18 @@ public class UITableHeader extends BasicTableHeaderUI {
     @Override
     public void paint(Graphics g, JComponent c) {
         super.paint(g, c);
-        /*header.setForeground(Color.WHITE);
-        header.setBackground(Color.decode(UITools.COLOR_PRIMARY));
-        header.setFont(new Font(UITools.FONT_DEFAULT, header.getFont().getStyle(), header.getFont().getSize()));*/
+        header.setForeground(Color.WHITE);
+        header.setBackground(MetroUIConfigTheme.getPrimaryColor());
+        header.setFont(new Font(UITools.FONT_DEFAULT, Font.BOLD, header.getFont().getSize()));
+        
+        Color divider = Color.decode("#CCCCCC");
+        if (MetroUIConfigTheme.getDarkMode())
+            divider = Color.decode("#A6A6A6");
+        MatteBorder bordeDelgadoGris = BorderFactory.createMatteBorder(0, 1, 0, 1, divider);
+        CompoundBorder bordeAnchoCelda = BorderFactory.createCompoundBorder(bordeDelgadoGris, BorderFactory.createEmptyBorder(UITools.PADDING_CONTENTS, UITools.PADDING_CONTENTS, UITools.PADDING_CONTENTS, UITools.PADDING_CONTENTS));
+        header.setBorder(bordeAnchoCelda);
 
         // Los estilos se asignan a travez de un renderer
-        header.setDefaultRenderer(new ToolsHeaderCellRendererTable());
+        // header.setDefaultRenderer(new ToolsHeaderCellRendererTable());
     }
 }

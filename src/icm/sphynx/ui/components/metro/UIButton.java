@@ -1,5 +1,6 @@
 package icm.sphynx.ui.components.metro;
 
+import icm.sphynx.ui.tools.StyleColors;
 import java.awt.AlphaComposite;
 import java.awt.Color;
 import java.awt.Font;
@@ -8,7 +9,8 @@ import java.awt.Graphics2D;
 import java.awt.Rectangle;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
-import javax.swing.JComponent;;
+import javax.swing.JComponent;import javax.swing.UIManager;
+;
 import javax.swing.plaf.ComponentUI;
 import javax.swing.plaf.basic.BasicButtonUI;
 
@@ -36,7 +38,7 @@ public class UIButton extends BasicButtonUI implements MouseListener {
         if (estado == 0) {
             AlphaComposite ac = AlphaComposite.getInstance(AlphaComposite.SRC_OVER, 1f);
             g2d.setComposite(ac);
-            g.setColor(Color.decode(UITools.COLOR_PRIMARY));
+            g.setColor(MetroUIConfigTheme.getPrimaryColor());
             g.fillRect(0, 0, width, height);
             /*LineBorder border = new LineBorder(Color.decode(UITools.COLOR_BUTTON_DEFAULT), 3);
             c.setBorder(border);*/

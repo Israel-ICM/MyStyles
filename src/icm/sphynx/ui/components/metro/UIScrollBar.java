@@ -55,6 +55,9 @@ public class UIScrollBar extends BasicScrollBarUI implements MouseListener {
         g1.fillRect(WIDTH_SCROLL_DEFAULT - WIDTH_SCROLL, 0, WIDTH_SCROLL, HEIGHT_SCROLL);
         // g1.dispose();
         g.drawImage(image, trackBounds.x, trackBounds.y, trackBounds.width, trackBounds.height, null);*/
+        c.setBackground(Color.decode("#CCCCCC"));
+        if (MetroUIConfigTheme.getDarkMode())
+            c.setBackground(Color.decode("#A6A6A6"));
     } 
 
     @Override

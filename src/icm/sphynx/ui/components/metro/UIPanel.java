@@ -1,7 +1,10 @@
 package icm.sphynx.ui.components.metro;
 
+import icm.sphynx.ui.tools.StyleColors;
+import java.awt.Color;
 import javax.swing.JComponent;
 import javax.swing.JPanel;
+import javax.swing.UIManager;
 import javax.swing.plaf.ComponentUI;
 import javax.swing.plaf.basic.BasicPanelUI;
 
@@ -10,12 +13,27 @@ import javax.swing.plaf.basic.BasicPanelUI;
  * @author israel-icm
  */
 public class UIPanel extends BasicPanelUI {
+    JPanel panel;
     public static ComponentUI createUI(JComponent c) {
         return new UIPanel();
     }
+    
     @Override
     protected void installDefaults(JPanel p) {
+        this.panel = p;
         super.installDefaults(p);
-        // p.setBackground(Color.decode(UITools.COLOR_PANEL_DEFAULT));
+
+        if (MetroUIConfigTheme.getDarkMode())
+            panel.setBackground(Color.decode(StyleColors.DARK_BACKGROUND_PANEL));
+        else
+            panel.setBackground(Color.decode(StyleColors.LIGHT_BACKGROUND_PANEL));
+    }
+    @Override
+    public int getBaseline(JComponent c, int width, int height) {
+        /*if (MetroUIConfigTheme.getDarkMode())
+            panel.setBackground(Color.decode(StyleColors.DARK_BACKGROUND_PANEL));
+        else
+            panel.setBackground(Color.decode(StyleColors.LIGHT_BACKGROUND_PANEL));*/
+        return super.getBaseline(c, width, height);
     }
 }

@@ -1,5 +1,6 @@
 package icm.sphynx.ui.components.metro;
 
+import icm.sphynx.ui.tools.StyleColors;
 import java.awt.BasicStroke;
 import java.awt.Color;
 import java.awt.Font;
@@ -10,6 +11,7 @@ import java.awt.Rectangle;
 import java.awt.RenderingHints;
 import javax.swing.BorderFactory;
 import javax.swing.JComponent;
+import javax.swing.UIManager;
 import javax.swing.plaf.ComponentUI;
 import javax.swing.plaf.basic.BasicTabbedPaneUI;
 
@@ -24,7 +26,8 @@ public class UITabbedPane extends BasicTabbedPaneUI {
     
     @Override
     public void paint(Graphics g, JComponent c) {
-        g.setColor(Color.decode(UITools.COLOR_PRIMARY));
+        // g.setColor(Color.decode(StyleColors.COLOR_PRIMARY));
+        g.setColor(MetroUIConfigTheme.getPrimaryColor());
         g.fillRect(0, 0, tabPane.getWidth(), tabPane.getHeight());
         c.setFocusable(false);
         super.paint(g, c);
@@ -49,12 +52,14 @@ public class UITabbedPane extends BasicTabbedPaneUI {
         Graphics2D g2d = (Graphics2D)g;
 
         if (isSelected) {
-            g2d.setColor(Color.WHITE);
+            g2d.setColor(Color.decode(StyleColors.LIGHT_BACKGROUND_PANEL));
+            if (MetroUIConfigTheme.getDarkMode())
+                g2d.setColor(Color.decode(StyleColors.DARK_BACKGROUND_PANEL));
             g2d.fillRoundRect(x, y, w, h + 5, 8, 8);
             // g2d.fillRect(x, y, w, h + 3);
         }
         else {
-            g2d.setColor(Color.decode(UITools.COLOR_PRIMARY));
+            g2d.setColor(MetroUIConfigTheme.getPrimaryColor());
             g2d.fillRect(x, y, w, h + 2);
         }
     }
@@ -86,7 +91,9 @@ public class UITabbedPane extends BasicTabbedPaneUI {
             if (tabIndex > 0) {
                 BasicStroke stroke = new BasicStroke(1);
                 g2d.setStroke(stroke);
-                g2d.setColor(Color.decode("#FFFFFF"));
+                g2d.setColor(Color.decode(StyleColors.LIGHT_BACKGROUND_PANEL));
+                if (MetroUIConfigTheme.getDarkMode())
+                    g2d.setColor(Color.decode(StyleColors.DARK_BACKGROUND_PANEL));
                 g2d.drawLine(x, y + 5, x, y + 28);
             }
         }
@@ -110,6 +117,8 @@ public class UITabbedPane extends BasicTabbedPaneUI {
         g2d.setFont(new Font(UITools.FONT_DEFAULT, font.getStyle(), font.getSize()));
         if (isSelected) {
             g2d.setColor(Color.decode("#212121"));
+            if (MetroUIConfigTheme.getDarkMode())
+                g2d.setColor(Color.decode(StyleColors.DARK_FOREGROUND));
             g2d.drawString(title, textRect.x - 5, textRect.y + font.getSize() + 3);
         }
         else {

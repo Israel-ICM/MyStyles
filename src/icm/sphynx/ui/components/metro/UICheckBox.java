@@ -1,5 +1,6 @@
 package icm.sphynx.ui.components.metro;
 
+import icm.sphynx.ui.tools.StyleColors;
 import java.awt.AlphaComposite;
 import java.awt.BasicStroke;
 import java.awt.Color;
@@ -11,6 +12,7 @@ import java.awt.image.BufferedImage;
 import javax.swing.ImageIcon;
 import javax.swing.JCheckBox;
 import javax.swing.JComponent;
+import javax.swing.UIManager;
 import javax.swing.plaf.ComponentUI;
 import javax.swing.plaf.basic.BasicCheckBoxUI;
 
@@ -30,6 +32,7 @@ public class UICheckBox extends BasicCheckBoxUI {
         super.paint(g2d, chk);
 
         chk.setBackground(null);
+        chk.setForeground(Color.decode(StyleColors.LIGHT_FOREGROUND));
         chk.setFont(new Font(UITools.FONT_DEFAULT, chk.getFont().getStyle(), chk.getFont().getSize()));
         chk.setIcon(createCheckImage(18, 18, chk.isSelected()));
     }
@@ -51,12 +54,16 @@ public class UICheckBox extends BasicCheckBoxUI {
         AlphaComposite ac = AlphaComposite.getInstance(AlphaComposite.SRC_OVER, 0.9f);
         g2d.setComposite(ac);
         g2d.setColor(Color.decode("#FFFFFF"));
+        if (MetroUIConfigTheme.getDarkMode())
+            g2d.setColor(Color.decode("#CCCCCC"));
         g2d.fillRect(1, 1, width, height);
 
         // Borde del check
         AlphaComposite ac2 = AlphaComposite.getInstance(AlphaComposite.SRC_OVER, 1f);
         g2d.setComposite(ac2);
         g2d.setColor(Color.decode("#212121"));
+        if (MetroUIConfigTheme.getDarkMode())
+            g2d.setColor(Color.decode("#A6A6A6"));
         g2d.setStroke(new BasicStroke(2));
         g2d.drawRect(1, 1, width - 1, height - 1);
 
@@ -72,7 +79,7 @@ public class UICheckBox extends BasicCheckBoxUI {
             int finalX = (35 * width) / 100;
             int finalY = (60 * height) / 100;
 
-            g2d.setColor(Color.decode(UITools.COLOR_PRIMARY));
+            g2d.setColor(MetroUIConfigTheme.getPrimaryColor());
             g2d.drawLine(inicioX, inicioY, medioX, medioY);            
             g2d.drawLine(finalX, finalY, inicioX, inicioY);
         }

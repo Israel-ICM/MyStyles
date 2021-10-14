@@ -18,6 +18,7 @@ import javax.swing.JComponent;
 import javax.swing.JLabel;
 import javax.swing.JPasswordField;
 import javax.swing.JTextField;
+import javax.swing.UIManager;
 import javax.swing.border.LineBorder;
 import javax.swing.plaf.ComponentUI;
 import javax.swing.plaf.basic.BasicPasswordFieldUI;
@@ -49,6 +50,8 @@ public class UIPasswordField extends BasicPasswordFieldUI {
         super.paintBackground(g2d);
         passwordField = (JPasswordField)super.getComponent();
         passwordField.setBackground(null);
+        passwordField.setSelectionColor(MetroUIConfigTheme.getPrimaryColor());
+        passwordField.setSelectedTextColor(Color.WHITE);
 
         AlphaComposite ac = AlphaComposite.getInstance(AlphaComposite.SRC_OVER, 0.75f);
         g2d.setComposite(ac);
@@ -125,7 +128,7 @@ public class UIPasswordField extends BasicPasswordFieldUI {
         if(swBtnVerPresionado){
             // g.setFont(new Font(UITools.COLOR_FONT_DEFAULT, passwordField.getFont().getStyle(), passwordField.getFont().getSize()));
             g.setColor(passwordField.getForeground());
-            g.drawString(strPasswordAux, passwordField.getMargin().left, (passwordField.getSize().height)/2 + passwordField.getFont().getSize()/2 );
+            g.drawString(strPasswordAux, passwordField.getMargin().left + 5, ((passwordField.getSize().height) / 2) + (passwordField.getFont().getSize() / 2) - 1);
         }
     }
     /**
@@ -134,10 +137,10 @@ public class UIPasswordField extends BasicPasswordFieldUI {
     private void addButtonVerPassword(){
         btnVerPassword.setText("");
         btnVerPassword.setCursor(new Cursor(Cursor.HAND_CURSOR));
-        btnVerPassword.setIcon(createClearImage(15, 15, "#212121", 2));
+        btnVerPassword.setIcon(createViewPasswordImage(15, 15, "#212121", 2));
         passwordField.add(btnVerPassword);
         passwordField.setVisible(true);
-        passwordField.setSelectionColor(btnVerPassword.getBackground());
+        // passwordField.setSelectionColor(btnVerPassword.getBackground());
         buttonVerPasswordResized();
     }
     /**
@@ -160,7 +163,7 @@ public class UIPasswordField extends BasicPasswordFieldUI {
      * @param stroke
      * @return 
      */
-    private ImageIcon createClearImage(int width, int height, String colorHex, int stroke) {
+    private ImageIcon createViewPasswordImage(int width, int height, String colorHex, int stroke) {
         BufferedImage image = new BufferedImage(width + 5, height + 5, BufferedImage.TYPE_INT_ARGB);
         Graphics2D graphics = (Graphics2D)image.getGraphics();
         

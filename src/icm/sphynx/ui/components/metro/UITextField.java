@@ -17,6 +17,7 @@ import javax.swing.ImageIcon;
 import javax.swing.JComponent;
 import javax.swing.JLabel;
 import javax.swing.JTextField;
+import javax.swing.UIManager;
 import javax.swing.border.LineBorder;
 import javax.swing.plaf.ComponentUI;
 import javax.swing.plaf.basic.BasicTextFieldUI;
@@ -46,6 +47,8 @@ public class UITextField extends BasicTextFieldUI  {
         super.paintBackground(g2d);
         textField = (JTextField)super.getComponent();
         textField.setBackground(null);
+        textField.setSelectionColor(MetroUIConfigTheme.getPrimaryColor());
+        textField.setSelectedTextColor(Color.WHITE);
 
         AlphaComposite ac = AlphaComposite.getInstance(AlphaComposite.SRC_OVER, 0.75f);
         g2d.setComposite(ac);
@@ -122,7 +125,7 @@ public class UITextField extends BasicTextFieldUI  {
         btnClear.setIcon(createClearImage(15, 15, "#212121", 1));
         textField.add(btnClear);
         textField.setVisible(true);
-        textField.setSelectionColor(btnClear.getBackground());
+        // textField.setSelectionColor(btnClear.getBackground());
         buttonClearResized();
     }
     /**

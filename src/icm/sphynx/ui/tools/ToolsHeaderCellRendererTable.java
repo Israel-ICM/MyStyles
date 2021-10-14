@@ -8,6 +8,7 @@ import javax.swing.BorderFactory;
 import javax.swing.JComponent;
 import javax.swing.JLabel;
 import javax.swing.JTable;
+import javax.swing.UIManager;
 import javax.swing.table.TableCellRenderer;
 
 /**
@@ -28,9 +29,10 @@ public class ToolsHeaderCellRendererTable implements TableCellRenderer{
         } 
         
         // jcomponent.setEnabled(true);
+        // UIManager.put("Label.foreground", Color.WHITE);
         jcomponent.setBorder(BorderFactory.createMatteBorder(0, 0, 1, 1, Color.decode("#CCCCCC")));
         jcomponent.setOpaque(true);
-        jcomponent.setBackground(Color.decode(UITools.COLOR_PRIMARY));
+        jcomponent.setBackground(Color.decode(StyleColors.COLOR_PRIMARY));
         jcomponent.setForeground(Color.decode("#FFFFFF"));
         //jcomponent.setToolTipText("Colum No. "+(column+1));
         return jcomponent;

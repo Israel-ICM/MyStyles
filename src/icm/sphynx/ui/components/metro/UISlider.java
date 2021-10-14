@@ -1,5 +1,6 @@
 package icm.sphynx.ui.components.metro;
 
+import icm.sphynx.ui.tools.StyleColors;
 import java.awt.BasicStroke;
 import java.awt.Color;
 import java.awt.Graphics;
@@ -8,6 +9,7 @@ import java.awt.RenderingHints;
 import javax.swing.JComponent;
 import javax.swing.JSlider;
 import javax.swing.SwingConstants;
+import javax.swing.UIManager;
 import javax.swing.plaf.ComponentUI;
 import javax.swing.plaf.basic.BasicSliderUI;
 
@@ -23,12 +25,12 @@ public class UISlider extends BasicSliderUI {
         slider.setFocusable(false);
     }
     
-    public static ComponentUI createUI(JComponent b)    {
+    public static ComponentUI createUI(JComponent b) {
         return new UISlider((JSlider) b);
     }
     
     @Override
-    public void paint(Graphics g, JComponent c)   {
+    public void paint(Graphics g, JComponent c) {
         super.paint(g, c);
         c.setBackground(null);
     }
@@ -43,11 +45,18 @@ public class UISlider extends BasicSliderUI {
         BasicStroke stroke = new BasicStroke(2);
         g2d.setStroke(stroke);
         g2d.setColor(Color.decode("#787878"));
-        
-        if (slider.getOrientation() == SwingConstants.HORIZONTAL)
+        if (slider.getOrientation() == SwingConstants.HORIZONTAL) {
             g2d.drawLine(0, slider.getHeight() / 2, slider.getWidth(), slider.getHeight() / 2);
-        else // Si es vertical
+            g2d.setColor(MetroUIConfigTheme.getPrimaryColor());
+            g2d.setStroke(new BasicStroke(3));
+            g2d.drawLine(0, slider.getHeight() / 2, thumbRect.x, slider.getHeight() / 2);
+        }
+        else { // Si es vertical
             g2d.drawLine(slider.getWidth() / 2, 0, slider.getWidth()/ 2, slider.getHeight());
+            g2d.setColor(MetroUIConfigTheme.getPrimaryColor());
+            g2d.setStroke(new BasicStroke(3));
+            g2d.drawLine(slider.getWidth() / 2, thumbRect.y, slider.getWidth()/ 2, slider.getHeight());
+        }
     }
     
     /**
@@ -60,15 +69,17 @@ public class UISlider extends BasicSliderUI {
 
         g2d.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);
         if (slider.getOrientation() == SwingConstants.HORIZONTAL) {
-            g2d.setPaint(Color.decode(UITools.COLOR_PRIMARY));
+            g2d.setPaint(MetroUIConfigTheme.getPrimaryColor());
             g2d.fillRoundRect(thumbRect.x, thumbRect.y, 8, thumbRect.height, 10, 10);
         }
         else { // Si es vertical
             int size = thumbRect.width - 4;
             g2d.setPaint(Color.decode("#787878"));
-            g2d.drawOval(thumbRect.x + 1, thumbRect.y, size, size);
+            g2d.drawOval(thumbRect.x + 2, thumbRect.y, size, size);
             g2d.setPaint(Color.decode("#FFFFFF"));
-            g2d.fillOval(thumbRect.x + 1, thumbRect.y, size, size);
+            if (MetroUIConfigTheme.getDarkMode())
+                g2d.setPaint(Color.decode("#A6A6A6"));
+            g2d.fillOval(thumbRect.x + 2, thumbRect.y, size, size);
         }
     }
     

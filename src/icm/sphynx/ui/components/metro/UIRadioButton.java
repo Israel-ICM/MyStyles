@@ -1,5 +1,6 @@
 package icm.sphynx.ui.components.metro;
 
+import icm.sphynx.ui.tools.StyleColors;
 import java.awt.AlphaComposite;
 import java.awt.BasicStroke;
 import java.awt.Color;
@@ -25,13 +26,14 @@ public class UIRadioButton extends BasicRadioButtonUI {
     
     @Override
     public synchronized void paint(Graphics g, JComponent c) {
-        JRadioButton chk = (JRadioButton)c;
+        JRadioButton rbtn = (JRadioButton)c;
         Graphics2D g2d = (Graphics2D)g;
-        super.paint(g2d, chk);
+        super.paint(g2d, rbtn);
 
-        chk.setBackground(null);
-        chk.setFont(new Font(UITools.FONT_DEFAULT, chk.getFont().getStyle(), chk.getFont().getSize()));
-        chk.setIcon(createCheckImage(19, 19, chk.isSelected()));
+        rbtn.setBackground(null);
+        rbtn.setForeground(Color.decode(StyleColors.LIGHT_FOREGROUND));
+        rbtn.setFont(new Font(UITools.FONT_DEFAULT, rbtn.getFont().getStyle(), rbtn.getFont().getSize()));
+        rbtn.setIcon(createCheckImage(19, 19, rbtn.isSelected()));
     }
     
     /**
@@ -50,13 +52,16 @@ public class UIRadioButton extends BasicRadioButtonUI {
         // Fondo del check
         AlphaComposite ac = AlphaComposite.getInstance(AlphaComposite.SRC_OVER, 0.9f);
         g2d.setComposite(ac);
-        g2d.setColor(Color.decode("#FFFFFF"));
+        if (MetroUIConfigTheme.getDarkMode())
+            g2d.setColor(Color.decode("#CCCCCC"));
         g2d.fillOval(1, 1, width, height);
         
         // Borde del check
         AlphaComposite ac2 = AlphaComposite.getInstance(AlphaComposite.SRC_OVER, 1f);
         g2d.setComposite(ac2);
         g2d.setColor(Color.decode("#212121"));
+        if (MetroUIConfigTheme.getDarkMode())
+            g2d.setColor(Color.decode("#A6A6A6"));
         g2d.setStroke(new BasicStroke(2));
         g2d.drawOval(1, 1, width - 1, height - 1);
 
@@ -68,7 +73,7 @@ public class UIRadioButton extends BasicRadioButtonUI {
             
             int ancho = (60 * width) / 100; // El check sera el 60% del cuadro original
 
-            g2d.setColor(Color.decode(UITools.COLOR_PRIMARY));
+            g2d.setColor(MetroUIConfigTheme.getPrimaryColor());
             g2d.fillOval(x, y, ancho, ancho);
         }
         

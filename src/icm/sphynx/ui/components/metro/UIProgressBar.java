@@ -1,5 +1,8 @@
 package icm.sphynx.ui.components.metro;
 
+import java.awt.Color;
+import java.awt.Dimension;
+import java.awt.Graphics;
 import javax.swing.JComponent;
 import javax.swing.plaf.ComponentUI;
 import javax.swing.plaf.basic.BasicProgressBarUI;
@@ -13,17 +16,23 @@ public class UIProgressBar extends BasicProgressBarUI {
         return new UIProgressBar();
     }
     
-    /*@Override
+    @Override
     public void paint(Graphics g, JComponent c) {
         super.paint(g, c);
-        if (progressBar.isIndeterminate()) {
+        
+        progressBar.setBackground(Color.decode("#E0E0E0"));
+        if (MetroUIConfigTheme.getDarkMode())
+            progressBar.setBackground(Color.decode("#A6A6A6"));
+        progressBar.setForeground(MetroUIConfigTheme.getPrimaryColor());
+        progressBar.setPreferredSize(new Dimension(progressBar.getWidth(), 20));
+        /*if (progressBar.isIndeterminate()) {
             paintIndeterminate(g, c);
         } else {
             paintDeterminate(g, c);
             // g.setColor(Color.WHITE);
             // g.fillRect(0, 0, progressBar.getWidth(), progressBar.getHeight());
-        }
-    }*/
+        }*/
+    }
     
     /*@Override
     protected void paintDeterminate(Graphics g, JComponent c) {

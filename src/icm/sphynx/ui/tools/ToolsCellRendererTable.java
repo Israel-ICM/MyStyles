@@ -13,7 +13,7 @@ import javax.swing.table.DefaultTableCellRenderer;
  * @author israel-ICM
  */
 public class ToolsCellRendererTable extends DefaultTableCellRenderer {
-    private String _selected_color = UITools.COLOR_PRIMARY;
+    private String _selected_color = StyleColors.COLOR_PRIMARY;
     private Color color1 = Color.decode("#FFFFFF");
     private Color color2 = Color.decode("#FF6600");
 
@@ -21,8 +21,7 @@ public class ToolsCellRendererTable extends DefaultTableCellRenderer {
     public int _textSize = 12;
 
     @Override
-    public Component getTableCellRendererComponent(JTable table, Object value, boolean selected, boolean focused, int row, int column)
-    {
+    public Component getTableCellRendererComponent(JTable table, Object value, boolean selected, boolean focused, int row, int column) {
         setEnabled(table == null || table.isEnabled());
         setBackground(null);
         table.setFont(new Font(_fuente, Font.PLAIN, _textSize));
