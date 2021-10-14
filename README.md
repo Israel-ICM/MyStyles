@@ -1,5 +1,5 @@
 # MyStyles
-Es una librería para modificar la interfaz de cualquier programa JAVA con una sencilla línea de código que corresponde a la instalación del estilo en la aplicación que necesita.
+Es una librería para modificar la interfaz de cualquier programa JAVA Swing con una sencilla línea de código que corresponde a la instalación del estilo en la aplicación que necesita.
 
 Con esta librería convertirá un programa que se vé así:
 
@@ -9,15 +9,19 @@ Utilizando una simple línea de código conseguirá que se vea de la siguiente f
 
 ![Captura de pantalla 2](https://github.com/Israel-ICM/MyStyles/blob/master/captures/example2.PNG)
 
+A continuación veremos que también se agregan algunas funcionalidades extra como el botón para ver el password en el passwordfield o el botón para limpiar los textfield:
+
+![Gif funcionamiento](https://github.com/Israel-ICM/MyStyles/blob/master/captures/vista.gif)
+
 ## Comenzando 🚀
 
-Primeramente te aviso que el proyecto fué desarrollado con **JAVA 1.8.x** pero los métodos utilizados no deberían dar problemas en posteriores versiones.
+Primeramente te aviso que el proyecto fué desarrollado con **JAVA 8** pero los métodos utilizados no deberían dar problemas en posteriores versiones.
 
 ## Descargas 📁
 
 Versiones disponibles:
 
-08-10-2021 | [MyStyles v1.0.0](https://drive.google.com/file/d/1kbMJpoXLzu3adX4CygeAvaButAwCVHGN/view?usp=sharing)
+08-10-2021 | [MyStyles v1.0.0](https://github.com/Israel-ICM/MyStyles/releases/download/v1.0.0-beta/MyStylesv1.0.0.jar)
 
 ## Ejecutando las pruebas ⚙️
 Como verás a continuación el funcionamiento es bastante simple:
@@ -54,6 +58,28 @@ public class MyStylesTest {
 }
 ```
 En este ejemplo se vé como se inicializan los estilos de **METRO_UI** que es la primera librería que se creó para los primeros usos, posteriormente se crearán mas estilos, los disponibles por el momento en esta primera versión **1.0.0** son **METRO_UI** y **METRO_UI_DARK**.
+
+## Soporte ✔
+
+Por el momento los componentes que son soportados por la librería son:
+
+- JButton
+- JCheckBox
+- JComboBox
+- JLabel
+- JList
+- JMenuBar
+- JMenuItem
+- JOptionPane
+- JPanel
+- JPasswordField
+- JRadioButton
+- JScrollBar
+- JSlider
+- JTabbedPane
+- JTable
+- JTextArea
+- JTextField
 
 ## Autores ✒️
 
