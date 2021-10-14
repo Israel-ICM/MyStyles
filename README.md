@@ -26,6 +26,7 @@ Primeramente te aviso que el proyecto fué desarrollado con **JAVA 8** pero los 
 Versiones disponibles:
 
 08-10-2021 | [MyStyles v1.0.0](https://github.com/Israel-ICM/MyStyles/releases/download/v1.0.0-beta/MyStylesv1.0.0.jar)
+
 08-10-2021 | [MyStyles v1.0.1](https://github.com/Israel-ICM/MyStyles/releases/download/v1.0.1-beta/MyStylesv1.0.1.jar)
 
 ## Ejecutando las pruebas ⚙️
@@ -67,9 +68,9 @@ En este ejemplo se vé como se inicializan los estilos de **METRO_UI** que es la
 Si lo que quieres es cambiar el color del tema lograrás hacerlo simplemente agregando la siguiente linea donde quieras, en un botón en un menú o en cualquier evento que hayas programado:
 
 ```java
-MetroUIConfigTheme.setPrimaryColor(MyStyles.COLOR_YELLOW, true);
+MetroUIConfigTheme.setPrimaryColor(MyStyles.COLOR_RED);
 ```
-Los colores disponibles son los siguientes:
+Para el caso anterior le dimos un color rojo, los colores disponibles son los siguientes:
 
 ```java
 MyStyles.COLOR_YELLOW
