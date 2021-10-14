@@ -11,9 +11,6 @@ import javax.swing.UIManager;
  */
 public class MetroUIConfigTheme {
     public static void setPrimaryColor(String colorHex) {
-        setPrimaryColor(colorHex, false);
-    }
-    public static void setPrimaryColor(String colorHex, boolean refresh) {
         UIManager.put("MetroUI.primaryColor", Color.decode(colorHex));
         setSecondColor(colorHex);
     }
