@@ -1,6 +1,6 @@
 package icm.sphynx.ui.components.metro;
 
-import icm.sphynx.ui.tools.StyleColors;
+import icm.sphynx.ui.tools.StyleColorsMetro;
 import java.awt.AlphaComposite;
 import java.awt.BasicStroke;
 import java.awt.Color;
@@ -31,7 +31,7 @@ public class UIRadioButton extends BasicRadioButtonUI {
         super.paint(g2d, rbtn);
 
         rbtn.setBackground(null);
-        rbtn.setForeground(Color.decode(StyleColors.LIGHT_FOREGROUND));
+        rbtn.setForeground(Color.decode(StyleColorsMetro.LIGHT_FOREGROUND));
         rbtn.setFont(new Font(UITools.FONT_DEFAULT, rbtn.getFont().getStyle(), rbtn.getFont().getSize()));
         rbtn.setIcon(createCheckImage(19, 19, rbtn.isSelected()));
     }
@@ -52,7 +52,7 @@ public class UIRadioButton extends BasicRadioButtonUI {
         // Fondo del check
         AlphaComposite ac = AlphaComposite.getInstance(AlphaComposite.SRC_OVER, 0.9f);
         g2d.setComposite(ac);
-        if (MetroUIConfigTheme.getDarkMode())
+        if (MetroUIConfigTheme.isDarkMode())
             g2d.setColor(Color.decode("#CCCCCC"));
         g2d.fillOval(1, 1, width, height);
         
@@ -60,7 +60,7 @@ public class UIRadioButton extends BasicRadioButtonUI {
         AlphaComposite ac2 = AlphaComposite.getInstance(AlphaComposite.SRC_OVER, 1f);
         g2d.setComposite(ac2);
         g2d.setColor(Color.decode("#212121"));
-        if (MetroUIConfigTheme.getDarkMode())
+        if (MetroUIConfigTheme.isDarkMode())
             g2d.setColor(Color.decode("#A6A6A6"));
         g2d.setStroke(new BasicStroke(2));
         g2d.drawOval(1, 1, width - 1, height - 1);

@@ -1,6 +1,6 @@
 package icm.sphynx.ui.components.metro;
 
-import icm.sphynx.ui.tools.StyleColors;
+import icm.sphynx.ui.tools.StyleColorsMetro;
 import icm.sphynx.ui.tools.ToolsCellRendererTable;
 import java.awt.Color;
 import java.awt.Graphics;
@@ -24,11 +24,11 @@ public class UITable extends BasicTableUI {
         table.setDefaultRenderer(Object.class, new ToolsCellRendererTable());
         table.setSelectionBackground(MetroUIConfigTheme.getPrimaryColor());
         table.setSelectionForeground(Color.WHITE);
-        table.setBackground(Color.decode(StyleColors.LIGHT_BACKGROUND_PANEL));
-        table.setForeground(Color.decode(StyleColors.LIGHT_FOREGROUND));
-        if (MetroUIConfigTheme.getDarkMode()) {
-            table.setBackground(Color.decode(StyleColors.DARK_BACKGROUND_PANEL));
-            table.setForeground(Color.decode(StyleColors.DARK_FOREGROUND));
+        table.setBackground(Color.decode(StyleColorsMetro.LIGHT_BACKGROUND_PANEL));
+        table.setForeground(Color.decode(StyleColorsMetro.LIGHT_FOREGROUND));
+        if (MetroUIConfigTheme.isDarkMode()) {
+            table.setBackground(Color.decode(StyleColorsMetro.DARK_BACKGROUND_PANEL));
+            table.setForeground(Color.decode(StyleColorsMetro.DARK_FOREGROUND));
         }
         table.setGridColor(MetroUIConfigTheme.getPrimaryColor());
         table.setRowHeight(30);

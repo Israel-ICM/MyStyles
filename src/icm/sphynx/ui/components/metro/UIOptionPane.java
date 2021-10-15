@@ -1,6 +1,6 @@
 package icm.sphynx.ui.components.metro;
 
-import icm.sphynx.ui.tools.StyleColors;
+import icm.sphynx.ui.tools.StyleColorsMetro;
 import java.awt.BasicStroke;
 import java.awt.BorderLayout;
 import java.awt.Color;
@@ -149,10 +149,10 @@ public class UIOptionPane extends BasicOptionPaneUI {
     @Override
     protected void addMessageComponents(Container container, GridBagConstraints cons, Object msg, int maxll, boolean internallyCreated) {
         super.addMessageComponents(container, cons, msg, maxll, internallyCreated);
-        optionPane.setBackground(Color.decode(StyleColors.LIGHT_BACKGROUND_PANEL));
-        if (MetroUIConfigTheme.getDarkMode()) {
-            optionPane.setBackground(Color.decode(StyleColors.DARK_BACKGROUND_PANEL));
-            container.getComponent(0).setForeground(Color.decode(StyleColors.DARK_FOREGROUND));
+        optionPane.setBackground(Color.decode(StyleColorsMetro.LIGHT_BACKGROUND_PANEL));
+        if (MetroUIConfigTheme.isDarkMode()) {
+            optionPane.setBackground(Color.decode(StyleColorsMetro.DARK_BACKGROUND_PANEL));
+            container.getComponent(0).setForeground(Color.decode(StyleColorsMetro.DARK_FOREGROUND));
         }
         UIManager.put("LabelUI", null); // Se anula el label porque la tipografia utilizada hacía que se desborde y no se vean los ultimos caracteres
     }

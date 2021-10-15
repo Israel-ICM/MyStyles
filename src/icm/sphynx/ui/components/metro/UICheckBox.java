@@ -1,6 +1,6 @@
 package icm.sphynx.ui.components.metro;
 
-import icm.sphynx.ui.tools.StyleColors;
+import icm.sphynx.ui.tools.StyleColorsMetro;
 import java.awt.AlphaComposite;
 import java.awt.BasicStroke;
 import java.awt.Color;
@@ -32,7 +32,7 @@ public class UICheckBox extends BasicCheckBoxUI {
         super.paint(g2d, chk);
 
         chk.setBackground(null);
-        chk.setForeground(Color.decode(StyleColors.LIGHT_FOREGROUND));
+        chk.setForeground(Color.decode(StyleColorsMetro.LIGHT_FOREGROUND));
         chk.setFont(new Font(UITools.FONT_DEFAULT, chk.getFont().getStyle(), chk.getFont().getSize()));
         chk.setIcon(createCheckImage(18, 18, chk.isSelected()));
     }
@@ -54,7 +54,7 @@ public class UICheckBox extends BasicCheckBoxUI {
         AlphaComposite ac = AlphaComposite.getInstance(AlphaComposite.SRC_OVER, 0.9f);
         g2d.setComposite(ac);
         g2d.setColor(Color.decode("#FFFFFF"));
-        if (MetroUIConfigTheme.getDarkMode())
+        if (MetroUIConfigTheme.isDarkMode())
             g2d.setColor(Color.decode("#CCCCCC"));
         g2d.fillRect(1, 1, width, height);
 
@@ -62,7 +62,7 @@ public class UICheckBox extends BasicCheckBoxUI {
         AlphaComposite ac2 = AlphaComposite.getInstance(AlphaComposite.SRC_OVER, 1f);
         g2d.setComposite(ac2);
         g2d.setColor(Color.decode("#212121"));
-        if (MetroUIConfigTheme.getDarkMode())
+        if (MetroUIConfigTheme.isDarkMode())
             g2d.setColor(Color.decode("#A6A6A6"));
         g2d.setStroke(new BasicStroke(2));
         g2d.drawRect(1, 1, width - 1, height - 1);

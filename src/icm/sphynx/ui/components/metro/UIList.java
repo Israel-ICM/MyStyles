@@ -1,6 +1,6 @@
 package icm.sphynx.ui.components.metro;
 
-import icm.sphynx.ui.tools.StyleColors;
+import icm.sphynx.ui.tools.StyleColorsMetro;
 import java.awt.AlphaComposite;
 import java.awt.Color;
 import java.awt.Font;
@@ -35,8 +35,8 @@ public class UIList extends BasicListUI {
         AlphaComposite ac = AlphaComposite.getInstance(AlphaComposite.SRC_OVER, 1f);
         g2d.setComposite(ac);
         g2d.setColor(Color.decode("#E0E0E0"));
-        if (MetroUIConfigTheme.getDarkMode())
-            g2d.setColor(Color.decode(StyleColors.DARK_BACKGROUND_PANEL));
+        if (MetroUIConfigTheme.isDarkMode())
+            g2d.setColor(Color.decode(StyleColorsMetro.DARK_BACKGROUND_PANEL));
         g2d.fillRect(0, 0, c.getWidth(), c.getHeight());
         
         c.setFont(new Font(UITools.FONT_DEFAULT, c.getFont().getStyle(), c.getFont().getSize()));

@@ -28,7 +28,7 @@ public class UITableHeader extends BasicTableHeaderUI {
         header.setFont(new Font(UITools.FONT_DEFAULT, Font.BOLD, header.getFont().getSize()));
         
         Color divider = Color.decode("#CCCCCC");
-        if (MetroUIConfigTheme.getDarkMode())
+        if (MetroUIConfigTheme.isDarkMode())
             divider = Color.decode("#A6A6A6");
         MatteBorder bordeDelgadoGris = BorderFactory.createMatteBorder(0, 1, 0, 1, divider);
         CompoundBorder bordeAnchoCelda = BorderFactory.createCompoundBorder(bordeDelgadoGris, BorderFactory.createEmptyBorder(UITools.PADDING_CONTENTS, UITools.PADDING_CONTENTS, UITools.PADDING_CONTENTS, UITools.PADDING_CONTENTS));

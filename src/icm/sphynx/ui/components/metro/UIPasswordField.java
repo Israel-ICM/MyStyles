@@ -1,5 +1,6 @@
 package icm.sphynx.ui.components.metro;
 
+import icm.sphynx.ui.tools.StyleColorsMetro;
 import java.awt.AlphaComposite;
 import java.awt.BasicStroke;
 import java.awt.Color;
@@ -9,6 +10,8 @@ import java.awt.Font;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
 import java.awt.RenderingHints;
+import java.awt.event.FocusEvent;
+import java.awt.event.FocusListener;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.awt.image.BufferedImage;
@@ -18,8 +21,9 @@ import javax.swing.JComponent;
 import javax.swing.JLabel;
 import javax.swing.JPasswordField;
 import javax.swing.JTextField;
-import javax.swing.UIManager;
 import javax.swing.border.LineBorder;
+import javax.swing.event.DocumentEvent;
+import javax.swing.event.DocumentListener;
 import javax.swing.plaf.ComponentUI;
 import javax.swing.plaf.basic.BasicPasswordFieldUI;
 
@@ -28,13 +32,28 @@ import javax.swing.plaf.basic.BasicPasswordFieldUI;
  * @author israel-icm
  */
 public class UIPasswordField extends BasicPasswordFieldUI {
+    private final String colorBackground = StyleColorsMetro.COLOR_BACKGROUND_TEXT_FIELD;
+    private final String colorBorder = StyleColorsMetro.COLOR_BORDER_TEXT_FIELD;
+    private final String colorIconButton = "#838383";
+    private final String _colorText = "#000000";
+    private final String _colorPlaceholder = "#8F8F90";
+
+    private static final int STATE_DEFAULT = 1;
+    private static final int STATE_FOCUS = 2;
+    private static final int STATE_OVER = 3;
+    private int currentStatePasswordField = 1; // Controla los estados del textfield
+    
     private JPasswordField passwordField;
     private final JLabel btnVerPassword = new JLabel();
-    private Dimension dimensionTextField = new Dimension(150, 38);
-    private int heightButton = dimensionTextField.height - 10;
+    private int sizeButton;
     private boolean inicializado = false;
+    private boolean passwordFieldVacio = false;
     private String strPasswordAux = "";
     private boolean swBtnVerPresionado = false;
+    
+    // Controladores de animación
+    private boolean verButton = false; // Define si se visualizará el botón para ver el password
+    private float controlAnimation = 0; // Define la transparencia del botón (0.0 < > 1.0)
 
     public UIPasswordField() {
         inicializado = false;
@@ -49,25 +68,118 @@ public class UIPasswordField extends BasicPasswordFieldUI {
         Graphics2D g2d = (Graphics2D)g;
         super.paintBackground(g2d);
         passwordField = (JPasswordField)super.getComponent();
+
+        installBackground(g2d);
+        installFont();
+        installBorder();
+        installProperties(g2d);
+        installEventsPasswordField();
+        installPadding();
+        listenerVerPassword(g2d);
+        
+    }
+    private void installProperties(Graphics2D g2d) {
+        addButtonVerPassword();
+        installEventsButtonVerPassword();
+        
+        // Placeholder
+        passwordFieldVacio = passwordField.getPassword().length == 0;
+        String placeholder = MetroUIComponent.getPropertyPasswordFieldPlaceholder(passwordField.getName());
+        if (placeholder != null)
+            installPlaceholder(g2d, placeholder);
+    }
+    private void installPlaceholder(Graphics2D g2d, String placeholder) {
+        g2d.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);
+        g2d.setColor(Color.decode(_colorPlaceholder));
+        g2d.drawString((passwordFieldVacio && strPasswordAux.length() == 0) ? placeholder : "", UITools.PADDING_CONTENTS * 2, (passwordField.getSize().height) / 2 + (passwordField.getFont().getSize() / 2) - (UITools.PADDING_CONTENTS / 2));
+    }
+    private void installBackground(Graphics2D g2d) {
         passwordField.setBackground(null);
         passwordField.setSelectionColor(MetroUIConfigTheme.getPrimaryColor());
         passwordField.setSelectedTextColor(Color.WHITE);
+        passwordField.setForeground(Color.decode(_colorText));
+        sizeButton = passwordField.getHeight() - (UITools.PADDING_CONTENTS * 2);
 
         AlphaComposite ac = AlphaComposite.getInstance(AlphaComposite.SRC_OVER, 0.75f);
         g2d.setComposite(ac);
-        g2d.setColor(Color.decode("#E0E0E0"));
+        g2d.setColor(Color.decode(colorBackground));
         g2d.fillRect(0, 0, super.getComponent().getWidth(), super.getComponent().getHeight());
-
+    }
+    private void installFont() {
         passwordField.setFont(new Font(UITools.FONT_DEFAULT, passwordField.getFont().getStyle(), passwordField.getFont().getSize()));
-        LineBorder border = new LineBorder(Color.decode(UITools.COLOR_BORDER_DEFAULT), 2);
-        passwordField.setBorder(border);
-        
-        addButtonVerPassword();
-        passwordField.setBorder(BorderFactory.createCompoundBorder(passwordField.getBorder(), BorderFactory.createEmptyBorder(UITools.PADDING_CONTENTS, UITools.PADDING_CONTENTS, UITools.PADDING_CONTENTS, heightButton + UITools.PADDING_CONTENTS)));
-
+    }
+    private void installPadding() {
+        passwordField.setBorder(BorderFactory.createCompoundBorder(passwordField.getBorder(), BorderFactory.createEmptyBorder(UITools.PADDING_CONTENTS, UITools.PADDING_CONTENTS, UITools.PADDING_CONTENTS, sizeButton + UITools.PADDING_CONTENTS)));
+    }
+    private void listenerVerPassword(Graphics2D g2d) {
+        if(swBtnVerPresionado){
+            g2d.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);
+            // g.setFont(new Font(UITools.COLOR_FONT_DEFAULT, passwordField.getFont().getStyle(), passwordField.getFont().getSize()));
+            g2d.setColor(passwordField.getForeground());
+            g2d.drawString(strPasswordAux, passwordField.getMargin().left + 5, ((passwordField.getSize().height) / 2) + (passwordField.getFont().getSize() / 2) - 1);
+        }
+    }
+    private void installEventsPasswordField() {
         if (!inicializado) {
-            passwordField.setSize(new Dimension(passwordField.getWidth(), 30));
-            btnVerPassword.setVisible(false);
+            passwordField.addMouseListener(new MouseListener() {
+                @Override
+                public void mouseClicked(MouseEvent e) { }
+
+                @Override
+                public void mousePressed(MouseEvent e) { }
+
+                @Override
+                public void mouseReleased(MouseEvent e) { }
+
+                @Override
+                public void mouseEntered(MouseEvent e) {
+                    // btnVerPassword.setVisible(true);
+                    verButton = true;
+                    if (currentStatePasswordField != STATE_FOCUS)
+                        currentStatePasswordField = STATE_OVER;
+                }
+
+                @Override
+                public void mouseExited(MouseEvent e) {
+                    // btnVerPassword.setVisible(false);
+                    verButton = false;
+                    if (currentStatePasswordField != STATE_FOCUS)
+                        currentStatePasswordField = STATE_DEFAULT;
+                }
+            });
+            passwordField.addFocusListener(new FocusListener() {
+                @Override
+                public void focusGained(FocusEvent e) {
+                    currentStatePasswordField = STATE_FOCUS;
+                }
+
+                @Override
+                public void focusLost(FocusEvent e) {
+                    if (currentStatePasswordField != STATE_OVER)
+                        currentStatePasswordField = STATE_DEFAULT;
+                }
+            });
+            passwordField.getDocument().addDocumentListener(new DocumentListener() {
+                @Override
+                public void removeUpdate(DocumentEvent e) {
+                    passwordFieldVacio = !(passwordField.getPassword().length > 0);
+                }
+
+                @Override
+                public void insertUpdate(DocumentEvent e) {
+                    passwordFieldVacio = false;
+                }
+
+                @Override
+                public void changedUpdate(DocumentEvent de) {}
+            });
+            inicializado = true;
+        }
+    }
+    private void installEventsButtonVerPassword() {
+        if (!inicializado) {
+            // passwordField.setSize(new Dimension(passwordField.getWidth(), 30));
+            // btnVerPassword.setVisible(false);
             btnVerPassword.addMouseListener(new MouseListener() {
                 @Override
                 public void mouseClicked(MouseEvent e) { }
@@ -92,43 +204,16 @@ public class UIPasswordField extends BasicPasswordFieldUI {
 
                 @Override
                 public void mouseEntered(MouseEvent e) {
-                    btnVerPassword.setVisible(true);
+                    // btnVerPassword.setVisible(true);
+                    verButton = true;
                 }
 
                 @Override
                 public void mouseExited(MouseEvent e) {
-                    btnVerPassword.setVisible(false);
+                    // btnVerPassword.setVisible(false);
+                    verButton = false;
                 }
             });
-            
-            passwordField.addMouseListener(new MouseListener() {
-                @Override
-                public void mouseClicked(MouseEvent e) { }
-
-                @Override
-                public void mousePressed(MouseEvent e) { }
-
-                @Override
-                public void mouseReleased(MouseEvent e) { }
-
-                @Override
-                public void mouseEntered(MouseEvent e) {
-                    btnVerPassword.setVisible(true);
-                }
-
-                @Override
-                public void mouseExited(MouseEvent e) {
-                    btnVerPassword.setVisible(false);
-                }
-            });
-            
-            inicializado = true;
-        }
-
-        if(swBtnVerPresionado){
-            // g.setFont(new Font(UITools.COLOR_FONT_DEFAULT, passwordField.getFont().getStyle(), passwordField.getFont().getSize()));
-            g.setColor(passwordField.getForeground());
-            g.drawString(strPasswordAux, passwordField.getMargin().left + 5, ((passwordField.getSize().height) / 2) + (passwordField.getFont().getSize() / 2) - 1);
         }
     }
     /**
@@ -137,22 +222,22 @@ public class UIPasswordField extends BasicPasswordFieldUI {
     private void addButtonVerPassword(){
         btnVerPassword.setText("");
         btnVerPassword.setCursor(new Cursor(Cursor.HAND_CURSOR));
-        btnVerPassword.setIcon(createViewPasswordImage(15, 15, "#212121", 2));
-        passwordField.add(btnVerPassword);
         passwordField.setVisible(true);
-        // passwordField.setSelectionColor(btnVerPassword.getBackground());
         buttonVerPasswordResized();
     }
     /**
-     * Ajusta la dimension y posicion del boton X
+     * Ajusta la dimensión y posición del botón X
      */
     private void buttonVerPasswordResized() {
-        //tamaño boton
-        heightButton = passwordField.getSize().height - 10;
-        btnVerPassword.setSize( new Dimension(heightButton, heightButton));
-        btnVerPassword.setPreferredSize(new Dimension(heightButton, heightButton));        
-        //posicion
-        btnVerPassword.setLocation(passwordField.getWidth() - btnVerPassword.getWidth() - 5, 5);
+        sizeButton = passwordField.getSize().width - (UITools.PADDING_CONTENTS * 2);
+        if (sizeButton > 20) // El botón no debería tener un ancho mayor a 20
+            sizeButton = 20;
+        btnVerPassword.setSize(new Dimension(sizeButton, passwordField.getSize().height - (UITools.PADDING_CONTENTS * 2)));
+        btnVerPassword.setPreferredSize(new Dimension(sizeButton, passwordField.getSize().height - (UITools.PADDING_CONTENTS * 2)));
+
+        btnVerPassword.setLocation(passwordField.getWidth() - btnVerPassword.getWidth() - UITools.PADDING_CONTENTS, passwordField.getHeight()- btnVerPassword.getHeight()- UITools.PADDING_CONTENTS);
+        btnVerPassword.setIcon(createViewPasswordImage(sizeButton, sizeButton, (currentStatePasswordField == STATE_FOCUS) ? UITools.colorToHex(MetroUIConfigTheme.getPrimaryColor()) : colorIconButton, 2));
+        passwordField.add(btnVerPassword);
     }
     
     /**
@@ -164,25 +249,49 @@ public class UIPasswordField extends BasicPasswordFieldUI {
      * @return 
      */
     private ImageIcon createViewPasswordImage(int width, int height, String colorHex, int stroke) {
-        BufferedImage image = new BufferedImage(width + 5, height + 5, BufferedImage.TYPE_INT_ARGB);
-        Graphics2D graphics = (Graphics2D)image.getGraphics();
-        
-        graphics.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);
+        // Se utiliza el width en todo y no así al height para que la imagen siempre sea cuadrada
+        BufferedImage image = new BufferedImage(width + UITools.PADDING_CONTENTS, height + UITools.PADDING_CONTENTS, BufferedImage.TYPE_INT_ARGB);
+        Graphics2D g2d = (Graphics2D)image.getGraphics();
+        g2d.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);
+
+        // Bloque de animación
+        AlphaComposite ac = AlphaComposite.getInstance(AlphaComposite.SRC_OVER, Float.parseFloat(UITools.redondear(controlAnimation, 2) + "f"));
+        if (verButton) {
+            if (UITools.redondear(controlAnimation, 2) < 0.99f)
+                controlAnimation += 0.02f;
+        }
+        else {
+            if (UITools.redondear(controlAnimation, 2) > 0f)
+                controlAnimation -= 0.02f;
+        }
+        g2d.setComposite(ac);
 
         // Icono del botón clear
-        graphics.setStroke(new BasicStroke(stroke));
+        g2d.setStroke(new BasicStroke(stroke));
 
         // Las ubicaciones se miden en porcentaje para que no se deforme si crece
-        int inicioX = (45 * width) / 100;
-        int inicioY = (35 * height) / 100;
-        
-        int centrarX = (btnVerPassword.getWidth() - width) / 2;
-        int centrarY = (btnVerPassword.getHeight() - height) / 2;
+        int puntoMedio = (width / 2);
+        int inicioX = puntoMedio - (puntoMedio / 2);
+        int inicioY = inicioX;
 
-        graphics.setColor(Color.decode(colorHex));
-        graphics.drawArc(centrarX, inicioY, width, height, 10, 160);
-        graphics.fillOval(inicioX, inicioY + centrarY, width / 2, height / 2);
+        g2d.setColor(Color.decode(colorHex));
+        g2d.drawArc(0, inicioY, width, width, 10, 160);
+        g2d.fillOval(inicioX, inicioY + 2, width / 2, width / 2);
         
         return new ImageIcon(image);
+    }
+
+    private void installBorder() {
+        switch (currentStatePasswordField) {
+            case STATE_DEFAULT:
+                passwordField.setBorder(new LineBorder(Color.decode(colorBorder), 2));
+                break;
+            case STATE_OVER:
+                passwordField.setBorder(new LineBorder(Color.decode(UITools.bajarBrillo(colorBorder)), 2));
+                break;
+            case STATE_FOCUS:
+                passwordField.setBorder(new LineBorder(MetroUIConfigTheme.getPrimaryColor(), 2));
+                break;
+        }
     }
 }

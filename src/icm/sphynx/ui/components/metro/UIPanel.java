@@ -1,6 +1,6 @@
 package icm.sphynx.ui.components.metro;
 
-import icm.sphynx.ui.tools.StyleColors;
+import icm.sphynx.ui.tools.StyleColorsMetro;
 import java.awt.Color;
 import javax.swing.JComponent;
 import javax.swing.JPanel;
@@ -23,10 +23,10 @@ public class UIPanel extends BasicPanelUI {
         this.panel = p;
         super.installDefaults(p);
 
-        if (MetroUIConfigTheme.getDarkMode())
-            panel.setBackground(Color.decode(StyleColors.DARK_BACKGROUND_PANEL));
+        if (MetroUIConfigTheme.isDarkMode())
+            panel.setBackground(Color.decode(StyleColorsMetro.DARK_BACKGROUND_PANEL));
         else
-            panel.setBackground(Color.decode(StyleColors.LIGHT_BACKGROUND_PANEL));
+            panel.setBackground(Color.decode(StyleColorsMetro.LIGHT_BACKGROUND_PANEL));
     }
     @Override
     public int getBaseline(JComponent c, int width, int height) {

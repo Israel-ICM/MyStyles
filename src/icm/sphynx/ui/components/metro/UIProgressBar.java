@@ -21,7 +21,7 @@ public class UIProgressBar extends BasicProgressBarUI {
         super.paint(g, c);
         
         progressBar.setBackground(Color.decode("#E0E0E0"));
-        if (MetroUIConfigTheme.getDarkMode())
+        if (MetroUIConfigTheme.isDarkMode())
             progressBar.setBackground(Color.decode("#A6A6A6"));
         progressBar.setForeground(MetroUIConfigTheme.getPrimaryColor());
         progressBar.setPreferredSize(new Dimension(progressBar.getWidth(), 20));

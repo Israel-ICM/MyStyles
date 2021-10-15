@@ -29,7 +29,7 @@ public class UISpinner extends BasicSpinnerUI {
     protected void installNextButtonListeners(Component c) {
         JButton a = (JButton)c;
         a.setBackground(Color.WHITE);
-        if (MetroUIConfigTheme.getDarkMode())
+        if (MetroUIConfigTheme.isDarkMode())
             a.setBackground(Color.decode("#CCCCCC"));
         super.installNextButtonListeners(c);
         // a.setForeground(Color.red);
@@ -40,7 +40,7 @@ public class UISpinner extends BasicSpinnerUI {
     protected void installPreviousButtonListeners(Component c) {
         JButton a = (JButton)c;
         a.setBackground(Color.WHITE);
-        if (MetroUIConfigTheme.getDarkMode())
+        if (MetroUIConfigTheme.isDarkMode())
             a.setBackground(Color.decode("#CCCCCC"));
         super.installPreviousButtonListeners(c);
     }

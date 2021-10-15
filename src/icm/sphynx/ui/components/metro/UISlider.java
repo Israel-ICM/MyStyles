@@ -1,6 +1,6 @@
 package icm.sphynx.ui.components.metro;
 
-import icm.sphynx.ui.tools.StyleColors;
+import icm.sphynx.ui.tools.StyleColorsMetro;
 import java.awt.BasicStroke;
 import java.awt.Color;
 import java.awt.Graphics;
@@ -77,7 +77,7 @@ public class UISlider extends BasicSliderUI {
             g2d.setPaint(Color.decode("#787878"));
             g2d.drawOval(thumbRect.x + 2, thumbRect.y, size, size);
             g2d.setPaint(Color.decode("#FFFFFF"));
-            if (MetroUIConfigTheme.getDarkMode())
+            if (MetroUIConfigTheme.isDarkMode())
                 g2d.setPaint(Color.decode("#A6A6A6"));
             g2d.fillOval(thumbRect.x + 2, thumbRect.y, size, size);
         }

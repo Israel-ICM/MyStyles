@@ -13,7 +13,7 @@ import javax.swing.table.DefaultTableCellRenderer;
  * @author israel-ICM
  */
 public class ToolsCellRendererTable extends DefaultTableCellRenderer {
-    private String _selected_color = StyleColors.COLOR_PRIMARY;
+    private String _selected_color = StyleColorsMetro.COLOR_PRIMARY;
     private Color color1 = Color.decode("#FFFFFF");
     private Color color2 = Color.decode("#FF6600");
 

@@ -1,6 +1,6 @@
 package icm.sphynx.ui.components.metro;
 
-import icm.sphynx.ui.tools.StyleColors;
+import icm.sphynx.ui.tools.StyleColorsMetro;
 import java.awt.BasicStroke;
 import java.awt.Color;
 import java.awt.Font;
@@ -52,9 +52,9 @@ public class UITabbedPane extends BasicTabbedPaneUI {
         Graphics2D g2d = (Graphics2D)g;
 
         if (isSelected) {
-            g2d.setColor(Color.decode(StyleColors.LIGHT_BACKGROUND_PANEL));
-            if (MetroUIConfigTheme.getDarkMode())
-                g2d.setColor(Color.decode(StyleColors.DARK_BACKGROUND_PANEL));
+            g2d.setColor(Color.decode(StyleColorsMetro.LIGHT_BACKGROUND_PANEL));
+            if (MetroUIConfigTheme.isDarkMode())
+                g2d.setColor(Color.decode(StyleColorsMetro.DARK_BACKGROUND_PANEL));
             g2d.fillRoundRect(x, y, w, h + 5, 8, 8);
             // g2d.fillRect(x, y, w, h + 3);
         }
@@ -91,9 +91,9 @@ public class UITabbedPane extends BasicTabbedPaneUI {
             if (tabIndex > 0) {
                 BasicStroke stroke = new BasicStroke(1);
                 g2d.setStroke(stroke);
-                g2d.setColor(Color.decode(StyleColors.LIGHT_BACKGROUND_PANEL));
-                if (MetroUIConfigTheme.getDarkMode())
-                    g2d.setColor(Color.decode(StyleColors.DARK_BACKGROUND_PANEL));
+                g2d.setColor(Color.decode(StyleColorsMetro.LIGHT_BACKGROUND_PANEL));
+                if (MetroUIConfigTheme.isDarkMode())
+                    g2d.setColor(Color.decode(StyleColorsMetro.DARK_BACKGROUND_PANEL));
                 g2d.drawLine(x, y + 5, x, y + 28);
             }
         }
@@ -117,8 +117,8 @@ public class UITabbedPane extends BasicTabbedPaneUI {
         g2d.setFont(new Font(UITools.FONT_DEFAULT, font.getStyle(), font.getSize()));
         if (isSelected) {
             g2d.setColor(Color.decode("#212121"));
-            if (MetroUIConfigTheme.getDarkMode())
-                g2d.setColor(Color.decode(StyleColors.DARK_FOREGROUND));
+            if (MetroUIConfigTheme.isDarkMode())
+                g2d.setColor(Color.decode(StyleColorsMetro.DARK_FOREGROUND));
             g2d.drawString(title, textRect.x - 5, textRect.y + font.getSize() + 3);
         }
         else {

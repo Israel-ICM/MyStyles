@@ -1,13 +1,17 @@
 package icm.sphynx.ui.components.metro;
 
+import icm.sphynx.ui.tools.StyleColorsMetro;
 import java.awt.AlphaComposite;
 import java.awt.Color;
 import java.awt.Font;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
+import java.awt.event.FocusEvent;
+import java.awt.event.FocusListener;
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseListener;
 import javax.swing.JComponent;
 import javax.swing.JTextArea;
-import javax.swing.UIManager;
 import javax.swing.border.LineBorder;
 import javax.swing.plaf.ComponentUI;
 import javax.swing.plaf.basic.BasicTextAreaUI;
@@ -17,7 +21,16 @@ import javax.swing.plaf.basic.BasicTextAreaUI;
  * @author israel-icm
  */
 public class UITextArea extends BasicTextAreaUI {
-    private Color primaryColor;
+    private final String colorBackground = StyleColorsMetro.COLOR_BACKGROUND_TEXT_FIELD;
+    private final String colorBorder = StyleColorsMetro.COLOR_BORDER_TEXT_FIELD;
+    
+    private static final int STATE_DEFAULT = 1;
+    private static final int STATE_FOCUS = 2;
+    private static final int STATE_OVER = 3;
+    private int currentStateTextArea = 1; // Controla los estados del textfield
+
+    private JTextArea textArea;
+    private boolean inicializado = false;
 
     public static ComponentUI createUI(JComponent c) {
         return new UITextArea();
@@ -25,24 +38,74 @@ public class UITextArea extends BasicTextAreaUI {
 
     @Override
     protected void paintBackground(Graphics g) {
-        primaryColor = UIManager.getColor("MetroUI.primaryColor");
         Graphics2D g2d = (Graphics2D)g;
         super.paintBackground(g2d);
-        JTextArea textField = (JTextArea)super.getComponent();
-        textField.setBackground(null);
-        textField.setSelectionColor(primaryColor);
-        textField.setSelectedTextColor(Color.WHITE);
+        textArea = (JTextArea)super.getComponent();
+        textArea.setBackground(null);
+        textArea.setSelectionColor(MetroUIConfigTheme.getPrimaryColor());
+        textArea.setSelectedTextColor(Color.WHITE);
 
         AlphaComposite ac = AlphaComposite.getInstance(AlphaComposite.SRC_OVER, 0.75f);
         g2d.setComposite(ac);
-        g2d.setColor(Color.decode("#E0E0E0"));
-        if (MetroUIConfigTheme.getDarkMode())
+        g2d.setColor(Color.decode(colorBackground));
+        if (MetroUIConfigTheme.isDarkMode())
             g2d.setColor(Color.decode("#A6A6A6"));
         g2d.fillRect(0, 0, super.getComponent().getWidth(), super.getComponent().getHeight());
 
-        textField.setFont(new Font(UITools.FONT_DEFAULT, textField.getFont().getStyle(), textField.getFont().getSize()));
-        LineBorder border = new LineBorder(Color.decode(UITools.COLOR_BORDER_DEFAULT), 2);
-        textField.setBorder(border);
+        textArea.setFont(new Font(UITools.FONT_DEFAULT, textArea.getFont().getStyle(), textArea.getFont().getSize()));
+        installBorder();
         // textField.setBorder(BorderFactory.createCompoundBorder(textField.getBorder(), BorderFactory.createEmptyBorder(UITools.PADDING_CONTENTS, UITools.PADDING_CONTENTS, UITools.PADDING_CONTENTS, UITools.PADDING_CONTENTS)));
+        
+        if (!inicializado) {
+            textArea.addMouseListener(new MouseListener() {
+                @Override
+                public void mouseClicked(MouseEvent e) { }
+
+                @Override
+                public void mousePressed(MouseEvent e) { }
+
+                @Override
+                public void mouseReleased(MouseEvent e) { }
+
+                @Override
+                public void mouseEntered(MouseEvent e) {
+                    if (currentStateTextArea != STATE_FOCUS)
+                        currentStateTextArea = STATE_OVER;
+                }
+
+                @Override
+                public void mouseExited(MouseEvent e) {
+                    if (currentStateTextArea != STATE_FOCUS)
+                        currentStateTextArea = STATE_DEFAULT;
+                }
+            });
+            textArea.addFocusListener(new FocusListener() {
+                @Override
+                public void focusGained(FocusEvent e) {
+                    currentStateTextArea = STATE_FOCUS;
+                }
+
+                @Override
+                public void focusLost(FocusEvent e) {
+                    if (currentStateTextArea != STATE_OVER)
+                        currentStateTextArea = STATE_DEFAULT;
+                }
+            });
+            inicializado = true;
+        }
+    }
+    
+    private void installBorder() {
+        switch (currentStateTextArea) {
+            case STATE_DEFAULT:
+                textArea.setBorder(new LineBorder(Color.decode(colorBorder), 2));
+                break;
+            case STATE_OVER:
+                textArea.setBorder(new LineBorder(Color.decode(UITools.bajarBrillo(colorBorder)), 2));
+                break;
+            case STATE_FOCUS:
+                textArea.setBorder(new LineBorder(MetroUIConfigTheme.getPrimaryColor(), 2));
+                break;
+        }
     }
 }

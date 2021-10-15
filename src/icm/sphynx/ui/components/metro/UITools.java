@@ -10,13 +10,13 @@ import java.util.logging.Logger;
  * @author israel-icm
  */
 public class UITools {
-    public static int PADDING_CONTENTS = 5;
+    public static int PADDING_CONTENTS = 3;
     public static String FONT_DEFAULT = "Segoe UI Semilight";
 
     public static String COLOR_SCROLL_DEFAULT = "#3F3F3E";
     // public static String COLOR_PANEL_DEFAULT = "#FFFFFF";
     public static String COLOR_BUTTON_FOREGROUND_DEFAULT = "#FFFFFF";
-    public static String COLOR_BORDER_DEFAULT = "#212121";
+    public static String COLOR_BORDER_DEFAULT = "#6A6A6A";
     
     public static final String PATH_IMAGE = "/sphynx/ui/components/img/";
     
@@ -28,6 +28,7 @@ public class UITools {
      * @param colorHex
      * @param tonos Cuantos tonos se aclarará el color
      * @return
+     * @deprecated 
      */
     public static String aclararColor(String colorHex, int tonos) {
         /*
@@ -65,6 +66,7 @@ public class UITools {
      * @param colorHex
      * @param tonos Cuantos tonos se oscurecerá el color
      * @return
+     * @deprecated
      */
     public static String oscurecerColor(String colorHex, int tonos) {
         /*
@@ -168,4 +170,39 @@ public class UITools {
         // System.out.println("color " + hex);
         return hex;
     }
+    public static String subirBrillo(String colorHex) {
+        Color color = Color.decode(colorHex);
+        float[] hsb = Color.RGBtoHSB(color.getRed(), color.getGreen(), color.getBlue(), null);
+        float newBrillo = hsb[2] + 0.1f;
+
+        color = Color.getHSBColor(hsb[0], 0.2f, newBrillo > 1 ? newBrillo - 0.1f : newBrillo); // Si es muy oscuro el brillo se sube en lugar de bajarlo
+        String hex = String.format("#%02x%02x%02x", color.getRed(), color.getGreen(), color.getBlue());
+        // System.out.println("color " + hex);
+        return hex;
+    }
+    public static String bajarBrillo(String colorHex) {
+        Color color = Color.decode(colorHex);
+        float[] hsb = Color.RGBtoHSB(color.getRed(), color.getGreen(), color.getBlue(), null);
+        float newBrillo = hsb[2] - 0.20f;
+        color = Color.getHSBColor(hsb[0], hsb[1], newBrillo < 0 ? newBrillo + 0.20f : newBrillo); // Si es muy oscuro el brillo se sube en lugar de bajarlo
+        String hex = String.format("#%02x%02x%02x", color.getRed(), color.getGreen(), color.getBlue());
+        // System.out.println("color " + hex);
+        return hex;
+    }
+    
+    public static double redondear(double valorInicial, int numeroDecimales) {
+        double parteEntera, resultado;
+        resultado = valorInicial;
+        parteEntera = Math.floor(resultado);
+        resultado=(resultado-parteEntera)*Math.pow(10, numeroDecimales);
+        resultado=Math.round(resultado);
+        resultado=(resultado/Math.pow(10, numeroDecimales))+parteEntera;
+        return resultado;
+    }
+    /*public static String alphaColor(String colorHex, float alpha) {
+        Color colorOriginal = Color.decode(colorHex);
+        Color color = new Color(colorOriginal.getRed(), colorOriginal.getGreen(), colorOriginal.getBlue(), 0.9f);
+        String hex = String.format("#%02x%02x%02x", color.getRed(), color.getGreen(), color.getBlue());
+        return hex;
+    }*/
 }

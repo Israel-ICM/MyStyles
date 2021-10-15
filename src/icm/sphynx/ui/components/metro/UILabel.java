@@ -1,6 +1,6 @@
 package icm.sphynx.ui.components.metro;
 
-import icm.sphynx.ui.tools.StyleColors;
+import icm.sphynx.ui.tools.StyleColorsMetro;
 import java.awt.Color;
 import java.awt.Font;
 import java.awt.Graphics;
@@ -23,7 +23,7 @@ public class UILabel extends BasicLabelUI {
     @Override
     public void paint(Graphics g, JComponent c) {
         c.setFont(new Font(UITools.FONT_DEFAULT, c.getFont().getStyle(), c.getFont().getSize()));
-        if (MetroUIConfigTheme.getDarkMode())
+        if (MetroUIConfigTheme.isDarkMode())
             c.setForeground(Color.WHITE);
         super.paint(g, c);
     }

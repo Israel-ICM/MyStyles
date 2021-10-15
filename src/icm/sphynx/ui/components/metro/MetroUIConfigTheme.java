@@ -1,7 +1,5 @@
 package icm.sphynx.ui.components.metro;
 
-import icm.sphynx.styles.MetroUI;
-import icm.sphynx.ui.tools.StyleColors;
 import java.awt.Color;
 import javax.swing.UIManager;
 
@@ -31,7 +29,7 @@ public class MetroUIConfigTheme {
         return UIManager.getColor("MetroUI.secondColor");
     }
     
-    public static boolean getDarkMode() {
+    public static boolean isDarkMode() {
         return UIManager.getBoolean("MetroUI.darkMode");
     }
 }

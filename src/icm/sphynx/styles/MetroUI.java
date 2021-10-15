@@ -27,7 +27,7 @@ import icm.sphynx.ui.components.metro.UITextField;
 import icm.sphynx.ui.components.metro.UIToggleButton;
 import icm.sphynx.ui.components.metro.UITools;
 import icm.sphynx.ui.tools.IconsMetroUI;
-import icm.sphynx.ui.tools.StyleColors;
+import icm.sphynx.ui.tools.StyleColorsMetro;
 import icm.sphynx.ui.tools.ThemeMetroUI;
 import java.awt.Color;
 import java.awt.Component;
@@ -64,21 +64,21 @@ public class MetroUI {
 
         installComponents();
 
-        UIManager.put("MenuBar.background", Color.decode(StyleColors.LIGHT_BACKGROUND_PANEL));
+        UIManager.put("MenuBar.background", Color.decode(StyleColorsMetro.LIGHT_BACKGROUND_PANEL));
         UIManager.put("MenuBar.border", null);
 
         // UIManager.put("Menu.background", Color.decode(StyleColors.LIGHT_BACKGROUND_PANEL));
-        UIManager.put("Menu.foreground", Color.decode(StyleColors.LIGHT_FOREGROUND));
+        UIManager.put("Menu.foreground", Color.decode(StyleColorsMetro.LIGHT_FOREGROUND));
         UIManager.put("Menu.font", new Font(UITools.FONT_DEFAULT, Font.BOLD, 13));
 
-        UIManager.put("MenuItem.background", Color.decode(StyleColors.LIGHT_BACKGROUND_PANEL));
-        UIManager.put("MenuItem.foreground", Color.decode(StyleColors.LIGHT_FOREGROUND));
+        UIManager.put("MenuItem.background", Color.decode(StyleColorsMetro.LIGHT_BACKGROUND_PANEL));
+        UIManager.put("MenuItem.foreground", Color.decode(StyleColorsMetro.LIGHT_FOREGROUND));
 
-        LineBorder border = new LineBorder(Color.decode(UITools.COLOR_BORDER_DEFAULT), 2);
+        // LineBorder border = new LineBorder(Color.decode(UITools.COLOR_BORDER_DEFAULT), 2);
         // UIManager.put("ComboBox.selectionBackground", MetroUIConfigTheme.getPrimaryColor());
         UIManager.put("ComboBox.selectionForeground", Color.WHITE);
         UIManager.put("ComboBox.font", new Font(UITools.FONT_DEFAULT, Font.PLAIN, 12));
-        UIManager.put("ComboBox.border", border);
+        // UIManager.put("ComboBox.border", border);
         // UIManager.put("ComboBox.buttonHighlight", MetroUIConfigTheme.getPrimaryColor());
 
         UIManager.put("Table.focusCellHighlightBorder", BorderFactory.createMatteBorder(2, 2, 2, 2, Color.WHITE));
@@ -114,15 +114,15 @@ public class MetroUI {
 
         installComponents();
 
-        UIManager.put("MenuBar.background", Color.decode(StyleColors.LIGHT_BACKGROUND_PANEL));
+        UIManager.put("MenuBar.background", Color.decode(StyleColorsMetro.LIGHT_BACKGROUND_PANEL));
         UIManager.put("MenuBar.border", null);
 
         // UIManager.put("Menu.background", Color.decode(StyleColors.LIGHT_BACKGROUND_PANEL));
-        UIManager.put("Menu.foreground", Color.decode(StyleColors.LIGHT_FOREGROUND));
+        UIManager.put("Menu.foreground", Color.decode(StyleColorsMetro.LIGHT_FOREGROUND));
         UIManager.put("Menu.font", new Font(UITools.FONT_DEFAULT, Font.BOLD, 13));
 
-        UIManager.put("MenuItem.background", Color.decode(StyleColors.LIGHT_BACKGROUND_PANEL));
-        UIManager.put("MenuItem.foreground", Color.decode(StyleColors.LIGHT_FOREGROUND));
+        UIManager.put("MenuItem.background", Color.decode(StyleColorsMetro.LIGHT_BACKGROUND_PANEL));
+        UIManager.put("MenuItem.foreground", Color.decode(StyleColorsMetro.LIGHT_FOREGROUND));
 
         LineBorder border = new LineBorder(Color.decode(UITools.COLOR_BORDER_DEFAULT), 2);
         // UIManager.put("ComboBox.selectionBackground", MetroUIConfigTheme.getPrimaryColor());
@@ -132,7 +132,7 @@ public class MetroUI {
         // UIManager.put("ComboBox.buttonHighlight", MetroUIConfigTheme.getPrimaryColor());
 
         Color bordeFocus = Color.WHITE;
-        if (MetroUIConfigTheme.getDarkMode())
+        if (MetroUIConfigTheme.isDarkMode())
             bordeFocus = Color.decode("#CCCCCC");
         UIManager.put("Table.focusCellHighlightBorder", BorderFactory.createMatteBorder(2, 2, 2, 2, bordeFocus));
 
