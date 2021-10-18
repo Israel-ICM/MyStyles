@@ -9,10 +9,12 @@ import javax.swing.UIManager;
 public class MetroUIComponent {
     private static final String TEXT_FIELD = "MetroTextField";
     private static final String PASSWORD_FIELD = "MetroPasswordField";
+    private static final String BUTTON = "MetroButton";
 
     private static final String TEXT_FIELD_PROPERTY_PLACEHOLDER = "placeholder";
     private static final String TEXT_FIELD_PROPERTY_ICON = "icon";
     public static final String ICON_SEARCH = "search";
+    private static final String BUTTON_EMPTY = "empty";
     
     /**
      * Agrega el ícono predeterminado a un textfield
@@ -42,6 +44,14 @@ public class MetroUIComponent {
         UIManager.put(PASSWORD_FIELD + "." + nameComponent + "." + TEXT_FIELD_PROPERTY_PLACEHOLDER, value);
     }
     /**
+     * Estable el botón sin bordes y sin relleno
+     * @param nameComponent 
+     */
+    public static void setEmpyButton(String nameComponent) {
+        UIManager.put(BUTTON + "." + nameComponent + "." + BUTTON_EMPTY, true);
+    }
+
+    /**
      * Retorna el valor de la propiedad icon
      * @param nameComponent
      * @return 
@@ -64,5 +74,13 @@ public class MetroUIComponent {
      */
     public static String getPropertyPasswordFieldPlaceholder(String nameComponent) {
         return UIManager.getString(PASSWORD_FIELD + "." + nameComponent + "." + TEXT_FIELD_PROPERTY_PLACEHOLDER);
+    }
+    /**
+     * Retorna el valor de la propiedad empty button
+     * @param nameComponent
+     * @return 
+     */
+    public static boolean getEmptyButton(String nameComponent) {
+        return UIManager.getBoolean(BUTTON + "." + nameComponent + "." + BUTTON_EMPTY);
     }
 }

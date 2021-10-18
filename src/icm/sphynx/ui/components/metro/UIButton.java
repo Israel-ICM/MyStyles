@@ -34,23 +34,28 @@ public class UIButton extends BasicButtonUI implements MouseListener {
         g2d = (Graphics2D)g;
         width = c.getWidth();
         height = c.getHeight();
-
-        if (estado == 0) {
-            AlphaComposite ac = AlphaComposite.getInstance(AlphaComposite.SRC_OVER, 1f);
-            g2d.setComposite(ac);
-            g.setColor(MetroUIConfigTheme.getPrimaryColor());
-            g.fillRect(0, 0, width, height);
-            /*LineBorder border = new LineBorder(Color.decode(UITools.COLOR_BUTTON_DEFAULT), 3);
-            c.setBorder(border);*/
+        if (MetroUIComponent.getEmptyButton(c.getName())) {
+            c.setBackground(null);
+            c.setBorder(null);
         }
-        /*else {
-            AlphaComposite ac = AlphaComposite.getInstance(AlphaComposite.SRC_OVER, 0.9f);
-            g2d.setComposite(ac);
-            g.setColor(Color.decode(UITools.COLOR_BUTTON_DEFAULT));
-            g.fillRect(0, 0, width, height);
-            LineBorder border = new LineBorder(Color.RED, 3);
-            c.setBorder(border);
-        }*/
+        else {
+            if (estado == 0) {
+                AlphaComposite ac = AlphaComposite.getInstance(AlphaComposite.SRC_OVER, 1f);
+                g2d.setComposite(ac);
+                g.setColor(MetroUIConfigTheme.getPrimaryColor());
+                g.fillRect(0, 0, width, height);
+                /*LineBorder border = new LineBorder(Color.decode(UITools.COLOR_BUTTON_DEFAULT), 3);
+                c.setBorder(border);*/
+            }
+            /*else {
+                AlphaComposite ac = AlphaComposite.getInstance(AlphaComposite.SRC_OVER, 0.9f);
+                g2d.setComposite(ac);
+                g.setColor(Color.decode(UITools.COLOR_BUTTON_DEFAULT));
+                g.fillRect(0, 0, width, height);
+                LineBorder border = new LineBorder(Color.RED, 3);
+                c.setBorder(border);
+            }*/
+        }
         super.paint(g, c);
     }
 

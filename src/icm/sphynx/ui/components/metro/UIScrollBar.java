@@ -22,21 +22,24 @@ import javax.swing.plaf.basic.BasicScrollBarUI;
  */
 public class UIScrollBar extends BasicScrollBarUI implements MouseListener {
     private Graphics2D graphicsBarra;
-    private Rectangle rectangleBarra;
-    private JComponent barra;
-    // private JComponent 
-    /**
-     * Estados: 0 = default, 1 = over, 2 = pressed
-     */
+
     private int estadoBarra = 0;
-    private static int DEFAULT = 0;
-    private static int OVER = 1;
-    private static int PRESSED = 2;
+    private final static int DEFAULT = 0;
+    private final static int OVER = 1;
+    private final static int PRESSED = 2;
     
-    private static int WIDTH_SCROLL_DEFAULT = 10; // Lo normal es 16
-    private static int HEIGHT_SCROLL_DEFAULT = 10;
-    private static int WIDTH_SCROLL = 1;
-    private static int HEIGHT_SCROLL = 1;
+    private boolean trackIniciado = false;
+    private boolean thumbIniciado = false;
+    
+    private static final int ICON_WIDTH_SCROLL = 1;
+    private static final int ICON_HEIGHT_SCROLL = 1;
+    
+    private static final int SIZE_SCROLL_NORMAL = 3;
+    private static final int SIZE_SCROLL_OVER = 16;
+    
+    // Controladores de animación
+    private boolean verScroll = false; // Define si se visualizará el scroll
+    private int controlAnimation = SIZE_SCROLL_NORMAL; // Define el tamaño del scroll
 
     public UIScrollBar() {
         super();
@@ -49,6 +52,10 @@ public class UIScrollBar extends BasicScrollBarUI implements MouseListener {
 
     @Override 
     protected void paintTrack(Graphics g, JComponent c, Rectangle trackBounds) {
+        if (!trackIniciado) {
+            c.addMouseListener(this);
+            trackIniciado = true;
+        }
         /*BufferedImage image = new BufferedImage (WIDTH_SCROLL, HEIGHT_SCROLL, BufferedImage.TYPE_INT_ARGB);
         Graphics2D g1 = (Graphics2D)image.getGraphics();
         g1.setColor(Color.decode("#FFFFFF"));
@@ -62,40 +69,32 @@ public class UIScrollBar extends BasicScrollBarUI implements MouseListener {
 
     @Override
     protected void paintThumb(Graphics g, JComponent c, Rectangle thumbBounds) { 
-        c.addMouseListener(this);
+        if (!thumbIniciado) {
+            c.addMouseListener(this);
+            thumbIniciado = true;
+        }
+        
         graphicsBarra = (Graphics2D)g;
-        rectangleBarra = thumbBounds;
 
         // La variable scrollbar viene de la herencia de BasicScrollBarUI
+        if (verScroll) {
+            if (controlAnimation < SIZE_SCROLL_OVER)
+                controlAnimation++;
+        }
+        else {
+            if (controlAnimation > SIZE_SCROLL_NORMAL)
+                controlAnimation--;
+        }
         switch (scrollbar.getOrientation()) {
             case JScrollBar.VERTICAL:
-                // graphicsBarra.drawImage(createImageThumb(WIDTH_SCROLL, HEIGHT_SCROLL, UITools.COLOR_SCROLL_DEFAULT, 1f), thumbBounds.x, thumbBounds.y, thumbBounds.width, thumbBounds.height, null);
-                if (estadoBarra == UIScrollBar.OVER) {
-                    scrollbar.setPreferredSize(new Dimension(16, scrollbar.getHeight()));
-                    graphicsBarra.drawImage(createImageThumb(WIDTH_SCROLL, HEIGHT_SCROLL, UITools.COLOR_SCROLL_DEFAULT, 0.9f), thumbBounds.x, thumbBounds.y, thumbBounds.width, thumbBounds.height, null);
-                }
-                // else if (estadoBarra == UIScrollBar.PRESSED)
-                //     graphicsBarra.drawImage(createImageThumb(WIDTH_SCROLL, WIDTH_SCROLL_DEFAULT, COLOR_DEFAULT, 0.7f), WIDTH_SCROLL_DEFAULT - WIDTH_SCROLL, thumbBounds.y, WIDTH_SCROLL, thumbBounds.height, null);
-                else {
-                    scrollbar.setPreferredSize(new Dimension(8, scrollbar.getHeight()));
-                    graphicsBarra.drawImage(createImageThumb(WIDTH_SCROLL, HEIGHT_SCROLL, UITools.COLOR_SCROLL_DEFAULT, 0.6f), thumbBounds.x, thumbBounds.y, thumbBounds.width, thumbBounds.height, null);
-                    // Con esto el el thumb del scroll se vuelve menos ancho
-                    // graphicsBarra.drawImage(createImageThumb(WIDTH_SCROLL, HEIGHT_SCROLL, UITools.COLOR_SCROLL_DEFAULT, 0.7f), WIDTH_SCROLL_DEFAULT - WIDTH_SCROLL, thumbBounds.y, thumbBounds.width, thumbBounds.height, null);
-                }
+                scrollbar.setPreferredSize(new Dimension(controlAnimation, scrollbar.getHeight()));
+                graphicsBarra.drawImage(createImageThumb(ICON_WIDTH_SCROLL, ICON_HEIGHT_SCROLL, UITools.COLOR_SCROLL_DEFAULT), thumbBounds.x, thumbBounds.y, thumbBounds.width, thumbBounds.height, null);                
+                // Con esto el el thumb del scroll se vuelve menos ancho
+                // graphicsBarra.drawImage(createImageThumb(WIDTH_SCROLL, HEIGHT_SCROLL, UITools.COLOR_SCROLL_DEFAULT, 0.7f), WIDTH_SCROLL_DEFAULT - WIDTH_SCROLL, thumbBounds.y, thumbBounds.width, thumbBounds.height, null);
                 break;
             case JScrollBar.HORIZONTAL:
-                
-                if (estadoBarra == UIScrollBar.OVER) {
-                    scrollbar.setPreferredSize(new Dimension(scrollbar.getWidth(), 16));
-                    graphicsBarra.drawImage(createImageThumb(WIDTH_SCROLL, HEIGHT_SCROLL, UITools.COLOR_SCROLL_DEFAULT, 0.9f), thumbBounds.x, thumbBounds.y, thumbBounds.width, thumbBounds.height, null);
-                }
-                // else if (estadoBarra == UIScrollBar.PRESSED)
-                //     graphicsBarra.drawImage(createImageThumb(WIDTH_SCROLL, WIDTH_SCROLL_DEFAULT, COLOR_DEFAULT, 0.7f), WIDTH_SCROLL_DEFAULT - WIDTH_SCROLL, thumbBounds.y, WIDTH_SCROLL, thumbBounds.height, null);
-                else {
-                    scrollbar.setPreferredSize(new Dimension(scrollbar.getWidth(), 8));
-                    graphicsBarra.drawImage(createImageThumb(WIDTH_SCROLL, HEIGHT_SCROLL, UITools.COLOR_SCROLL_DEFAULT, 0.6f), thumbBounds.x, thumbBounds.y, thumbBounds.width, thumbBounds.height, null);
-                    // graphicsBarra.drawImage(createImageThumb(WIDTH_SCROLL, HEIGHT_SCROLL, UITools.COLOR_SCROLL_DEFAULT, 0.7f), thumbBounds.x, HEIGHT_SCROLL_DEFAULT - HEIGHT_SCROLL, thumbBounds.width, thumbBounds.height, null);
-                }
+                scrollbar.setPreferredSize(new Dimension(scrollbar.getWidth(), controlAnimation));
+                graphicsBarra.drawImage(createImageThumb(ICON_WIDTH_SCROLL, ICON_HEIGHT_SCROLL, UITools.COLOR_SCROLL_DEFAULT), thumbBounds.x, thumbBounds.y, thumbBounds.width, thumbBounds.height, null);
                 break;
         }
     }
@@ -126,13 +125,19 @@ public class UIScrollBar extends BasicScrollBarUI implements MouseListener {
      * @param alpha
      * @return 
      */
-    private Image createImageThumb(int width, int height, String colorHex, float alpha) {
+    private Image createImageThumb(int width, int height, String colorHex) {
         BufferedImage image = new BufferedImage(width, height, BufferedImage.TYPE_INT_ARGB);
         Graphics2D graphics = (Graphics2D)image.getGraphics();
-        
-        AlphaComposite ac = AlphaComposite.getInstance(AlphaComposite.SRC_OVER, alpha);
-        graphics.setComposite(ac);
-        
+
+        switch (estadoBarra) {
+            case PRESSED:
+                graphics.setComposite(AlphaComposite.getInstance(AlphaComposite.SRC_OVER, 0.9f));
+                break;
+            default:
+                graphics.setComposite(AlphaComposite.getInstance(AlphaComposite.SRC_OVER, 0.6f));
+                break;
+        }
+
         graphics.setColor(Color.decode(colorHex));
         graphics.fillRect(0, 0, width, height);
         // graphics.dispose();
@@ -140,27 +145,39 @@ public class UIScrollBar extends BasicScrollBarUI implements MouseListener {
     }
 
     @Override
-    public void mouseClicked(MouseEvent e) {
-        
-    }
+    public void mouseClicked(MouseEvent e) { }
 
     @Override
     public void mousePressed(MouseEvent e) {
-        // estadoBarra = UIScrollBar.PRESSED;
+        estadoBarra = PRESSED;
     }
 
     @Override
     public void mouseReleased(MouseEvent e) {
-        // estadoBarra = UIScrollBar.DEFAULT;
+        estadoBarra = DEFAULT;
     }
 
     @Override
     public void mouseEntered(MouseEvent e) {
+        verScroll = true;
         estadoBarra = OVER;
     }
 
     @Override
     public void mouseExited(MouseEvent e) {
         estadoBarra = DEFAULT;
+        new Thread() {
+            @Override
+            public void run() {
+                try {
+                    Thread.sleep(1500);
+                    if (estadoBarra != OVER) { // Esto es por si despues de alejar el mouse se vuelve a hacer hover no se oculte la barra
+                        verScroll = false;
+                        scrollbar.repaint();
+                    }
+                }
+                catch (InterruptedException ex) { }
+            }
+        }.start();
     }
 }

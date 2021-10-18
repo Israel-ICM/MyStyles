@@ -157,7 +157,6 @@ public class UITools {
         return hex;
     }
     /**
-     * 
      * @param colorHex
      * @return 
      */
@@ -170,6 +169,28 @@ public class UITools {
         // System.out.println("color " + hex);
         return hex;
     }
+    
+    /**
+     * @param colorHex
+     * @return 
+     */
+    public static String getThirdColor(String colorHex) {
+        return UITools.subirBrillo(colorHex);
+    }
+    
+    public static String getFourthColor(String colorHex) {
+        Color color = Color.decode(colorHex);
+        float[] hsb = Color.RGBtoHSB(color.getRed(), color.getGreen(), color.getBlue(), null);
+        float newBrillo = hsb[2] + 0.1f;
+        newBrillo = newBrillo > 1 ? 1 : newBrillo;
+        newBrillo = newBrillo < 0 ? 0 : newBrillo;
+
+        color = Color.getHSBColor(hsb[0], 0.4f, newBrillo); // Si es muy oscuro el brillo se sube en lugar de bajarlo
+        String hex = String.format("#%02x%02x%02x", color.getRed(), color.getGreen(), color.getBlue());
+        // System.out.println("color " + hex);
+        return hex;
+    }
+    
     public static String subirBrillo(String colorHex) {
         Color color = Color.decode(colorHex);
         float[] hsb = Color.RGBtoHSB(color.getRed(), color.getGreen(), color.getBlue(), null);
