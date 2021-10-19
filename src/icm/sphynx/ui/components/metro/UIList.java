@@ -34,12 +34,13 @@ public class UIList extends BasicListUI {
 
         AlphaComposite ac = AlphaComposite.getInstance(AlphaComposite.SRC_OVER, 1f);
         g2d.setComposite(ac);
-        g2d.setColor(Color.decode("#E0E0E0"));
+        g2d.setColor(Color.decode("#FFFFFF"));
         if (MetroUIConfigTheme.isDarkMode())
             g2d.setColor(Color.decode(StyleColorsMetro.DARK_BACKGROUND_PANEL));
         g2d.fillRect(0, 0, c.getWidth(), c.getHeight());
         
-        c.setFont(new Font(UITools.FONT_DEFAULT, c.getFont().getStyle(), c.getFont().getSize()));
+        // c.setFont(new Font(UITools.FONT_DEFAULT, c.getFont().getStyle(), c.getFont().getSize()));
+        c.setFont(new Font(UITools.FONT_DEFAULT, Font.PLAIN, 13));
         LineBorder border = new LineBorder(Color.decode(UITools.COLOR_BORDER_DEFAULT), 0); // Para darle borde solo modificar el cero de esta linea
         c.setBorder(border);
         

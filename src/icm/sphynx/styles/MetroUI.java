@@ -87,11 +87,11 @@ public class MetroUI {
         CompoundBorder bordeAnchoCelda = BorderFactory.createCompoundBorder(bordeDelgadoGris, BorderFactory.createEmptyBorder(UITools.PADDING_CONTENTS, UITools.PADDING_CONTENTS, UITools.PADDING_CONTENTS, UITools.PADDING_CONTENTS));
         UIManager.put("TableHeader.cellBorder", bordeAnchoCelda);
 
-        UIManager.put("FileChooser.detailsViewIcon", IconsMetroUI.iconListDetail(18, "#FFFFFF"));
-        UIManager.put("FileChooser.homeFolderIcon", new IconsMetroUI().iconHome(18));
-        UIManager.put("FileChooser.newFolderIcon", new IconsMetroUI().iconNewFolder(18));
-        UIManager.put("FileChooser.listViewIcon", new IconsMetroUI().iconList(18));
-        UIManager.put("FileChooser.upFolderIcon", new IconsMetroUI().iconUpFolder(18));
+        UIManager.put("FileChooser.detailsViewIcon", IconsMetroUI.iconListDetail(18, "#000000"));
+        UIManager.put("FileChooser.homeFolderIcon", new IconsMetroUI().iconHome(18, true));
+        UIManager.put("FileChooser.newFolderIcon", new IconsMetroUI().iconNewFolder(18, true));
+        UIManager.put("FileChooser.listViewIcon", new IconsMetroUI().iconList(18, true));
+        UIManager.put("FileChooser.upFolderIcon", new IconsMetroUI().iconUpFolder(18, true));
 
         UIManager.put("FileView.computerIcon", new IconsMetroUI().iconComputer(20));
         UIManager.put("FileView.fileIcon", new IconsMetroUI().iconFile(20));
@@ -141,10 +141,10 @@ public class MetroUI {
         UIManager.put("TableHeader.cellBorder", bordeAnchoCelda);
 
         UIManager.put("FileChooser.detailsViewIcon", IconsMetroUI.iconListDetail(18, "#FFFFFF"));
-        UIManager.put("FileChooser.homeFolderIcon", new IconsMetroUI().iconHome(18));
-        UIManager.put("FileChooser.newFolderIcon", new IconsMetroUI().iconNewFolder(18));
-        UIManager.put("FileChooser.listViewIcon", new IconsMetroUI().iconList(18));
-        UIManager.put("FileChooser.upFolderIcon", new IconsMetroUI().iconUpFolder(18));
+        UIManager.put("FileChooser.homeFolderIcon", new IconsMetroUI().iconHome(18, false));
+        UIManager.put("FileChooser.newFolderIcon", new IconsMetroUI().iconNewFolder(18, false));
+        UIManager.put("FileChooser.listViewIcon", new IconsMetroUI().iconList(18, false));
+        UIManager.put("FileChooser.upFolderIcon", new IconsMetroUI().iconUpFolder(18, false));
 
         UIManager.put("FileView.computerIcon", new IconsMetroUI().iconComputer(20));
         UIManager.put("FileView.fileIcon", new IconsMetroUI().iconFile(20));

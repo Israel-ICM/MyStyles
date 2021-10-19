@@ -1,9 +1,11 @@
 package icm.sphynx.ui.components.metro;
 
 import java.awt.Color;
+import java.awt.event.MouseEvent;
 import java.text.DecimalFormat;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.JComponent;
 
 /**
  * Variables para valores por default de toda la librería
@@ -15,7 +17,7 @@ public class UITools {
 
     public static String COLOR_SCROLL_DEFAULT = "#3F3F3E";
     // public static String COLOR_PANEL_DEFAULT = "#FFFFFF";
-    public static String COLOR_BUTTON_FOREGROUND_DEFAULT = "#FFFFFF";
+    public static String COLOR_BUTTON_FOREGROUND_DEFAULT = "#000000";
     public static String COLOR_BORDER_DEFAULT = "#6A6A6A";
     
     public static final String PATH_IMAGE = "/sphynx/ui/components/img/";
@@ -219,6 +221,20 @@ public class UITools {
         resultado=Math.round(resultado);
         resultado=(resultado/Math.pow(10, numeroDecimales))+parteEntera;
         return resultado;
+    }
+    /**
+     * Verifica si el mouse esta dentro del rango del componente o fuera
+     * @param c
+     * @param e
+     * @return 
+     */
+    public static boolean isMouseInComponent(JComponent c, MouseEvent e) {
+        int x = e.getX();
+        int y = e.getY();
+        if (x < 0 || y < 0 || x > c.getWidth() || y > c.getHeight())
+            return false;
+        else
+            return true;
     }
     /*public static String alphaColor(String colorHex, float alpha) {
         Color colorOriginal = Color.decode(colorHex);

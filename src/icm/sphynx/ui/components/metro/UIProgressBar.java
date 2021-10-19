@@ -20,11 +20,12 @@ public class UIProgressBar extends BasicProgressBarUI {
     public void paint(Graphics g, JComponent c) {
         super.paint(g, c);
         
-        progressBar.setBackground(Color.decode("#E0E0E0"));
+        progressBar.setBackground(Color.decode("#C9CBCB"));
         if (MetroUIConfigTheme.isDarkMode())
             progressBar.setBackground(Color.decode("#A6A6A6"));
         progressBar.setForeground(MetroUIConfigTheme.getPrimaryColor());
         progressBar.setPreferredSize(new Dimension(progressBar.getWidth(), 20));
+        progressBar.setBorder(null);
         /*if (progressBar.isIndeterminate()) {
             paintIndeterminate(g, c);
         } else {

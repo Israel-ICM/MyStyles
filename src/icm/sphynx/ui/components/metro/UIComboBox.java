@@ -1,45 +1,30 @@
 package icm.sphynx.ui.components.metro;
 
-import icm.sphynx.styles.MyStyles;
 import icm.sphynx.ui.tools.StyleColorsMetro;
 import java.awt.BasicStroke;
 import java.awt.Color;
 import java.awt.Component;
 import java.awt.Dimension;
-import java.awt.Font;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
 import java.awt.Insets;
 import java.awt.Point;
 import java.awt.Rectangle;
 import java.awt.RenderingHints;
-import java.awt.event.ComponentEvent;
-import java.awt.event.ComponentListener;
-import java.awt.event.ContainerEvent;
-import java.awt.event.ContainerListener;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
-import java.awt.event.MouseMotionListener;
-import java.awt.event.MouseWheelEvent;
-import java.awt.event.MouseWheelListener;
 import java.awt.image.BufferedImage;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javax.swing.BorderFactory;
 import javax.swing.DefaultListCellRenderer;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
-import javax.swing.JComboBox;
 import javax.swing.JComponent;
 import javax.swing.JList;
 import javax.swing.ListCellRenderer;
-import javax.swing.UIManager;
 import javax.swing.border.LineBorder;
-import javax.swing.border.MatteBorder;
 import javax.swing.plaf.ComponentUI;
 import javax.swing.plaf.basic.BasicComboBoxUI;
 import javax.swing.plaf.basic.BasicComboPopup;
-import javax.swing.plaf.basic.BasicLabelUI;
 import javax.swing.plaf.basic.ComboPopup;
 
 /**
@@ -66,6 +51,31 @@ public class UIComboBox extends BasicComboBoxUI {
     @Override
     public void paint(Graphics g, JComponent c) {
         super.paint(g, c);
+        installEvents();
+        installBackground();
+        installBorder();
+        installSize();
+    }
+    
+    private void installSize() {
+        // if (comboBox.getHeight() <= 26)
+        comboBox.setPreferredSize(new Dimension(comboBox.getWidth(), 28));
+        // c.setBorder(BorderFactory.createCompoundBorder(c.getBorder(), BorderFactory.createEmptyBorder(UITools.PADDING_CONTENTS, UITools.PADDING_CONTENTS, UITools.PADDING_CONTENTS, UITools.PADDING_CONTENTS)));
+    }
+    
+    private void installBackground() {
+        comboBox.setBackground(Color.decode(_colorBackground));
+        comboBox.setForeground(Color.decode(_colorText));
+    }
+    
+    private void installBorder() {
+        if (currentStateTextField == STATE_DEFAULT)
+            comboBox.setBorder(new LineBorder(Color.decode(_colorBorder), 2));
+        else
+            comboBox.setBorder(new LineBorder(Color.decode(UITools.bajarBrillo(_colorBorder)), 2));
+    }
+    
+    private void installEvents() {
         if (!componenteIniciado) {
             comboBox.addMouseListener(new MouseListener() {
                 @Override
@@ -89,23 +99,13 @@ public class UIComboBox extends BasicComboBoxUI {
             });
             componenteIniciado = true;
         }
-
-        comboBox.setBackground(Color.decode(_colorBackground));
-        comboBox.setForeground(Color.decode(_colorText));
-        if (currentStateTextField == STATE_DEFAULT)
-            comboBox.setBorder(new LineBorder(Color.decode(_colorBorder), 2));
-        else
-            comboBox.setBorder(new LineBorder(Color.decode(UITools.bajarBrillo(_colorBorder)), 2));
-        // if (comboBox.getHeight() <= 26)
-        comboBox.setPreferredSize(new Dimension(comboBox.getWidth(), 28));
-        // c.setBorder(BorderFactory.createCompoundBorder(c.getBorder(), BorderFactory.createEmptyBorder(UITools.PADDING_CONTENTS, UITools.PADDING_CONTENTS, UITools.PADDING_CONTENTS, UITools.PADDING_CONTENTS)));
     }
     
     @Override 
     protected JButton createArrowButton() {
         JButton button = new JButton();
         button.setName(BUTTON_NAME); // Se le asigna un nombre para aplicar la propiedad empty del botón
-        MetroUIComponent.setEmpyButton(button.getName());
+        MetroUIComponent.setButtonEmpty(button.getName());
         button.setText("");
         button.setBorder(BorderFactory.createLineBorder(Color.decode(_colorBackground), 0));
         button.setContentAreaFilled(false);

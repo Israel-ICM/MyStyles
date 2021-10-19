@@ -11,7 +11,6 @@ import java.awt.Rectangle;
 import java.awt.RenderingHints;
 import javax.swing.BorderFactory;
 import javax.swing.JComponent;
-import javax.swing.UIManager;
 import javax.swing.plaf.ComponentUI;
 import javax.swing.plaf.basic.BasicTabbedPaneUI;
 
@@ -26,9 +25,14 @@ public class UITabbedPane extends BasicTabbedPaneUI {
     
     @Override
     public void paint(Graphics g, JComponent c) {
+        Graphics2D g2d = (Graphics2D)g;
         // g.setColor(Color.decode(StyleColors.COLOR_PRIMARY));
-        g.setColor(MetroUIConfigTheme.getPrimaryColor());
-        g.fillRect(0, 0, tabPane.getWidth(), tabPane.getHeight());
+        g2d.setColor(Color.decode("#FFFFFF"));
+        g2d.fillRect(0, 0, tabPane.getWidth(), tabPane.getHeight());
+        g2d.setStroke(new BasicStroke(2));
+        g2d.setColor(MetroUIConfigTheme.getPrimaryColor());
+        g2d.drawRect(1, 1, tabPane.getWidth() - 2, tabPane.getHeight() - 2);
+
         c.setFocusable(false);
         super.paint(g, c);
         // c.setBorder(BorderFactory.createCompoundBorder(c.getBorder(), BorderFactory.createEmptyBorder(UITools.PADDING_CONTENTS, UITools.PADDING_CONTENTS, UITools.PADDING_CONTENTS, UITools.PADDING_CONTENTS)));
@@ -114,7 +118,8 @@ public class UITabbedPane extends BasicTabbedPaneUI {
     protected void paintText(Graphics g, int tabPlacement, Font font, FontMetrics metrics, int tabIndex, String title, Rectangle textRect, boolean isSelected) {
         Graphics2D g2d = (Graphics2D)g;
         g2d.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);
-        g2d.setFont(new Font(UITools.FONT_DEFAULT, font.getStyle(), font.getSize()));
+        // g2d.setFont(new Font(UITools.FONT_DEFAULT, font.getStyle(), font.getSize()));
+        g2d.setFont(new Font(UITools.FONT_DEFAULT, Font.PLAIN, 13));
         if (isSelected) {
             g2d.setColor(Color.decode("#212121"));
             if (MetroUIConfigTheme.isDarkMode())

@@ -30,7 +30,7 @@ public class UITable extends BasicTableUI {
             table.setBackground(Color.decode(StyleColorsMetro.DARK_BACKGROUND_PANEL));
             table.setForeground(Color.decode(StyleColorsMetro.DARK_FOREGROUND));
         }
-        table.setGridColor(MetroUIConfigTheme.getPrimaryColor());
+        table.setGridColor(MetroUIConfigTheme.getThirdColor());
         table.setRowHeight(30);
     }
 }

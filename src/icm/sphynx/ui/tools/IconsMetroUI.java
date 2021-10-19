@@ -73,26 +73,38 @@ public class IconsMetroUI {
         return new ImageIcon(image);
     }
     
-    public ImageIcon iconHome(int size) {
-        Image img = new ImageIcon(getClass().getClassLoader().getResource("icm/sphynx/ui/components/metro/icons/home_white.png")).getImage();
+    public ImageIcon iconHome(int size, boolean black) {
+        String imageName = "icm/sphynx/ui/components/metro/icons/home_white.png";
+        if (black)
+            imageName = "icm/sphynx/ui/components/metro/icons/home_black.png";
+        Image img = new ImageIcon(getClass().getClassLoader().getResource(imageName)).getImage();
         ImageIcon img2 = new ImageIcon(img.getScaledInstance(size, size, Image.SCALE_SMOOTH));
         return img2;
     }
     
-    public ImageIcon iconNewFolder(int size) {
-        Image img = new ImageIcon(getClass().getClassLoader().getResource("icm/sphynx/ui/components/metro/icons/new_folder_white.png")).getImage();
+    public ImageIcon iconNewFolder(int size, boolean black) {
+        String imageName = "icm/sphynx/ui/components/metro/icons/new_folder_white.png";
+        if (black)
+            imageName = "icm/sphynx/ui/components/metro/icons/new_folder_black.png";
+        Image img = new ImageIcon(getClass().getClassLoader().getResource(imageName)).getImage();
         ImageIcon img2 = new ImageIcon(img.getScaledInstance(size, size, Image.SCALE_SMOOTH));
         return img2;
     }
     
-    public ImageIcon iconList(int size) {
-        Image img = new ImageIcon(getClass().getClassLoader().getResource("icm/sphynx/ui/components/metro/icons/list_white.png")).getImage();
+    public ImageIcon iconList(int size, boolean black) {
+        String imageName = "icm/sphynx/ui/components/metro/icons/list_white.png";
+        if (black)
+            imageName = "icm/sphynx/ui/components/metro/icons/list_black.png";
+        Image img = new ImageIcon(getClass().getClassLoader().getResource(imageName)).getImage();
         ImageIcon img2 = new ImageIcon(img.getScaledInstance(size, size, Image.SCALE_SMOOTH));
         return img2;
     }
 
-    public ImageIcon iconUpFolder(int size) {
-        Image img = new ImageIcon(getClass().getClassLoader().getResource("icm/sphynx/ui/components/metro/icons/up_folder_white.png")).getImage();
+    public ImageIcon iconUpFolder(int size, boolean black) {
+        String imageName = "icm/sphynx/ui/components/metro/icons/up_folder_white.png";
+        if (black)
+            imageName = "icm/sphynx/ui/components/metro/icons/up_folder_black.png";
+        Image img = new ImageIcon(getClass().getClassLoader().getResource(imageName)).getImage();
         ImageIcon img2 = new ImageIcon(img.getScaledInstance(size, size, Image.SCALE_SMOOTH));
         return img2;
     }

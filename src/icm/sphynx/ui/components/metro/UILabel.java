@@ -22,7 +22,7 @@ public class UILabel extends BasicLabelUI {
 
     @Override
     public void paint(Graphics g, JComponent c) {
-        c.setFont(new Font(UITools.FONT_DEFAULT, c.getFont().getStyle(), c.getFont().getSize()));
+        c.setFont(new Font(UITools.FONT_DEFAULT, Font.PLAIN, c.getFont().getSize()));
         if (MetroUIConfigTheme.isDarkMode())
             c.setForeground(Color.WHITE);
         super.paint(g, c);
