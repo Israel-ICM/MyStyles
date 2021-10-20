@@ -32,11 +32,11 @@ import javax.swing.plaf.basic.ComboPopup;
  * @author israel-icm
  */
 public class UIComboBox extends BasicComboBoxUI {
-    private final String _colorBackground = StyleColorsMetro.COLOR_BACKGROUND_COMBOBOX;
-    private final String _colorBorder = StyleColorsMetro.COLOR_BORDER_COMBOBOX;
-    private final String _colorText = "#000000";
-    private final String _colorTextSelection = "#000000";
+    private String COLOR_BACKGROUND = StyleColorsMetro.COMBOBOX_COLOR_BACKGROUND;
+    private String COLOR_BORDER = StyleColorsMetro.COMBOBOX_COLOR_BORDER;
+    private String COLOR_FOREGROUND = StyleColorsMetro.COMBOBOX_COLOR_FOREGROUND;
     private final String _colorIconButton = "#838383";
+    
     public static final String BUTTON_NAME = "ButtonComboboxMetroUI";
     
     private static final int STATE_DEFAULT = 1;
@@ -51,10 +51,19 @@ public class UIComboBox extends BasicComboBoxUI {
     @Override
     public void paint(Graphics g, JComponent c) {
         super.paint(g, c);
+        installColors();
         installEvents();
         installBackground();
         installBorder();
         installSize();
+    }
+    
+    private void installColors() {
+        if (MetroUIConfigTheme.isDarkMode()) {
+            COLOR_BACKGROUND = StyleColorsMetro.COMBOBOX_COLOR_BACKGROUND_DARK;
+            COLOR_FOREGROUND = StyleColorsMetro.COMBOBOX_COLOR_FOREGROUND_DARK;
+            COLOR_BORDER = StyleColorsMetro.COMBOBOX_COLOR_BORDER_DARK;
+        }
     }
     
     private void installSize() {
@@ -64,15 +73,15 @@ public class UIComboBox extends BasicComboBoxUI {
     }
     
     private void installBackground() {
-        comboBox.setBackground(Color.decode(_colorBackground));
-        comboBox.setForeground(Color.decode(_colorText));
+        comboBox.setBackground(Color.decode(COLOR_BACKGROUND));
+        comboBox.setForeground(Color.decode(COLOR_FOREGROUND));
     }
     
     private void installBorder() {
         if (currentStateTextField == STATE_DEFAULT)
-            comboBox.setBorder(new LineBorder(Color.decode(_colorBorder), 2));
+            comboBox.setBorder(new LineBorder(Color.decode(COLOR_BORDER), 2));
         else
-            comboBox.setBorder(new LineBorder(Color.decode(UITools.bajarBrillo(_colorBorder)), 2));
+            comboBox.setBorder(new LineBorder(Color.decode(UITools.bajarBrillo(COLOR_BORDER)), 2));
     }
     
     private void installEvents() {
@@ -107,11 +116,11 @@ public class UIComboBox extends BasicComboBoxUI {
         button.setName(BUTTON_NAME); // Se le asigna un nombre para aplicar la propiedad empty del botón
         MetroUIComponent.setButtonEmpty(button.getName());
         button.setText("");
-        button.setBorder(BorderFactory.createLineBorder(Color.decode(_colorBackground), 0));
+        button.setBorder(BorderFactory.createLineBorder(Color.decode(COLOR_BACKGROUND), 0));
         button.setContentAreaFilled(false);
         button.setIcon(createCbxImage(20, 20));
         button.setFocusable(false);
-        button.setBackground(Color.decode(_colorBackground));
+        button.setBackground(Color.decode(COLOR_BACKGROUND));
         return button;
     }
 
@@ -194,7 +203,8 @@ public class UIComboBox extends BasicComboBoxUI {
             }
         };
 
-        popupCombobox.setBorder(new MetroUIBorderShadow(Color.decode("#D8D8D8"), 10));
+        if (!MetroUIConfigTheme.isDarkMode())
+            popupCombobox.setBorder(new MetroUIBorderShadow(Color.decode("#D8D8D8"), 10));
         popupCombobox.getAccessibleContext().setAccessibleParent(comboBox);
         
         return popupCombobox;
@@ -203,7 +213,7 @@ public class UIComboBox extends BasicComboBoxUI {
     @Override
     public void paintCurrentValueBackground(Graphics g, Rectangle bounds, boolean hasFocus){
         // Establecemos los estilos para el item seleccionado con el combobox cerrado (La primera vez)
-        g.setColor(Color.decode(_colorBackground));
+        g.setColor(Color.decode(COLOR_BACKGROUND));
         g.fillRect(bounds.x, bounds.y, bounds.width, bounds.height);
     }
     
@@ -214,20 +224,20 @@ public class UIComboBox extends BasicComboBoxUI {
             public Component getListCellRendererComponent(JList list, Object value,int index, boolean isSelected, boolean cellHasFocus) {
                 super.getListCellRendererComponent(list, value, index, isSelected, cellHasFocus);
 
-                list.setSelectionBackground(Color.decode(_colorBackground)); // Este color es del item seleccionado después de la primera apertura
-                list.setSelectionForeground(Color.decode(_colorText));
+                list.setSelectionBackground(Color.decode(COLOR_BACKGROUND)); // Este color es del item seleccionado después de la primera apertura
+                list.setSelectionForeground(Color.decode(COLOR_FOREGROUND));
 
                 if (comboBox.getSelectedIndex() == index) { // Si el item esta seleccionado
                     setBackground(MetroUIConfigTheme.getThirdColor());
-                    setForeground(Color.decode(_colorTextSelection));
+                    setForeground(Color.decode(COLOR_FOREGROUND));
                 }
                 else if (isSelected && comboBox.getSelectedIndex() != index) { // Si el item no esta seleccionado pero el cursor esta encima
                     setBackground(Color.decode("#CCCCCC"));
-                    setForeground(Color.decode(_colorTextSelection));
+                    setForeground(Color.decode(COLOR_FOREGROUND));
                 }
                 if (isSelected && comboBox.getSelectedIndex() == index) { // Si el item esta seleccionado y el cursor esta encima
                     setBackground(MetroUIConfigTheme.getFourthColor());
-                    setForeground(Color.decode(_colorTextSelection));
+                    setForeground(Color.decode(COLOR_FOREGROUND));
                 }
                 else if (!isSelected && comboBox.getSelectedIndex() != index) { // Si el item no esta seleccionado
                     setBackground(Color.decode("#F3F3F3"));

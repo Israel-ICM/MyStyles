@@ -76,17 +76,50 @@ public class UIButton extends BasicButtonUI {
                 break;
         }
     }
+    /**
+     * Estilos para los botones del componente Spinner
+     */
+    private void installButtonStylesSpinner() {
+        switch (currentStateButton) {
+            case STATE_DEFAULT:
+                g2d.setColor(Color.decode("#FFFFFF"));
+                g2d.fillRect(0, 0, width, height);
+
+                g2d.setStroke(new BasicStroke(2));
+                g2d.setColor(Color.decode("#CCCCCC"));
+                g2d.drawRect(1, 1, width - 2, height - 2);
+                break;
+            case STATE_OVER:
+                g2d.setStroke(new BasicStroke(2));
+                g2d.setColor(Color.decode("#7C7D7D"));
+                g2d.drawRect(1, 1, width - 2, height - 2);
+                break;
+            case STATE_PRESSED:
+                g2d.setColor(Color.decode("#D3D4D3"));
+                g2d.fillRect(0, 0, width, height);
+
+                g2d.setStroke(new BasicStroke(2));
+                g2d.setColor(Color.decode("#D3D4D3"));
+                g2d.drawRect(1, 1, width - 2, height - 2);
+                break;
+        }
+    }
     private void installProperties() {
         // ButtonEmpty
         if (MetroUIComponent.getPropertyButtonEmpty(button.getName())) {
             button.setBackground(null);
             button.setBorder(null);
         }
+        // ButtonLink
         else if (MetroUIComponent.getPropertyButtonLink(button.getName())) {
             button.setBackground(null);
             button.setBorder(null);
-            
         }
+        // Estilo personalizado para los botones del componente Spinner
+        else if (button.getName() != null && (button.getName().equals(UISpinner.BUTTON_NAME_PREVIOUS) || button.getName().equals(UISpinner.BUTTON_NAME_NEXT))) {
+            installButtonStylesSpinner();
+        }
+        // ButtonNormal
         else
             installButtonStyles();
         

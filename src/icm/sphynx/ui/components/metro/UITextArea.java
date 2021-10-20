@@ -2,6 +2,7 @@ package icm.sphynx.ui.components.metro;
 
 import icm.sphynx.ui.tools.StyleColorsMetro;
 import java.awt.AlphaComposite;
+import java.awt.BasicStroke;
 import java.awt.Color;
 import java.awt.Font;
 import java.awt.Graphics;
@@ -50,7 +51,7 @@ public class UITextArea extends BasicTextAreaUI {
 
         installBackground(g2d);
         installFont();
-        installBorder();
+        installBorder(g2d);
         installProperties(g2d);
         installEvents();
         // textField.setBorder(BorderFactory.createCompoundBorder(textField.getBorder(), BorderFactory.createEmptyBorder(UITools.PADDING_CONTENTS, UITools.PADDING_CONTENTS, UITools.PADDING_CONTENTS, UITools.PADDING_CONTENTS)));
@@ -137,7 +138,11 @@ public class UITextArea extends BasicTextAreaUI {
         g2d.fillRect(0, 0, super.getComponent().getWidth(), super.getComponent().getHeight());
     }
     
-    private void installBorder() {
+    private void installBorder(Graphics2D g2d) {
+        /*textArea.setBorder(null);
+        g2d.setColor(Color.red);
+        g2d.setStroke(new BasicStroke(3));
+        g2d.drawRect(1, 1, textArea.getWidth(), textArea.getHeight() - 3);*/
         switch (currentStateTextArea) {
             case STATE_DEFAULT:
                 textArea.setBorder(new LineBorder(Color.decode(_colorBorder), 2));

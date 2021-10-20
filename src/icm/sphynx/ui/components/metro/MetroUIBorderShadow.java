@@ -9,7 +9,6 @@ import java.awt.Graphics2D;
 import java.awt.Insets;
 import java.awt.RenderingHints;
 import javax.swing.border.LineBorder;
-import javax.swing.border.MatteBorder;
 
 /**
  *
