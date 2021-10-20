@@ -203,7 +203,7 @@ public class UIComboBox extends BasicComboBoxUI {
             }
         };
 
-        if (!MetroUIConfigTheme.isDarkMode())
+        if (!MetroUIConfigTheme.isDarkMode() && !UITools.isMacOS())
             popupCombobox.setBorder(new MetroUIBorderShadow(Color.decode("#D8D8D8"), 10));
         popupCombobox.getAccessibleContext().setAccessibleParent(comboBox);
         
