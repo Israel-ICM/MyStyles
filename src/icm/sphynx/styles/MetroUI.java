@@ -1,50 +1,40 @@
 package icm.sphynx.styles;
 
-import icm.sphynx.ui.components.metro.MetroUIConfigTheme;
-import icm.sphynx.ui.components.metro.UIButton;
-import icm.sphynx.ui.components.metro.UICheckBox;
-import icm.sphynx.ui.components.metro.UIComboBox;
-import icm.sphynx.ui.components.metro.UIFormattedTextField;
-import icm.sphynx.ui.components.metro.UISpinner;
-import icm.sphynx.ui.components.metro.UILabel;
-import icm.sphynx.ui.components.metro.UIList;
-import icm.sphynx.ui.components.metro.UIMenu;
-import icm.sphynx.ui.components.metro.UIMenuBar;
-import icm.sphynx.ui.components.metro.UIMenuItem;
-import icm.sphynx.ui.components.metro.UIOptionPane;
-import icm.sphynx.ui.components.metro.UIPanel;
-import icm.sphynx.ui.components.metro.UIPasswordField;
-import icm.sphynx.ui.components.metro.UIProgressBar;
-import icm.sphynx.ui.components.metro.UIRadioButton;
-import icm.sphynx.ui.components.metro.UIScrollBar;
-import icm.sphynx.ui.components.metro.UISlider;
-import icm.sphynx.ui.components.metro.UISplitPane;
-import icm.sphynx.ui.components.metro.UITabbedPane;
-import icm.sphynx.ui.components.metro.UITable;
-import icm.sphynx.ui.components.metro.UITableHeader;
-import icm.sphynx.ui.components.metro.UITextArea;
-import icm.sphynx.ui.components.metro.UITextField;
-import icm.sphynx.ui.components.metro.UIToggleButton;
-import icm.sphynx.ui.components.metro.UITools;
-import icm.sphynx.ui.tools.IconsMetroUI;
-import icm.sphynx.ui.tools.StyleColorsMetro;
-import icm.sphynx.ui.tools.ThemeMetroUI;
+import icm.sphynx.ui.metro.tools.MetroUIConfigTheme;
+import icm.sphynx.ui.metro.manager.UIButton;
+import icm.sphynx.ui.metro.manager.UICheckBox;
+import icm.sphynx.ui.metro.manager.UIComboBox;
+import icm.sphynx.ui.metro.manager.UIFormattedTextField;
+import icm.sphynx.ui.metro.manager.UISpinner;
+import icm.sphynx.ui.metro.manager.UILabel;
+import icm.sphynx.ui.metro.manager.UIList;
+import icm.sphynx.ui.metro.manager.UIMenu;
+import icm.sphynx.ui.metro.manager.UIMenuBar;
+import icm.sphynx.ui.metro.manager.UIMenuItem;
+import icm.sphynx.ui.metro.manager.UIOptionPane;
+import icm.sphynx.ui.metro.manager.UIPanel;
+import icm.sphynx.ui.metro.manager.UIPasswordField;
+import icm.sphynx.ui.metro.manager.UIProgressBar;
+import icm.sphynx.ui.metro.manager.UIRadioButton;
+import icm.sphynx.ui.metro.manager.UIScrollBar;
+import icm.sphynx.ui.metro.manager.UISlider;
+import icm.sphynx.ui.metro.manager.UISplitPane;
+import icm.sphynx.ui.metro.manager.UITabbedPane;
+import icm.sphynx.ui.metro.manager.UITable;
+import icm.sphynx.ui.metro.manager.UITableHeader;
+import icm.sphynx.ui.metro.manager.UITextArea;
+import icm.sphynx.ui.metro.manager.UITextField;
+import icm.sphynx.ui.metro.manager.UIToggleButton;
+import icm.sphynx.ui.metro.manager.UITools;
+import icm.sphynx.ui.metro.tools.IconsMetroUI;
+import icm.sphynx.ui.metro.tools.StyleColorsMetro;
 import java.awt.Color;
-import java.awt.Component;
-import java.awt.Dimension;
 import java.awt.Font;
-import java.awt.Graphics;
-import java.awt.Graphics2D;
-import java.awt.Insets;
-import javafx.scene.layout.Border;
 import javax.swing.BorderFactory;
-import javax.swing.Icon;
-import javax.swing.Painter;
 import javax.swing.UIManager;
 import javax.swing.border.CompoundBorder;
 import javax.swing.border.LineBorder;
 import javax.swing.border.MatteBorder;
-import javax.swing.plaf.metal.MetalLookAndFeel;
 
 /**
  * @author israel-icm
@@ -64,22 +54,18 @@ public class MetroUI {
 
         installComponents();
 
-        UIManager.put("MenuBar.background", Color.decode(StyleColorsMetro.LIGHT_BACKGROUND_PANEL));
+        UIManager.put("MenuBar.background", Color.decode(StyleColorsMetro.PANEL_BACKGROUND));
         UIManager.put("MenuBar.border", null);
 
         // UIManager.put("Menu.background", Color.decode(StyleColors.LIGHT_BACKGROUND_PANEL));
-        UIManager.put("Menu.foreground", Color.decode(StyleColorsMetro.LIGHT_FOREGROUND));
+        UIManager.put("Menu.foreground", Color.decode(StyleColorsMetro.PANEL_FOREGROUND));
         UIManager.put("Menu.font", new Font(UITools.FONT_DEFAULT, Font.BOLD, 13));
 
-        UIManager.put("MenuItem.background", Color.decode(StyleColorsMetro.LIGHT_BACKGROUND_PANEL));
-        UIManager.put("MenuItem.foreground", Color.decode(StyleColorsMetro.LIGHT_FOREGROUND));
+        UIManager.put("MenuItem.background", Color.decode(StyleColorsMetro.PANEL_BACKGROUND));
+        UIManager.put("MenuItem.foreground", Color.decode(StyleColorsMetro.PANEL_FOREGROUND));
 
-        // LineBorder border = new LineBorder(Color.decode(UITools.COLOR_BORDER_DEFAULT), 2);
-        // UIManager.put("ComboBox.selectionBackground", MetroUIConfigTheme.getPrimaryColor());
         UIManager.put("ComboBox.selectionForeground", Color.WHITE);
         UIManager.put("ComboBox.font", new Font(UITools.FONT_DEFAULT, Font.PLAIN, 12));
-        // UIManager.put("ComboBox.border", border);
-        // UIManager.put("ComboBox.buttonHighlight", MetroUIConfigTheme.getPrimaryColor());
 
         UIManager.put("Table.focusCellHighlightBorder", BorderFactory.createMatteBorder(2, 2, 2, 2, Color.WHITE));
 
@@ -114,15 +100,15 @@ public class MetroUI {
 
         installComponents();
 
-        UIManager.put("MenuBar.background", Color.decode(StyleColorsMetro.LIGHT_BACKGROUND_PANEL));
+        UIManager.put("MenuBar.background", Color.decode(StyleColorsMetro.PANEL_BACKGROUND));
         UIManager.put("MenuBar.border", null);
 
         // UIManager.put("Menu.background", Color.decode(StyleColors.LIGHT_BACKGROUND_PANEL));
-        UIManager.put("Menu.foreground", Color.decode(StyleColorsMetro.LIGHT_FOREGROUND));
+        UIManager.put("Menu.foreground", Color.decode(StyleColorsMetro.PANEL_FOREGROUND));
         UIManager.put("Menu.font", new Font(UITools.FONT_DEFAULT, Font.BOLD, 13));
 
-        UIManager.put("MenuItem.background", Color.decode(StyleColorsMetro.LIGHT_BACKGROUND_PANEL));
-        UIManager.put("MenuItem.foreground", Color.decode(StyleColorsMetro.LIGHT_FOREGROUND));
+        UIManager.put("MenuItem.background", Color.decode(StyleColorsMetro.PANEL_BACKGROUND));
+        UIManager.put("MenuItem.foreground", Color.decode(StyleColorsMetro.PANEL_FOREGROUND));
 
         LineBorder border = new LineBorder(Color.decode(UITools.COLOR_BORDER_DEFAULT), 2);
         // UIManager.put("ComboBox.selectionBackground", MetroUIConfigTheme.getPrimaryColor());

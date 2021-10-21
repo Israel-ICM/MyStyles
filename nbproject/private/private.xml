@@ -3,9 +3,15 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/Users/israel-icm/NetBeansProjects/MyStyles/src/icm/sphynx/styles/MetroUI.java</file>
-            <file>file:/Users/israel-icm/NetBeansProjects/MyStyles/src/icm/sphynx/ui/components/metro/UITools.java</file>
-            <file>file:/Users/israel-icm/NetBeansProjects/MyStyles/src/icm/sphynx/ui/components/metro/UIComboBox.java</file>
+            <file>file:/C:/Users/josue2/Documents/NetBeansProjects/MyStyles/src/icm/sphynx/ui/metro/manager/UIList.java</file>
+            <file>file:/C:/Users/josue2/Documents/NetBeansProjects/MyStyles/src/icm/sphynx/ui/metro/tools/MetroUIComponent.java</file>
+            <file>file:/C:/Users/josue2/Documents/NetBeansProjects/MyStyles/src/icm/sphynx/ui/metro/manager/UITextArea.java</file>
+            <file>file:/C:/Users/josue2/Documents/NetBeansProjects/MyStyles/src/icm/sphynx/ui/metro/manager/UIFormattedTextField.java</file>
+            <file>file:/C:/Users/josue2/Documents/NetBeansProjects/MyStyles/src/icm/sphynx/ui/metro/manager/UIPasswordField.java</file>
+            <file>file:/C:/Users/josue2/Documents/NetBeansProjects/MyStyles/src/icm/sphynx/ui/metro/manager/UITextField.java</file>
+            <file>file:/C:/Users/josue2/Documents/NetBeansProjects/MyStyles/src/icm/sphynx/ui/metro/tools/IconsMetroUI.java</file>
+            <file>file:/C:/Users/josue2/Documents/NetBeansProjects/MyStyles/src/icm/sphynx/styles/MetroUI.java</file>
+            <file>file:/C:/Users/josue2/Documents/NetBeansProjects/MyStyles/src/icm/sphynx/ui/metro/tools/StyleColorsMetro.java</file>
         </group>
     </open-files>
 </project-private>
