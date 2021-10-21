@@ -130,8 +130,13 @@ public class UIComboBox extends BasicComboBoxUI {
         BasicComboPopup popupCombobox = new BasicComboPopup(comboBox) {
             @Override
             protected Rectangle computePopupBounds(int x, int y, int width, int height) {
-                // Aquí subimos un poco la posición en "y" del popup del combobox
-                return super.computePopupBounds(x - borde, y - (comboBox.getHeight() + borde) - 4, width + (borde * 2), height + (borde));
+                if (UITools.isMacOS()) {
+                    return super.computePopupBounds(x, y - comboBox.getHeight(), width, height);
+                }
+                else {
+                    // Aquí subimos un poco la posición en "y" del popup del combobox
+                    return super.computePopupBounds(x - borde, y - (comboBox.getHeight() + borde) - 4, width + (borde * 2), height + (borde));
+                }
             }
 
             @Override
@@ -148,27 +153,31 @@ public class UIComboBox extends BasicComboBoxUI {
             @Override
             public void show() {
                 JComponent a = this;
-                
-                new Thread() {
-                    @Override
-                    public void run() {
-                        // Animación de apertura
-                        float crecer = getPopupHeightForRowCount(comboBox.getMaximumRowCount()) + 30;
-                        int height = 0;
-                        int velocidad = 7;
-                        for (int i = 0; i < velocidad; i++) {
-                            hide();
-                            executePopupCombobox(a, height);
+                if (UITools.isMacOS()) {
+                    super.show();
+                }
+                else {
+                    new Thread() {
+                        @Override
+                        public void run() {
+                            // Animación de apertura
+                            float crecer = getPopupHeightForRowCount(comboBox.getMaximumRowCount()) + 30;
+                            int height = 0;
+                            int velocidad = 7;
+                            for (int i = 0; i < velocidad; i++) {
+                                hide();
+                                executePopupCombobox(a, height);
 
-                            try {
-                                Thread.sleep(10);
-                            } catch (InterruptedException ex) { }
-                            height += Math.ceil(crecer / velocidad); // El ceil redondea al inmediato superior
-                            if (i == (velocidad - 2)) // Esto es para que la ultima iteración siempre el height tenga el tamaño total
-                                height = (int)crecer;
+                                try {
+                                    Thread.sleep(10);
+                                } catch (InterruptedException ex) { }
+                                height += Math.ceil(crecer / velocidad); // El ceil redondea al inmediato superior
+                                if (i == (velocidad - 2)) // Esto es para que la ultima iteración siempre el height tenga el tamaño total
+                                    height = (int)crecer;
+                            }
                         }
-                    }
-                }.start();
+                    }.start();
+                }
             }
             public void executePopupCombobox(JComponent c, int height) {
                 c.setPreferredSize(new Dimension(comboBox.getWidth() + 20, height));

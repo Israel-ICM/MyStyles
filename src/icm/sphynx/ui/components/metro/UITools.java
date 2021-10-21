@@ -22,6 +22,10 @@ public class UITools {
     
     public static final String PATH_IMAGE = "/sphynx/ui/components/img/";
     
+    public static boolean isMacOS() {
+        return  System.getProperty("os.name").contains("Mac");
+    }
+    
     public static String aclararColor(String colorHex) {
         return aclararColor(colorHex, 1);
     }
