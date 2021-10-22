@@ -1,7 +1,7 @@
 package icm.sphynx.ui.metro.manager;
 
 import icm.sphynx.ui.metro.tools.MetroUIConfigTheme;
-import icm.sphynx.ui.metro.tools.StyleColorsMetro;
+import icm.sphynx.ui.metro.tools.MetroUIStyleColors;
 import java.awt.Color;
 import javax.swing.JComponent;
 import javax.swing.JPanel;
@@ -14,7 +14,7 @@ import javax.swing.plaf.basic.BasicPanelUI;
  * @author israel-icm
  */
 public class UIPanel extends BasicPanelUI {
-    private String COLOR_BACKGROUND = StyleColorsMetro.PANEL_BACKGROUND;
+    private String COLOR_BACKGROUND = MetroUIStyleColors.PANEL_BACKGROUND;
     
     JPanel panel;
     public static ComponentUI createUI(JComponent c) {
@@ -39,7 +39,7 @@ public class UIPanel extends BasicPanelUI {
     }
     private void installColors() {
         if (MetroUIConfigTheme.isDarkMode()) {
-            COLOR_BACKGROUND = StyleColorsMetro.PANEL_BACKGROUND_DARK;
+            COLOR_BACKGROUND = MetroUIStyleColors.PANEL_BACKGROUND_DARK;
         }
     }
 }

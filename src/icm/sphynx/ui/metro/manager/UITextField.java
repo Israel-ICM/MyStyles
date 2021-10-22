@@ -2,7 +2,7 @@ package icm.sphynx.ui.metro.manager;
 
 import icm.sphynx.ui.metro.tools.MetroUIConfigTheme;
 import icm.sphynx.ui.metro.tools.MetroUIComponent;
-import icm.sphynx.ui.metro.tools.StyleColorsMetro;
+import icm.sphynx.ui.metro.tools.MetroUIStyleColors;
 import java.awt.AlphaComposite;
 import java.awt.BasicStroke;
 import java.awt.Color;
@@ -33,12 +33,12 @@ import javax.swing.plaf.basic.BasicTextFieldUI;
  * @author israel-icm
  */
 public class UITextField extends BasicTextFieldUI  {
-    private String COLOR_BACKGROUND = StyleColorsMetro.TEXT_FIELD_BACKGROUND;
-    private String COLOR_BORDER = StyleColorsMetro.TEXT_FIELD_BORDER;
-    private String COLOR_BUTTON_ICON = StyleColorsMetro.TEXT_FIELD_BUTTON_ICON;
-    private String COLOR_FOREGROUND = StyleColorsMetro.TEXT_FIELD_FOREGROUND;
-    private String COLOR_PLACEHOLDER = StyleColorsMetro.TEXT_FIELD_PLACEHOLDER;
-    private String COLOR_CARET = StyleColorsMetro.TEXT_FIELD_CARET;
+    private String COLOR_BACKGROUND = MetroUIStyleColors.TEXT_FIELD_BACKGROUND;
+    private String COLOR_BORDER = MetroUIStyleColors.TEXT_FIELD_BORDER;
+    private String COLOR_BUTTON_ICON = MetroUIStyleColors.TEXT_FIELD_BUTTON_ICON;
+    private String COLOR_FOREGROUND = MetroUIStyleColors.TEXT_FIELD_FOREGROUND;
+    private String COLOR_PLACEHOLDER = MetroUIStyleColors.TEXT_FIELD_PLACEHOLDER;
+    private String COLOR_CARET = MetroUIStyleColors.TEXT_FIELD_CARET;
 
     private static final int STATE_DEFAULT = 1;
     private static final int STATE_FOCUS = 2;
@@ -80,12 +80,12 @@ public class UITextField extends BasicTextFieldUI  {
     
     private void installColors() {
         if (MetroUIConfigTheme.isDarkMode()) {
-            COLOR_BACKGROUND = StyleColorsMetro.TEXT_FIELD_BACKGROUND_DARK;
-            COLOR_BORDER = StyleColorsMetro.TEXT_FIELD_BORDER_DARK;
-            COLOR_BUTTON_ICON = StyleColorsMetro.TEXT_FIELD_BUTTON_ICON_DARK;
-            COLOR_FOREGROUND = StyleColorsMetro.TEXT_FIELD_FOREGROUND_DARK;
-            COLOR_PLACEHOLDER = StyleColorsMetro.TEXT_FIELD_PLACEHOLDER_DARK;
-            COLOR_CARET = StyleColorsMetro.TEXT_FIELD_CARET_DARK;
+            COLOR_BACKGROUND = MetroUIStyleColors.TEXT_FIELD_BACKGROUND_DARK;
+            COLOR_BORDER = MetroUIStyleColors.TEXT_FIELD_BORDER_DARK;
+            COLOR_BUTTON_ICON = MetroUIStyleColors.TEXT_FIELD_BUTTON_ICON_DARK;
+            COLOR_FOREGROUND = MetroUIStyleColors.TEXT_FIELD_FOREGROUND_DARK;
+            COLOR_PLACEHOLDER = MetroUIStyleColors.TEXT_FIELD_PLACEHOLDER_DARK;
+            COLOR_CARET = MetroUIStyleColors.TEXT_FIELD_CARET_DARK;
         }
     }
     

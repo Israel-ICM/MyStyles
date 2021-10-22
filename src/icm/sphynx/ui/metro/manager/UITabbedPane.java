@@ -1,7 +1,7 @@
 package icm.sphynx.ui.metro.manager;
 
 import icm.sphynx.ui.metro.tools.MetroUIConfigTheme;
-import icm.sphynx.ui.metro.tools.StyleColorsMetro;
+import icm.sphynx.ui.metro.tools.MetroUIStyleColors;
 import java.awt.BasicStroke;
 import java.awt.Color;
 import java.awt.Font;
@@ -16,6 +16,7 @@ import java.awt.event.MouseMotionListener;
 import javax.swing.BorderFactory;
 import javax.swing.Icon;
 import javax.swing.JComponent;
+import javax.swing.JPanel;
 import javax.swing.plaf.ComponentUI;
 import javax.swing.plaf.basic.BasicTabbedPaneUI;
 
@@ -24,10 +25,10 @@ import javax.swing.plaf.basic.BasicTabbedPaneUI;
  * @author israel-icm
  */
 public class UITabbedPane extends BasicTabbedPaneUI {
-    private String COLOR_BACKGROUND_LEFT = StyleColorsMetro.TAB_BACKGROUND;
-    private String COLOR_BACKGROUND_TAB_LEFT_OVER = StyleColorsMetro.TAB_BACKGROUND_OVER;
-    private String COLOR_BACKGROUND_TAB_LEFT_PRESSED = StyleColorsMetro.TAB_BACKGROUND_PRESSED;
-    private String COLOR_FOREGROUND_TAB_LEFT = StyleColorsMetro.TAB_FOREGROUND;
+    private String COLOR_BACKGROUND_LEFT = MetroUIStyleColors.TAB_BACKGROUND;
+    private String COLOR_BACKGROUND_TAB_LEFT_OVER = MetroUIStyleColors.TAB_BACKGROUND_OVER;
+    private String COLOR_BACKGROUND_TAB_LEFT_PRESSED = MetroUIStyleColors.TAB_BACKGROUND_PRESSED;
+    private String COLOR_FOREGROUND_TAB_LEFT = MetroUIStyleColors.TAB_FOREGROUND;
     private static final int PADDING_LEFT_ICON = 10; // Indica el ancho que se deja a la izquierda del ícono (Si existe)
 
     private static final int STATE_DEFAULT = 0;
@@ -61,7 +62,7 @@ public class UITabbedPane extends BasicTabbedPaneUI {
                 break;
             case LEFT:
                 if (MetroUIConfigTheme.isDarkMode())
-                    COLOR_BACKGROUND_LEFT = StyleColorsMetro.TAB_BACKGROUND_DARK;
+                    COLOR_BACKGROUND_LEFT = MetroUIStyleColors.TAB_BACKGROUND_DARK;
                 g2d.setColor(Color.decode(COLOR_BACKGROUND_LEFT));
                     
                 g2d.fillRect(0, 0, calculateMaxTabWidth(LEFT) + 5, tabPane.getHeight());
@@ -134,9 +135,9 @@ public class UITabbedPane extends BasicTabbedPaneUI {
         switch (tabPlacement) {
             case TOP:
                 if (isSelected) {
-                    g2d.setColor(Color.decode(StyleColorsMetro.PANEL_BACKGROUND));
+                    g2d.setColor(Color.decode(MetroUIStyleColors.PANEL_BACKGROUND));
                     if (MetroUIConfigTheme.isDarkMode())
-                        g2d.setColor(Color.decode(StyleColorsMetro.PANEL_BACKGROUND_DARK));
+                        g2d.setColor(Color.decode(MetroUIStyleColors.PANEL_BACKGROUND_DARK));
                     g2d.fillRoundRect(x, y, w, h + 5, 8, 8);
                     // g2d.fillRect(x, y, w, h + 3);
                 }
@@ -149,8 +150,8 @@ public class UITabbedPane extends BasicTabbedPaneUI {
                 break;
             case LEFT:
                 if (MetroUIConfigTheme.isDarkMode()) {
-                    COLOR_BACKGROUND_TAB_LEFT_OVER = StyleColorsMetro.TAB_BACKGROUND_OVER_DARK;
-                    COLOR_BACKGROUND_TAB_LEFT_PRESSED = StyleColorsMetro.TAB_BACKGROUND_PRESSED_DARK;
+                    COLOR_BACKGROUND_TAB_LEFT_OVER = MetroUIStyleColors.TAB_BACKGROUND_OVER_DARK;
+                    COLOR_BACKGROUND_TAB_LEFT_PRESSED = MetroUIStyleColors.TAB_BACKGROUND_PRESSED_DARK;
                 }
                 // Si el mouse se encuentra sobre alguna pestaña (Mouse Over)
                 if (positionMouse[0] >= x && positionMouse[0] <= (x + w) && positionMouse[1] >= y && positionMouse[1] <= (y + h)) {
@@ -239,9 +240,9 @@ public class UITabbedPane extends BasicTabbedPaneUI {
                     if (tabIndex > 0) {
                         BasicStroke stroke = new BasicStroke(1);
                         g2d.setStroke(stroke);
-                        g2d.setColor(Color.decode(StyleColorsMetro.PANEL_BACKGROUND));
+                        g2d.setColor(Color.decode(MetroUIStyleColors.PANEL_BACKGROUND));
                         if (MetroUIConfigTheme.isDarkMode())
-                            g2d.setColor(Color.decode(StyleColorsMetro.PANEL_BACKGROUND_DARK));
+                            g2d.setColor(Color.decode(MetroUIStyleColors.PANEL_BACKGROUND_DARK));
                         g2d.drawLine(x, y + 5, x, y + 28);
                     }
                 }
@@ -274,7 +275,7 @@ public class UITabbedPane extends BasicTabbedPaneUI {
                     g2d.setFont(new Font(UITools.FONT_DEFAULT, Font.PLAIN, 14));
                     g2d.setColor(MetroUIConfigTheme.getPrimaryColor());
                     if (MetroUIConfigTheme.isDarkMode())
-                        g2d.setColor(Color.decode(StyleColorsMetro.PANEL_FOREGROUND_DARK));
+                        g2d.setColor(Color.decode(MetroUIStyleColors.PANEL_FOREGROUND_DARK));
                     g2d.drawString(title, textRect.x - 5, textRect.y + font.getSize() + 3);
                 }
                 else {
@@ -288,13 +289,12 @@ public class UITabbedPane extends BasicTabbedPaneUI {
                 break;
             case LEFT:
                 if (MetroUIConfigTheme.isDarkMode()) {
-                    COLOR_FOREGROUND_TAB_LEFT = StyleColorsMetro.TAB_FOREGROUND_DARK;
+                    COLOR_FOREGROUND_TAB_LEFT = MetroUIStyleColors.TAB_FOREGROUND_DARK;
                 }
                 
-                int xPositionText = 0;
-                if (tabPane.getIconAt(tabIndex) != null) {
+                int xPositionText = 10;
+                if (tabPane.getIconAt(tabIndex) != null)
                     xPositionText = tabPane.getIconAt(tabIndex).getIconWidth() + PADDING_LEFT_ICON + 10;
-                }
                 
                 g2d.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);
                 // g2d.setFont(new Font(UITools.FONT_DEFAULT, font.getStyle(), font.getSize()));

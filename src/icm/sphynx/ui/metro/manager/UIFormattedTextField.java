@@ -1,7 +1,7 @@
 package icm.sphynx.ui.metro.manager;
 
 import icm.sphynx.ui.metro.tools.MetroUIConfigTheme;
-import icm.sphynx.ui.metro.tools.StyleColorsMetro;
+import icm.sphynx.ui.metro.tools.MetroUIStyleColors;
 import java.awt.AlphaComposite;
 import java.awt.Color;
 import java.awt.Font;
@@ -23,10 +23,10 @@ import javax.swing.plaf.basic.BasicFormattedTextFieldUI;
  * @author israel-icm
  */
 public class UIFormattedTextField extends BasicFormattedTextFieldUI {
-    private String COLOR_BACKGROUND = StyleColorsMetro.TEXT_FIELD_BACKGROUND;
-    private String COLOR_BORDER = StyleColorsMetro.TEXT_FIELD_BORDER;
-    private String COLOR_FOREGROUND = StyleColorsMetro.TEXT_FIELD_FOREGROUND;
-    private String COLOR_CARET = StyleColorsMetro.TEXT_FIELD_CARET;
+    private String COLOR_BACKGROUND = MetroUIStyleColors.TEXT_FIELD_BACKGROUND;
+    private String COLOR_BORDER = MetroUIStyleColors.TEXT_FIELD_BORDER;
+    private String COLOR_FOREGROUND = MetroUIStyleColors.TEXT_FIELD_FOREGROUND;
+    private String COLOR_CARET = MetroUIStyleColors.TEXT_FIELD_CARET;
     
     private static final int STATE_DEFAULT = 1;
     private static final int STATE_FOCUS = 2;
@@ -56,10 +56,10 @@ public class UIFormattedTextField extends BasicFormattedTextFieldUI {
     
     private void installColors() {
         if (MetroUIConfigTheme.isDarkMode()) {
-            COLOR_BACKGROUND = StyleColorsMetro.TEXT_FIELD_BACKGROUND_DARK;
-            COLOR_BORDER = StyleColorsMetro.TEXT_FIELD_BORDER_DARK;
-            COLOR_FOREGROUND = StyleColorsMetro.TEXT_FIELD_FOREGROUND_DARK;
-            COLOR_CARET = StyleColorsMetro.TEXT_FIELD_CARET_DARK;
+            COLOR_BACKGROUND = MetroUIStyleColors.TEXT_FIELD_BACKGROUND_DARK;
+            COLOR_BORDER = MetroUIStyleColors.TEXT_FIELD_BORDER_DARK;
+            COLOR_FOREGROUND = MetroUIStyleColors.TEXT_FIELD_FOREGROUND_DARK;
+            COLOR_CARET = MetroUIStyleColors.TEXT_FIELD_CARET_DARK;
         }
     }
     

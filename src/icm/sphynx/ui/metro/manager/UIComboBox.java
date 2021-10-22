@@ -3,11 +3,12 @@ package icm.sphynx.ui.metro.manager;
 import icm.sphynx.ui.metro.tools.MetroUIConfigTheme;
 import icm.sphynx.ui.metro.tools.MetroUIComponent;
 import icm.sphynx.ui.metro.components.BorderShadow;
-import icm.sphynx.ui.metro.tools.StyleColorsMetro;
+import icm.sphynx.ui.metro.tools.MetroUIStyleColors;
 import java.awt.BasicStroke;
 import java.awt.Color;
 import java.awt.Component;
 import java.awt.Dimension;
+import java.awt.Font;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
 import java.awt.Insets;
@@ -35,12 +36,12 @@ import javax.swing.plaf.basic.ComboPopup;
  * @author israel-icm
  */
 public class UIComboBox extends BasicComboBoxUI {
-    private String COLOR_BACKGROUND = StyleColorsMetro.COMBOBOX_BACKGROUND;
-    private String COLOR_BORDER = StyleColorsMetro.COMBOBOX_BORDER;
-    private String COLOR_FOREGROUND = StyleColorsMetro.COMBOBOX_FOREGROUND;
-    private String COLOR_ICON_BUTTON = StyleColorsMetro.COMBOBOX_BUTTON_ICON;
-    private String COLOR_POPUP_BACKGROUND = StyleColorsMetro.COMBOBOX_POPUP_BACKGROUND;
-    private String COLOR_POPUP_ITEM_OVER = StyleColorsMetro.COMBOBOX_POPUP_ITEM_OVER;
+    private String COLOR_BACKGROUND = MetroUIStyleColors.COMBOBOX_BACKGROUND;
+    private String COLOR_BORDER = MetroUIStyleColors.COMBOBOX_BORDER;
+    private String COLOR_FOREGROUND = MetroUIStyleColors.COMBOBOX_FOREGROUND;
+    private String COLOR_ICON_BUTTON = MetroUIStyleColors.COMBOBOX_BUTTON_ICON;
+    private String COLOR_POPUP_BACKGROUND = MetroUIStyleColors.COMBOBOX_POPUP_BACKGROUND;
+    private String COLOR_POPUP_ITEM_OVER = MetroUIStyleColors.COMBOBOX_POPUP_ITEM_OVER;
     private String COLOR_POPUP_ITEM_SELECTED = UITools.colorToHex(MetroUIConfigTheme.getThirdColor());
     private String COLOR_POPUP_ITEM_SELECTED_OVER = UITools.colorToHex(MetroUIConfigTheme.getFourthColor());
     
@@ -67,14 +68,18 @@ public class UIComboBox extends BasicComboBoxUI {
     
     private void installColors() {
         if (MetroUIConfigTheme.isDarkMode()) {
-            COLOR_BACKGROUND = StyleColorsMetro.COMBOBOX_BACKGROUND_DARK;
-            COLOR_FOREGROUND = StyleColorsMetro.COMBOBOX_FOREGROUND_DARK;
-            COLOR_BORDER = StyleColorsMetro.COMBOBOX_BORDER_DARK;
-            COLOR_ICON_BUTTON = StyleColorsMetro.COMBOBOX_BUTTON_ICON_DARK;
-            COLOR_POPUP_BACKGROUND = StyleColorsMetro.COMBOBOX_POPUP_BACKGROUND_DARK;
-            COLOR_POPUP_ITEM_OVER = StyleColorsMetro.COMBOBOX_POPUP_ITEM_OVER_DARK;
+            COLOR_BACKGROUND = MetroUIStyleColors.COMBOBOX_BACKGROUND_DARK;
+            COLOR_FOREGROUND = MetroUIStyleColors.COMBOBOX_FOREGROUND_DARK;
+            COLOR_BORDER = MetroUIStyleColors.COMBOBOX_BORDER_DARK;
+            COLOR_ICON_BUTTON = MetroUIStyleColors.COMBOBOX_BUTTON_ICON_DARK;
+            COLOR_POPUP_BACKGROUND = MetroUIStyleColors.COMBOBOX_POPUP_BACKGROUND_DARK;
+            COLOR_POPUP_ITEM_OVER = MetroUIStyleColors.COMBOBOX_POPUP_ITEM_OVER_DARK;
             COLOR_POPUP_ITEM_SELECTED = UITools.colorToHex(MetroUIConfigTheme.getSecondColor());
             COLOR_POPUP_ITEM_SELECTED_OVER = UITools.colorToHex(MetroUIConfigTheme.getPrimaryColor());
+        }
+        else {
+            COLOR_POPUP_ITEM_SELECTED = UITools.colorToHex(MetroUIConfigTheme.getThirdColor());
+            COLOR_POPUP_ITEM_SELECTED_OVER = UITools.colorToHex(MetroUIConfigTheme.getFourthColor());
         }
     }
     
@@ -168,10 +173,10 @@ public class UIComboBox extends BasicComboBoxUI {
             @Override
             public void show() {
                 JComponent a = this;
-                if (UITools.isMacOS() || MetroUIConfigTheme.isDarkMode()) {
+                //if (UITools.isMacOS() || MetroUIConfigTheme.isDarkMode()) {
                     super.show();
-                }
-                else {
+                //}
+                /*else {
                     new Thread() {
                         @Override
                         public void run() {
@@ -192,7 +197,7 @@ public class UIComboBox extends BasicComboBoxUI {
                             }
                         }
                     }.start();
-                }
+                }*/
             }
             public void executePopupCombobox(JComponent c, int height) {
                 c.setPreferredSize(new Dimension(comboBox.getWidth() + 20, height));
@@ -218,9 +223,9 @@ public class UIComboBox extends BasicComboBoxUI {
                 Dimension scrollSize = popupBounds.getSize();
                 Point popupLocation = popupBounds.getLocation();
 
-                scroller.setMaximumSize( scrollSize );
-                scroller.setPreferredSize( scrollSize );
-                scroller.setMinimumSize( scrollSize );
+                scroller.setMaximumSize(scrollSize);
+                scroller.setPreferredSize(scrollSize);
+                scroller.setMinimumSize(scrollSize);
 
                 list.revalidate();
                 return popupLocation;
@@ -267,6 +272,7 @@ public class UIComboBox extends BasicComboBoxUI {
                     setBackground(Color.decode(COLOR_POPUP_BACKGROUND));
                     setForeground(Color.BLACK);
                 }
+                setFont(new Font(UITools.FONT_DEFAULT, Font.PLAIN, 13));
                 return this;
             }
         };

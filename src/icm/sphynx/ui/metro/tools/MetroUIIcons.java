@@ -11,7 +11,7 @@ import javax.swing.ImageIcon;
 /**
  * @author israel-icm
  */
-public class IconsMetroUI {
+public class MetroUIIcons {
     public static final String PATH_ICONS = "icm/sphynx/ui/metro/icons/";
     /**
      * @param size Solo se usa una variable para el tamaño porque siempre será un icono cuadrado

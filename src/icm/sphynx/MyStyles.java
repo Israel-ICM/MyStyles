@@ -3,7 +3,7 @@ package icm.sphynx;
 import icm.sphynx.styles.MetroUI;
 import icm.sphynx.ui.metro.tools.MetroUIConfigTheme;
 import icm.sphynx.ui.metro.manager.UITools;
-import icm.sphynx.ui.metro.tools.StyleColorsMetro;
+import icm.sphynx.ui.metro.tools.MetroUIStyleColors;
 import java.awt.Color;
 
 /**
@@ -31,7 +31,7 @@ public class MyStyles {
      * @param style Estilo que se utilizará (Ej. MyStyles.METRO_UI)
      */
     public static void install(int style) {
-        install(style, StyleColorsMetro.COLOR_PRIMARY, false);
+        install(style, MetroUIStyleColors.COLOR_PRIMARY, false);
     }
     /**
      * Inicializa el estilo que se quiere utilizar

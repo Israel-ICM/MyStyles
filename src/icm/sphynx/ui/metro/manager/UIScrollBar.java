@@ -1,7 +1,7 @@
 package icm.sphynx.ui.metro.manager;
 
 import icm.sphynx.ui.metro.tools.MetroUIConfigTheme;
-import icm.sphynx.ui.metro.tools.StyleColorsMetro;
+import icm.sphynx.ui.metro.tools.MetroUIStyleColors;
 import java.awt.AlphaComposite;
 import java.awt.Color;
 import java.awt.Dimension;
@@ -23,8 +23,8 @@ import javax.swing.plaf.basic.BasicScrollBarUI;
  * @author israel-icm
  */
 public class UIScrollBar extends BasicScrollBarUI implements MouseListener {
-    private String COLOR_TRACK_BACKGROUND = StyleColorsMetro.SCROLL_TRACK_BACKGROUND;
-    private String COLOR_THUMB_BACKGROUND = StyleColorsMetro.SCROLL_THUMB_BACKGROUND;
+    private String COLOR_TRACK_BACKGROUND = MetroUIStyleColors.SCROLL_TRACK_BACKGROUND;
+    private String COLOR_THUMB_BACKGROUND = MetroUIStyleColors.SCROLL_THUMB_BACKGROUND;
     
     private Graphics2D g2dThumb;
 
@@ -123,8 +123,8 @@ public class UIScrollBar extends BasicScrollBarUI implements MouseListener {
     }
     private void installColors() {
         if (MetroUIConfigTheme.isDarkMode()) {
-            COLOR_TRACK_BACKGROUND = StyleColorsMetro.SCROLL_TRACK_BACKGROUND_DARK;
-            COLOR_THUMB_BACKGROUND = StyleColorsMetro.SCROLL_THUMB_BACKGROUND_DARK;
+            COLOR_TRACK_BACKGROUND = MetroUIStyleColors.SCROLL_TRACK_BACKGROUND_DARK;
+            COLOR_THUMB_BACKGROUND = MetroUIStyleColors.SCROLL_THUMB_BACKGROUND_DARK;
         }
     }
     /**

@@ -1,7 +1,7 @@
 package icm.sphynx.ui.metro.manager;
 
 import icm.sphynx.ui.metro.tools.MetroUIConfigTheme;
-import icm.sphynx.ui.metro.tools.StyleColorsMetro;
+import icm.sphynx.ui.metro.tools.MetroUIStyleColors;
 import java.awt.BasicStroke;
 import java.awt.Color;
 import java.awt.Graphics;
@@ -20,9 +20,9 @@ import javax.swing.plaf.basic.BasicSliderUI;
  * @author israel-icm
  */
 public class UISlider extends BasicSliderUI {
-    private String COLOR_TRACK_BACKGROUND = StyleColorsMetro.SLIDER_TRACK_BACKGROUND;
-    private String COLOR_THUMB_BACKGROUND_OVER = StyleColorsMetro.SLIDER_THUMB_BACKGROUND_OVER;
-    private String COLOR_THUMB_BACKGROUND_PRESSED = StyleColorsMetro.SLIDER_THUMB_BACKGROUND_PRESSED;
+    private String COLOR_TRACK_BACKGROUND = MetroUIStyleColors.SLIDER_TRACK_BACKGROUND;
+    private String COLOR_THUMB_BACKGROUND_OVER = MetroUIStyleColors.SLIDER_THUMB_BACKGROUND_OVER;
+    private String COLOR_THUMB_BACKGROUND_PRESSED = MetroUIStyleColors.SLIDER_THUMB_BACKGROUND_PRESSED;
     
     private static final int STATE_DEFAULT = 0;
     private static final int STATE_OVER = 1;
@@ -52,9 +52,9 @@ public class UISlider extends BasicSliderUI {
     
     private void installColors() {
         if (MetroUIConfigTheme.isDarkMode()) {
-            COLOR_TRACK_BACKGROUND = StyleColorsMetro.SLIDER_TRACK_BACKGROUND_DARK;
-            COLOR_THUMB_BACKGROUND_OVER = StyleColorsMetro.SLIDER_THUMB_BACKGROUND_OVER_DARK;
-            COLOR_THUMB_BACKGROUND_PRESSED = StyleColorsMetro.SLIDER_THUMB_BACKGROUND_PRESSED_DARK;
+            COLOR_TRACK_BACKGROUND = MetroUIStyleColors.SLIDER_TRACK_BACKGROUND_DARK;
+            COLOR_THUMB_BACKGROUND_OVER = MetroUIStyleColors.SLIDER_THUMB_BACKGROUND_OVER_DARK;
+            COLOR_THUMB_BACKGROUND_PRESSED = MetroUIStyleColors.SLIDER_THUMB_BACKGROUND_PRESSED_DARK;
         }
     }
 

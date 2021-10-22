@@ -1,7 +1,7 @@
 package icm.sphynx.ui.metro.manager;
 
 import icm.sphynx.ui.metro.tools.MetroUIConfigTheme;
-import icm.sphynx.ui.metro.tools.StyleColorsMetro;
+import icm.sphynx.ui.metro.tools.MetroUIStyleColors;
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Graphics;
@@ -14,7 +14,7 @@ import javax.swing.plaf.basic.BasicProgressBarUI;
  * @author israel-icm
  */
 public class UIProgressBar extends BasicProgressBarUI {
-    private String COLOR_BACKGROUND = StyleColorsMetro.PROGRESSBAR_BACKGROUND;
+    private String COLOR_BACKGROUND = MetroUIStyleColors.PROGRESSBAR_BACKGROUND;
 
     public static ComponentUI createUI(JComponent c) {
         return new UIProgressBar();
@@ -40,7 +40,7 @@ public class UIProgressBar extends BasicProgressBarUI {
     
     private void installColors() {
         if (MetroUIConfigTheme.isDarkMode()) {
-            COLOR_BACKGROUND = StyleColorsMetro.PROGRESSBAR_BACKGROUND_DARK;
+            COLOR_BACKGROUND = MetroUIStyleColors.PROGRESSBAR_BACKGROUND_DARK;
         }
     }
     

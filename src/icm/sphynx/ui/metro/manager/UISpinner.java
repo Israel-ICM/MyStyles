@@ -1,8 +1,8 @@
 package icm.sphynx.ui.metro.manager;
 
 import icm.sphynx.ui.metro.tools.MetroUIConfigTheme;
-import icm.sphynx.ui.metro.tools.IconsMetroUI;
-import icm.sphynx.ui.metro.tools.StyleColorsMetro;
+import icm.sphynx.ui.metro.tools.MetroUIIcons;
+import icm.sphynx.ui.metro.tools.MetroUIStyleColors;
 import java.awt.AlphaComposite;
 import java.awt.BasicStroke;
 import java.awt.Color;
@@ -30,7 +30,7 @@ public class UISpinner extends BasicSpinnerUI {
     public static final String BUTTON_NAME_PREVIOUS = "ButtonSpinnerPreviousMetroUI";
     public static final String BUTTON_NAME_NEXT = "ButtonSpinnerNextMetroUI";
     
-    public String COLOR_BUTTON_ICON = StyleColorsMetro.FORMATTED_TEXT_FIELD_BUTTON_ICON;
+    public String COLOR_BUTTON_ICON = MetroUIStyleColors.FORMATTED_TEXT_FIELD_BUTTON_ICON;
 
     public static ComponentUI createUI(JComponent c) {
         return new UISpinner();
@@ -132,7 +132,7 @@ public class UISpinner extends BasicSpinnerUI {
     
     private void installColors() {
         if (MetroUIConfigTheme.isDarkMode()) {
-            COLOR_BUTTON_ICON = StyleColorsMetro.FORMATTED_TEXT_FIELD_BUTTON_ICON_DARK;
+            COLOR_BUTTON_ICON = MetroUIStyleColors.FORMATTED_TEXT_FIELD_BUTTON_ICON_DARK;
         }
     }
 }

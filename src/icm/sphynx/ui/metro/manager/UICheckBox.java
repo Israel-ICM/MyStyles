@@ -2,7 +2,7 @@ package icm.sphynx.ui.metro.manager;
 
 import icm.sphynx.ui.metro.tools.MetroUIConfigTheme;
 import icm.sphynx.ui.metro.tools.MetroUIComponent;
-import icm.sphynx.ui.metro.tools.StyleColorsMetro;
+import icm.sphynx.ui.metro.tools.MetroUIStyleColors;
 import java.awt.BasicStroke;
 import java.awt.Color;
 import java.awt.Font;
@@ -24,16 +24,16 @@ import javax.swing.plaf.basic.BasicCheckBoxUI;
  * @author israel-icm
  */
 public class UICheckBox extends BasicCheckBoxUI {
-    private String COLOR_ICON_BACKGROUND = StyleColorsMetro.CHECKBOX_ICON_BACKGROUND;
-    private String COLOR_ICON_BORDER = StyleColorsMetro.CHECKBOX_ICON_BORDER;
-    private String COLOR_ICON_BACKGROUND_OVER = StyleColorsMetro.CHECKBOX_ICON_BACKGROUND_OVER;
-    private String COLOR_ICON_BORDER_OVER = StyleColorsMetro.CHECKBOX_ICON_BORDER_OVER;
-    private String COLOR_ICON_BACKGROUND_PRESSED = StyleColorsMetro.CHECKBOX_ICON_BACKGROUND_PRESSED;
-    private String COLOR_ICON_BORDER_PRESSED = StyleColorsMetro.CHECKBOX_ICON_BORDER_PRESSED;
-    private String COLOR_ICON_FOREGROUND = StyleColorsMetro.CHECKBOX_ICON_FOREGROUND;
-    private String COLOR_ICON_CHECK = StyleColorsMetro.CHECKBOX_ICON_CHECK;
-    private String COLOR_ICON_SWITCH_ON = StyleColorsMetro.CHECKBOX_ICON_SWITCH_ON;
-    private String COLOR_ICON_SWITCH_OFF = StyleColorsMetro.CHECKBOX_ICON_SWITCH_OFF;
+    private String COLOR_ICON_BACKGROUND = MetroUIStyleColors.CHECKBOX_ICON_BACKGROUND;
+    private String COLOR_ICON_BORDER = MetroUIStyleColors.CHECKBOX_ICON_BORDER;
+    private String COLOR_ICON_BACKGROUND_OVER = MetroUIStyleColors.CHECKBOX_ICON_BACKGROUND_OVER;
+    private String COLOR_ICON_BORDER_OVER = MetroUIStyleColors.CHECKBOX_ICON_BORDER_OVER;
+    private String COLOR_ICON_BACKGROUND_PRESSED = MetroUIStyleColors.CHECKBOX_ICON_BACKGROUND_PRESSED;
+    private String COLOR_ICON_BORDER_PRESSED = MetroUIStyleColors.CHECKBOX_ICON_BORDER_PRESSED;
+    private String COLOR_ICON_FOREGROUND = MetroUIStyleColors.CHECKBOX_ICON_FOREGROUND;
+    private String COLOR_ICON_CHECK = MetroUIStyleColors.CHECKBOX_ICON_CHECK;
+    private String COLOR_ICON_SWITCH_ON = MetroUIStyleColors.CHECKBOX_ICON_SWITCH_ON;
+    private String COLOR_ICON_SWITCH_OFF = MetroUIStyleColors.CHECKBOX_ICON_SWITCH_OFF;
     
     private boolean componenteIniciado = false;
     private JCheckBox checkbox;
@@ -69,16 +69,16 @@ public class UICheckBox extends BasicCheckBoxUI {
     }
     private void installColors() {
         if (MetroUIConfigTheme.isDarkMode()) {
-            COLOR_ICON_BACKGROUND = StyleColorsMetro.CHECKBOX_ICON_BACKGROUND_DARK;
-            COLOR_ICON_BORDER = StyleColorsMetro.CHECKBOX_ICON_BORDER_DARK;
-            COLOR_ICON_BACKGROUND_OVER = StyleColorsMetro.CHECKBOX_ICON_BACKGROUND_OVER_DARK;
-            COLOR_ICON_BORDER_OVER = StyleColorsMetro.CHECKBOX_ICON_BORDER_OVER_DARK;
-            COLOR_ICON_BACKGROUND_PRESSED = StyleColorsMetro.CHECKBOX_ICON_BACKGROUND_PRESSED_DARK;
-            COLOR_ICON_BORDER_PRESSED = StyleColorsMetro.CHECKBOX_ICON_BORDER_PRESSED_DARK;
-            COLOR_ICON_FOREGROUND = StyleColorsMetro.CHECKBOX_ICON_FOREGROUND_DARK;
-            COLOR_ICON_CHECK = StyleColorsMetro.CHECKBOX_ICON_CHECK_DARK;
-            COLOR_ICON_SWITCH_ON = StyleColorsMetro.CHECKBOX_ICON_SWITCH_ON_DARK;
-            COLOR_ICON_SWITCH_OFF = StyleColorsMetro.CHECKBOX_ICON_SWITCH_OFF_DARK;
+            COLOR_ICON_BACKGROUND = MetroUIStyleColors.CHECKBOX_ICON_BACKGROUND_DARK;
+            COLOR_ICON_BORDER = MetroUIStyleColors.CHECKBOX_ICON_BORDER_DARK;
+            COLOR_ICON_BACKGROUND_OVER = MetroUIStyleColors.CHECKBOX_ICON_BACKGROUND_OVER_DARK;
+            COLOR_ICON_BORDER_OVER = MetroUIStyleColors.CHECKBOX_ICON_BORDER_OVER_DARK;
+            COLOR_ICON_BACKGROUND_PRESSED = MetroUIStyleColors.CHECKBOX_ICON_BACKGROUND_PRESSED_DARK;
+            COLOR_ICON_BORDER_PRESSED = MetroUIStyleColors.CHECKBOX_ICON_BORDER_PRESSED_DARK;
+            COLOR_ICON_FOREGROUND = MetroUIStyleColors.CHECKBOX_ICON_FOREGROUND_DARK;
+            COLOR_ICON_CHECK = MetroUIStyleColors.CHECKBOX_ICON_CHECK_DARK;
+            COLOR_ICON_SWITCH_ON = MetroUIStyleColors.CHECKBOX_ICON_SWITCH_ON_DARK;
+            COLOR_ICON_SWITCH_OFF = MetroUIStyleColors.CHECKBOX_ICON_SWITCH_OFF_DARK;
         }
     }
     private void installBackground() {

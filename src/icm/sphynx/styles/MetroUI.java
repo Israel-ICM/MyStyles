@@ -14,6 +14,7 @@ import icm.sphynx.ui.metro.manager.UIMenuItem;
 import icm.sphynx.ui.metro.manager.UIOptionPane;
 import icm.sphynx.ui.metro.manager.UIPanel;
 import icm.sphynx.ui.metro.manager.UIPasswordField;
+import icm.sphynx.ui.metro.manager.UIPopupMenu;
 import icm.sphynx.ui.metro.manager.UIProgressBar;
 import icm.sphynx.ui.metro.manager.UIRadioButton;
 import icm.sphynx.ui.metro.manager.UIScrollBar;
@@ -25,9 +26,10 @@ import icm.sphynx.ui.metro.manager.UITableHeader;
 import icm.sphynx.ui.metro.manager.UITextArea;
 import icm.sphynx.ui.metro.manager.UITextField;
 import icm.sphynx.ui.metro.manager.UIToggleButton;
+import icm.sphynx.ui.metro.manager.UIToolTip;
 import icm.sphynx.ui.metro.manager.UITools;
-import icm.sphynx.ui.metro.tools.IconsMetroUI;
-import icm.sphynx.ui.metro.tools.StyleColorsMetro;
+import icm.sphynx.ui.metro.tools.MetroUIIcons;
+import icm.sphynx.ui.metro.tools.MetroUIStyleColors;
 import java.awt.Color;
 import java.awt.Font;
 import javax.swing.BorderFactory;
@@ -54,15 +56,16 @@ public class MetroUI {
 
         installComponents();
 
-        UIManager.put("MenuBar.background", Color.decode(StyleColorsMetro.PANEL_BACKGROUND));
+        UIManager.put("MenuBar.background", Color.decode(MetroUIStyleColors.PANEL_BACKGROUND));
         UIManager.put("MenuBar.border", null);
 
         // UIManager.put("Menu.background", Color.decode(StyleColors.LIGHT_BACKGROUND_PANEL));
-        UIManager.put("Menu.foreground", Color.decode(StyleColorsMetro.PANEL_FOREGROUND));
-        UIManager.put("Menu.font", new Font(UITools.FONT_DEFAULT, Font.BOLD, 13));
+        //UIManager.put("Menu.foreground", Color.decode(MetroUIStyleColors.PANEL_FOREGROUND));
+        // UIManager.put("Menu.font", new Font(UITools.FONT_DEFAULT, Font.BOLD, 13)); // Esto solo es un auxiliar para poder centrar el texto del menu
 
-        UIManager.put("MenuItem.background", Color.decode(StyleColorsMetro.PANEL_BACKGROUND));
-        UIManager.put("MenuItem.foreground", Color.decode(StyleColorsMetro.PANEL_FOREGROUND));
+        // UIManager.put("MenuItem.background", Color.decode(MetroUIStyleColors.PANEL_BACKGROUND));
+        // UIManager.put("MenuItem.foreground", Color.decode(MetroUIStyleColors.PANEL_FOREGROUND));
+        // UIManager.put("MenuItem.opaque", false); // Esto tiene que estar siempre para poder cambiar el background
 
         UIManager.put("ComboBox.selectionForeground", Color.WHITE);
         UIManager.put("ComboBox.font", new Font(UITools.FONT_DEFAULT, Font.PLAIN, 12));
@@ -73,17 +76,17 @@ public class MetroUI {
         CompoundBorder bordeAnchoCelda = BorderFactory.createCompoundBorder(bordeDelgadoGris, BorderFactory.createEmptyBorder(UITools.PADDING_CONTENTS, UITools.PADDING_CONTENTS, UITools.PADDING_CONTENTS, UITools.PADDING_CONTENTS));
         UIManager.put("TableHeader.cellBorder", bordeAnchoCelda);
 
-        UIManager.put("FileChooser.detailsViewIcon", IconsMetroUI.iconListDetail(18, "#000000"));
-        UIManager.put("FileChooser.homeFolderIcon", new IconsMetroUI().iconHome(18, true));
-        UIManager.put("FileChooser.newFolderIcon", new IconsMetroUI().iconNewFolder(18, true));
-        UIManager.put("FileChooser.listViewIcon", new IconsMetroUI().iconList(18, true));
-        UIManager.put("FileChooser.upFolderIcon", new IconsMetroUI().iconUpFolder(18, true));
+        UIManager.put("FileChooser.detailsViewIcon", MetroUIIcons.iconListDetail(18, "#000000"));
+        UIManager.put("FileChooser.homeFolderIcon", new MetroUIIcons().iconHome(18, true));
+        UIManager.put("FileChooser.newFolderIcon", new MetroUIIcons().iconNewFolder(18, true));
+        UIManager.put("FileChooser.listViewIcon", new MetroUIIcons().iconList(18, true));
+        UIManager.put("FileChooser.upFolderIcon", new MetroUIIcons().iconUpFolder(18, true));
 
-        UIManager.put("FileView.computerIcon", new IconsMetroUI().iconComputer(20));
-        UIManager.put("FileView.fileIcon", new IconsMetroUI().iconFile(20));
-        UIManager.put("FileView.directoryIcon", new IconsMetroUI().iconDirectory(20));
-        UIManager.put("FileView.hardDriveIcon", new IconsMetroUI().iconHardDrive(20));
-        UIManager.put("FileView.floppyDriveIcon", new IconsMetroUI().iconFloppyDrive(20));
+        UIManager.put("FileView.computerIcon", new MetroUIIcons().iconComputer(20));
+        UIManager.put("FileView.fileIcon", new MetroUIIcons().iconFile(20));
+        UIManager.put("FileView.directoryIcon", new MetroUIIcons().iconDirectory(20));
+        UIManager.put("FileView.hardDriveIcon", new MetroUIIcons().iconHardDrive(20));
+        UIManager.put("FileView.floppyDriveIcon", new MetroUIIcons().iconFloppyDrive(20));
 
         UIManager.put("ProgressBar.cycleTime", 1);
     }
@@ -100,15 +103,16 @@ public class MetroUI {
 
         installComponents();
 
-        UIManager.put("MenuBar.background", Color.decode(StyleColorsMetro.PANEL_BACKGROUND));
+        UIManager.put("MenuBar.background", Color.decode(MetroUIStyleColors.PANEL_BACKGROUND));
         UIManager.put("MenuBar.border", null);
 
         // UIManager.put("Menu.background", Color.decode(StyleColors.LIGHT_BACKGROUND_PANEL));
-        UIManager.put("Menu.foreground", Color.decode(StyleColorsMetro.PANEL_FOREGROUND));
+        UIManager.put("Menu.foreground", Color.decode(MetroUIStyleColors.PANEL_FOREGROUND));
         UIManager.put("Menu.font", new Font(UITools.FONT_DEFAULT, Font.BOLD, 13));
 
-        UIManager.put("MenuItem.background", Color.decode(StyleColorsMetro.PANEL_BACKGROUND));
-        UIManager.put("MenuItem.foreground", Color.decode(StyleColorsMetro.PANEL_FOREGROUND));
+        UIManager.put("MenuItem.background", Color.decode(MetroUIStyleColors.PANEL_BACKGROUND));
+        UIManager.put("MenuItem.foreground", Color.decode(MetroUIStyleColors.PANEL_FOREGROUND));
+        UIManager.put("MenuItem.opaque", false); // Esto tiene que estar siempre para poder cambiar el background
 
         LineBorder border = new LineBorder(Color.decode(UITools.COLOR_BORDER_DEFAULT), 2);
         // UIManager.put("ComboBox.selectionBackground", MetroUIConfigTheme.getPrimaryColor());
@@ -126,17 +130,17 @@ public class MetroUI {
         CompoundBorder bordeAnchoCelda = BorderFactory.createCompoundBorder(bordeDelgadoGris, BorderFactory.createEmptyBorder(UITools.PADDING_CONTENTS, UITools.PADDING_CONTENTS, UITools.PADDING_CONTENTS, UITools.PADDING_CONTENTS));
         UIManager.put("TableHeader.cellBorder", bordeAnchoCelda);
 
-        UIManager.put("FileChooser.detailsViewIcon", IconsMetroUI.iconListDetail(18, "#FFFFFF"));
-        UIManager.put("FileChooser.homeFolderIcon", new IconsMetroUI().iconHome(18, false));
-        UIManager.put("FileChooser.newFolderIcon", new IconsMetroUI().iconNewFolder(18, false));
-        UIManager.put("FileChooser.listViewIcon", new IconsMetroUI().iconList(18, false));
-        UIManager.put("FileChooser.upFolderIcon", new IconsMetroUI().iconUpFolder(18, false));
+        UIManager.put("FileChooser.detailsViewIcon", MetroUIIcons.iconListDetail(18, "#FFFFFF"));
+        UIManager.put("FileChooser.homeFolderIcon", new MetroUIIcons().iconHome(18, false));
+        UIManager.put("FileChooser.newFolderIcon", new MetroUIIcons().iconNewFolder(18, false));
+        UIManager.put("FileChooser.listViewIcon", new MetroUIIcons().iconList(18, false));
+        UIManager.put("FileChooser.upFolderIcon", new MetroUIIcons().iconUpFolder(18, false));
 
-        UIManager.put("FileView.computerIcon", new IconsMetroUI().iconComputer(20));
-        UIManager.put("FileView.fileIcon", new IconsMetroUI().iconFile(20));
-        UIManager.put("FileView.directoryIcon", new IconsMetroUI().iconDirectory(20));
-        UIManager.put("FileView.hardDriveIcon", new IconsMetroUI().iconHardDrive(20));
-        UIManager.put("FileView.floppyDriveIcon", new IconsMetroUI().iconFloppyDrive(20));
+        UIManager.put("FileView.computerIcon", new MetroUIIcons().iconComputer(20));
+        UIManager.put("FileView.fileIcon", new MetroUIIcons().iconFile(20));
+        UIManager.put("FileView.directoryIcon", new MetroUIIcons().iconDirectory(20));
+        UIManager.put("FileView.hardDriveIcon", new MetroUIIcons().iconHardDrive(20));
+        UIManager.put("FileView.floppyDriveIcon", new MetroUIIcons().iconFloppyDrive(20));
 
         UIManager.put("ProgressBar.cycleTime", 1);
     }
@@ -162,6 +166,7 @@ public class MetroUI {
         UIManager.put("MenuBarUI", UIMenuBar.class.getName());
         UIManager.put("MenuItemUI", UIMenuItem.class.getName());
         UIManager.put("MenuUI", UIMenu.class.getName());
+        UIManager.put("PopupMenuUI", UIPopupMenu.class.getName());
         UIManager.put("TableHeaderUI", UITableHeader.class.getName());
         UIManager.put("TableUI", UITable.class.getName());
         UIManager.put("OptionPaneUI", UIOptionPane.class.getName());
@@ -171,6 +176,7 @@ public class MetroUI {
         // UIManager.put("FileChooserUI", UIFileChooser.class.getName());
         UIManager.put("ComboBoxUI", UIComboBox.class.getName());
         UIManager.put("SplitPaneUI", UISplitPane.class.getName());
+        UIManager.put("ToolTipUI", UIToolTip.class.getName());
         
         /*try {
             UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());

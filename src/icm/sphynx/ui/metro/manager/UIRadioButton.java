@@ -1,7 +1,7 @@
 package icm.sphynx.ui.metro.manager;
 
 import icm.sphynx.ui.metro.tools.MetroUIConfigTheme;
-import icm.sphynx.ui.metro.tools.StyleColorsMetro;
+import icm.sphynx.ui.metro.tools.MetroUIStyleColors;
 import java.awt.BasicStroke;
 import java.awt.Color;
 import java.awt.Font;
@@ -22,13 +22,13 @@ import javax.swing.plaf.basic.BasicRadioButtonUI;
  * @author israel-icm
  */
 public class UIRadioButton extends BasicRadioButtonUI {
-    private String COLOR_ICON_BACKGROUND = StyleColorsMetro.RADIO_BUTTON_ICON_BACKGROUND;
-    private String COLOR_ICON_BORDER = StyleColorsMetro.RADIO_BUTTON_ICON_BORDER;
-    private String COLOR_ICON_BACKGROUND_OVER = StyleColorsMetro.RADIO_BUTTON_ICON_BACKGROUND_OVER;
-    private String COLOR_ICON_BORDER_OVER = StyleColorsMetro.RADIO_BUTTON_ICON_BORDER_OVER;
-    private String COLOR_ICON_BACKGROUND_PRESSED = StyleColorsMetro.RADIO_BUTTON_ICON_BACKGROUND_PRESSED;
-    private String COLOR_ICON_BORDER_PRESSED = StyleColorsMetro.RADIO_BUTTON_ICON_BORDER_PRESSED;
-    private String COLOR_ICON_FOREGROUND = StyleColorsMetro.RADIO_BUTTON_ICON_FOREGROUND;
+    private String COLOR_ICON_BACKGROUND = MetroUIStyleColors.RADIO_BUTTON_ICON_BACKGROUND;
+    private String COLOR_ICON_BORDER = MetroUIStyleColors.RADIO_BUTTON_ICON_BORDER;
+    private String COLOR_ICON_BACKGROUND_OVER = MetroUIStyleColors.RADIO_BUTTON_ICON_BACKGROUND_OVER;
+    private String COLOR_ICON_BORDER_OVER = MetroUIStyleColors.RADIO_BUTTON_ICON_BORDER_OVER;
+    private String COLOR_ICON_BACKGROUND_PRESSED = MetroUIStyleColors.RADIO_BUTTON_ICON_BACKGROUND_PRESSED;
+    private String COLOR_ICON_BORDER_PRESSED = MetroUIStyleColors.RADIO_BUTTON_ICON_BORDER_PRESSED;
+    private String COLOR_ICON_FOREGROUND = MetroUIStyleColors.RADIO_BUTTON_ICON_FOREGROUND;
 
     private boolean componenteIniciado = false;
     private JRadioButton radioButton;
@@ -58,13 +58,13 @@ public class UIRadioButton extends BasicRadioButtonUI {
     
     private void installColors() {
         if (MetroUIConfigTheme.isDarkMode()) {
-            COLOR_ICON_BACKGROUND = StyleColorsMetro.RADIO_BUTTON_ICON_BACKGROUND_DARK;
-            COLOR_ICON_BORDER = StyleColorsMetro.RADIO_BUTTON_ICON_BORDER_DARK;
-            COLOR_ICON_BACKGROUND_OVER = StyleColorsMetro.RADIO_BUTTON_ICON_BACKGROUND_OVER_DARK;
-            COLOR_ICON_BORDER_OVER = StyleColorsMetro.RADIO_BUTTON_ICON_BORDER_OVER_DARK;
-            COLOR_ICON_BACKGROUND_PRESSED = StyleColorsMetro.RADIO_BUTTON_ICON_BACKGROUND_PRESSED_DARK;
-            COLOR_ICON_BORDER_PRESSED = StyleColorsMetro.RADIO_BUTTON_ICON_BORDER_PRESSED_DARK;
-            COLOR_ICON_FOREGROUND = StyleColorsMetro.RADIO_BUTTON_ICON_FOREGROUND_DARK;
+            COLOR_ICON_BACKGROUND = MetroUIStyleColors.RADIO_BUTTON_ICON_BACKGROUND_DARK;
+            COLOR_ICON_BORDER = MetroUIStyleColors.RADIO_BUTTON_ICON_BORDER_DARK;
+            COLOR_ICON_BACKGROUND_OVER = MetroUIStyleColors.RADIO_BUTTON_ICON_BACKGROUND_OVER_DARK;
+            COLOR_ICON_BORDER_OVER = MetroUIStyleColors.RADIO_BUTTON_ICON_BORDER_OVER_DARK;
+            COLOR_ICON_BACKGROUND_PRESSED = MetroUIStyleColors.RADIO_BUTTON_ICON_BACKGROUND_PRESSED_DARK;
+            COLOR_ICON_BORDER_PRESSED = MetroUIStyleColors.RADIO_BUTTON_ICON_BORDER_PRESSED_DARK;
+            COLOR_ICON_FOREGROUND = MetroUIStyleColors.RADIO_BUTTON_ICON_FOREGROUND_DARK;
         }
     }
     

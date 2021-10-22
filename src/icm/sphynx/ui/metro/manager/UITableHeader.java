@@ -1,7 +1,7 @@
 package icm.sphynx.ui.metro.manager;
 
 import icm.sphynx.ui.metro.tools.MetroUIConfigTheme;
-import icm.sphynx.ui.metro.tools.StyleColorsMetro;
+import icm.sphynx.ui.metro.tools.MetroUIStyleColors;
 import java.awt.Color;
 import java.awt.Font;
 import java.awt.Graphics;
@@ -17,7 +17,7 @@ import javax.swing.plaf.basic.BasicTableHeaderUI;
  * @author israel-icm
  */
 public class UITableHeader extends BasicTableHeaderUI {
-    private String COLOR_BACKGROUND = StyleColorsMetro.TABLE_HEADER_BACKGROUND;
+    private String COLOR_BACKGROUND = MetroUIStyleColors.TABLE_HEADER_BACKGROUND;
     
     public static ComponentUI createUI(JComponent c) {
         return new UITableHeader();
@@ -44,7 +44,7 @@ public class UITableHeader extends BasicTableHeaderUI {
 
     private void installColors() {
         if (MetroUIConfigTheme.isDarkMode()) {
-            COLOR_BACKGROUND = StyleColorsMetro.TABLE_HEADER_BACKGROUND_DARK;
+            COLOR_BACKGROUND = MetroUIStyleColors.TABLE_HEADER_BACKGROUND_DARK;
         }
     }
 }

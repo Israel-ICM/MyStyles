@@ -4,7 +4,7 @@ package icm.sphynx.ui.metro.tools;
  * Colores globales para para los fondos y letras en temas claros y oscuros
  * @author israel-icm
  */
-public class StyleColorsMetro {
+public class MetroUIStyleColors {
     public static String COLOR_PRIMARY = "#698fd4";
     
     // Button
@@ -147,6 +147,15 @@ public class StyleColorsMetro {
     // List dark
     public static String LIST_BACKGROUND_DARK = "#000000";
     public static String LIST_ITEM_FOREGROUND_DARK = "#FFFFFF";
+
+    // Menu
+    public static final String MENU_BACKGROUND = "#FFFFFF";
+    public static final String MENU_FOREGROUND = "#000000";
+    public static final String MENU_ICON = "#000000";
+    // Menu
+    public static final String MENU_BACKGROUND_DARK = "#000000";
+    public static final String MENU_FOREGROUND_DARK = "#FFFFFF";
+    public static final String MENU_ICON_DARK = "#FFFFFF";
     
     // Tab
     public static final String TAB_BACKGROUND = "#E6E6E6";
@@ -165,4 +174,13 @@ public class StyleColorsMetro {
     // ScrollBar dark
     public static final String SCROLL_TRACK_BACKGROUND_DARK = "#1f1f1f";
     public static final String SCROLL_THUMB_BACKGROUND_DARK = "#CCCCCC";
+
+    // ToolTip
+    public static final String TOOLTIP_BACKGROUND = "#F2F2F2";
+    public static final String TOOLTIP_FOREGROUND = "#000000";
+    public static final String TOOLTIP_BORDER = "#CCCCCC";
+    // ToolTip dark
+    public static final String TOOLTIP_BACKGROUND_DARK = "#2B2B2B";
+    public static final String TOOLTIP_FOREGROUND_DARK = "#FFFFFF";
+    public static final String TOOLTIP_BORDER_DARK = "#212121";
 }

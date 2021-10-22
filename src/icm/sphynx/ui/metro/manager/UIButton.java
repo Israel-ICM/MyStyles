@@ -2,7 +2,7 @@ package icm.sphynx.ui.metro.manager;
 
 import icm.sphynx.ui.metro.tools.MetroUIConfigTheme;
 import icm.sphynx.ui.metro.tools.MetroUIComponent;
-import icm.sphynx.ui.metro.tools.StyleColorsMetro;
+import icm.sphynx.ui.metro.tools.MetroUIStyleColors;
 import java.awt.BasicStroke;
 import java.awt.Color;
 import java.awt.Font;
@@ -22,13 +22,13 @@ import javax.swing.plaf.basic.BasicButtonUI;
  * @author israel-icm
  */
 public class UIButton extends BasicButtonUI {
-    private String COLOR_BACKGROUND = StyleColorsMetro.BUTTON_BACKGROUND;
-    private String COLOR_BORDER = StyleColorsMetro.BUTTON_BORDER;
-    private String COLOR_BACKGROUND_OVER = StyleColorsMetro.BUTTON_BACKGROUND_OVER;
-    private String COLOR_BORDER_OVER = StyleColorsMetro.BUTTON_BORDER_OVER;
-    private String COLOR_BACKGROUND_PRESSED = StyleColorsMetro.BUTTON_BACKGROUND_PRESSED;
-    private String COLOR_BORDER_PRESSED = StyleColorsMetro.BUTTON_BORDER_PRESSED;
-    private String COLOR_FOREGROUND = StyleColorsMetro.BUTTON_FOREGROUND;
+    private String COLOR_BACKGROUND = MetroUIStyleColors.BUTTON_BACKGROUND;
+    private String COLOR_BORDER = MetroUIStyleColors.BUTTON_BORDER;
+    private String COLOR_BACKGROUND_OVER = MetroUIStyleColors.BUTTON_BACKGROUND_OVER;
+    private String COLOR_BORDER_OVER = MetroUIStyleColors.BUTTON_BORDER_OVER;
+    private String COLOR_BACKGROUND_PRESSED = MetroUIStyleColors.BUTTON_BACKGROUND_PRESSED;
+    private String COLOR_BORDER_PRESSED = MetroUIStyleColors.BUTTON_BORDER_PRESSED;
+    private String COLOR_FOREGROUND = MetroUIStyleColors.BUTTON_FOREGROUND;
 
     private Graphics2D g2d;
     private JButton button;
@@ -61,13 +61,13 @@ public class UIButton extends BasicButtonUI {
     }
     private void installColors() {
         if (MetroUIConfigTheme.isDarkMode()) {
-            COLOR_BACKGROUND = StyleColorsMetro.BUTTON_BACKGROUND_DARK;
-            COLOR_BORDER = StyleColorsMetro.BUTTON_BORDER_DARK;
-            COLOR_BACKGROUND_OVER = StyleColorsMetro.BUTTON_BACKGROUND_OVER_DARK;
-            COLOR_BORDER_OVER = StyleColorsMetro.BUTTON_BORDER_OVER_DARK;
-            COLOR_BACKGROUND_PRESSED = StyleColorsMetro.BUTTON_BACKGROUND_PRESSED_DARK;
-            COLOR_BORDER_PRESSED = StyleColorsMetro.BUTTON_BORDER_PRESSED_DARK;
-            COLOR_FOREGROUND = StyleColorsMetro.BUTTON_FOREGROUND_DARK;
+            COLOR_BACKGROUND = MetroUIStyleColors.BUTTON_BACKGROUND_DARK;
+            COLOR_BORDER = MetroUIStyleColors.BUTTON_BORDER_DARK;
+            COLOR_BACKGROUND_OVER = MetroUIStyleColors.BUTTON_BACKGROUND_OVER_DARK;
+            COLOR_BORDER_OVER = MetroUIStyleColors.BUTTON_BORDER_OVER_DARK;
+            COLOR_BACKGROUND_PRESSED = MetroUIStyleColors.BUTTON_BACKGROUND_PRESSED_DARK;
+            COLOR_BORDER_PRESSED = MetroUIStyleColors.BUTTON_BORDER_PRESSED_DARK;
+            COLOR_FOREGROUND = MetroUIStyleColors.BUTTON_FOREGROUND_DARK;
         }
     }
     private void installButtonStyles() {
@@ -102,19 +102,19 @@ public class UIButton extends BasicButtonUI {
      * Estilos para los botones del componente Spinner
      */
     private void installButtonStylesSpinner() {
-        String colorBackground = StyleColorsMetro.FORMATTED_TEXT_FIELD_BUTTON_BACKGROUND;
-        String colorBackgroundOver = StyleColorsMetro.FORMATTED_TEXT_FIELD_BUTTON_BACKGROUND_OVER;
-        String colorBackgroundPressed = StyleColorsMetro.FORMATTED_TEXT_FIELD_BUTTON_BACKGROUND_PRESSED;
-        String colorBorder = StyleColorsMetro.FORMATTED_TEXT_FIELD_BUTTON_BORDER;
-        String colorBorderOver = StyleColorsMetro.FORMATTED_TEXT_FIELD_BUTTON_BORDER_OVER;
-        String colorBorderPressed = StyleColorsMetro.FORMATTED_TEXT_FIELD_BUTTON_BORDER_PRESSED;
+        String colorBackground = MetroUIStyleColors.FORMATTED_TEXT_FIELD_BUTTON_BACKGROUND;
+        String colorBackgroundOver = MetroUIStyleColors.FORMATTED_TEXT_FIELD_BUTTON_BACKGROUND_OVER;
+        String colorBackgroundPressed = MetroUIStyleColors.FORMATTED_TEXT_FIELD_BUTTON_BACKGROUND_PRESSED;
+        String colorBorder = MetroUIStyleColors.FORMATTED_TEXT_FIELD_BUTTON_BORDER;
+        String colorBorderOver = MetroUIStyleColors.FORMATTED_TEXT_FIELD_BUTTON_BORDER_OVER;
+        String colorBorderPressed = MetroUIStyleColors.FORMATTED_TEXT_FIELD_BUTTON_BORDER_PRESSED;
         if (MetroUIConfigTheme.isDarkMode()) {
-            colorBackground = StyleColorsMetro.FORMATTED_TEXT_FIELD_BUTTON_BACKGROUND_DARK;
-            colorBackgroundOver = StyleColorsMetro.FORMATTED_TEXT_FIELD_BUTTON_BACKGROUND_OVER_DARK;
-            colorBackgroundPressed = StyleColorsMetro.FORMATTED_TEXT_FIELD_BUTTON_BACKGROUND_PRESSED_DARK;
-            colorBorder = StyleColorsMetro.FORMATTED_TEXT_FIELD_BUTTON_BORDER_DARK;
-            colorBorderOver = StyleColorsMetro.FORMATTED_TEXT_FIELD_BUTTON_BORDER_OVER_DARK;
-            colorBorderPressed = StyleColorsMetro.FORMATTED_TEXT_FIELD_BUTTON_BORDER_PRESSED_DARK;
+            colorBackground = MetroUIStyleColors.FORMATTED_TEXT_FIELD_BUTTON_BACKGROUND_DARK;
+            colorBackgroundOver = MetroUIStyleColors.FORMATTED_TEXT_FIELD_BUTTON_BACKGROUND_OVER_DARK;
+            colorBackgroundPressed = MetroUIStyleColors.FORMATTED_TEXT_FIELD_BUTTON_BACKGROUND_PRESSED_DARK;
+            colorBorder = MetroUIStyleColors.FORMATTED_TEXT_FIELD_BUTTON_BORDER_DARK;
+            colorBorderOver = MetroUIStyleColors.FORMATTED_TEXT_FIELD_BUTTON_BORDER_OVER_DARK;
+            colorBorderPressed = MetroUIStyleColors.FORMATTED_TEXT_FIELD_BUTTON_BORDER_PRESSED_DARK;
         }
         switch (currentStateButton) {
             case STATE_DEFAULT:
