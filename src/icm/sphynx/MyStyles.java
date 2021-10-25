@@ -1,15 +1,12 @@
 package icm.sphynx;
 
 import icm.sphynx.styles.MetroUI;
-import icm.sphynx.ui.metro.tools.MetroUIConfigTheme;
-import icm.sphynx.ui.metro.manager.UITools;
 import icm.sphynx.ui.metro.tools.MetroUIStyleColors;
-import java.awt.Color;
 
 /**
  * @author israel-icm
  * @date 2021-08-10
- * @version 1.0.1
+ * @version 1.1.0
  */
 public class MyStyles {
     public final static int METRO_UI = 1;

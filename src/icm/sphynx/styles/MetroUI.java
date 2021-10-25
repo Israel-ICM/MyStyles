@@ -1,5 +1,6 @@
 package icm.sphynx.styles;
 
+import icm.sphynx.ui.metro.manager.UICheckBoxMenuItem;
 import icm.sphynx.ui.metro.tools.MetroUIConfigTheme;
 import icm.sphynx.ui.metro.manager.UIButton;
 import icm.sphynx.ui.metro.manager.UICheckBox;
@@ -17,6 +18,7 @@ import icm.sphynx.ui.metro.manager.UIPasswordField;
 import icm.sphynx.ui.metro.manager.UIPopupMenu;
 import icm.sphynx.ui.metro.manager.UIProgressBar;
 import icm.sphynx.ui.metro.manager.UIRadioButton;
+import icm.sphynx.ui.metro.manager.UIRadioButtonMenuItem;
 import icm.sphynx.ui.metro.manager.UIScrollBar;
 import icm.sphynx.ui.metro.manager.UISlider;
 import icm.sphynx.ui.metro.manager.UISplitPane;
@@ -165,6 +167,8 @@ public class MetroUI {
         UIManager.put("ProgressBarUI", UIProgressBar.class.getName());
         UIManager.put("MenuBarUI", UIMenuBar.class.getName());
         UIManager.put("MenuItemUI", UIMenuItem.class.getName());
+        UIManager.put("CheckBoxMenuItemUI", UICheckBoxMenuItem.class.getName());
+        UIManager.put("RadioButtonMenuItemUI", UIRadioButtonMenuItem.class.getName());
         UIManager.put("MenuUI", UIMenu.class.getName());
         UIManager.put("PopupMenuUI", UIPopupMenu.class.getName());
         UIManager.put("TableHeaderUI", UITableHeader.class.getName());

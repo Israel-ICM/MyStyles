@@ -148,12 +148,26 @@ public class MetroUIStyleColors {
     public static String LIST_BACKGROUND_DARK = "#000000";
     public static String LIST_ITEM_FOREGROUND_DARK = "#FFFFFF";
 
+    // MenuBar
+    public static final String MENUBAR_BACKGROUND = "#FFFFFF";
+    public static final String MENUBAR_BORDER = "#ADADAD";
+    // MenuBar dark
+    public static final String MENUBAR_BACKGROUND_DARK = "#000000";
+    public static final String MENUBAR_BORDER_DARK = "#ADADAD";
+    
+    //MenuPopup
+    public static final String MENU_POPUP_BACKGROUND = "#FFFFFF";
+    public static final String MENU_POPUP_BORDER = "#CCCCCC";
+    //MenuPopup dark
+    public static final String MENU_POPUP_BACKGROUND_DARK = "#1F1F1F";
+    public static final String MENU_POPUP_BORDER_DARK = "#1F1F1F";
+    
     // Menu
     public static final String MENU_BACKGROUND = "#FFFFFF";
     public static final String MENU_FOREGROUND = "#000000";
     public static final String MENU_ICON = "#000000";
     // Menu
-    public static final String MENU_BACKGROUND_DARK = "#000000";
+    public static final String MENU_BACKGROUND_DARK = "#1F1F1F";
     public static final String MENU_FOREGROUND_DARK = "#FFFFFF";
     public static final String MENU_ICON_DARK = "#FFFFFF";
     

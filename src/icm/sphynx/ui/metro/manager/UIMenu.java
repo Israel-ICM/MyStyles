@@ -15,7 +15,6 @@ import javax.swing.BorderFactory;
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
 import javax.swing.JComponent;
-import javax.swing.JMenu;
 import javax.swing.JMenuItem;
 import javax.swing.plaf.ComponentUI;
 import javax.swing.plaf.basic.BasicMenuUI;
@@ -29,6 +28,8 @@ public class UIMenu extends BasicMenuUI {
     private String COLOR_BACKGROUND = MetroUIStyleColors.MENU_BACKGROUND;
     private String COLOR_BACKGROUND_SELECT = UITools.colorToHex(MetroUIConfigTheme.getPrimaryColor());
     private String COLOR_ICON = MetroUIStyleColors.MENU_ICON;
+    
+    private boolean componenteIniciado = false;
 
     public static ComponentUI createUI(JComponent c) {
         return new UIMenu();
@@ -56,14 +57,18 @@ public class UIMenu extends BasicMenuUI {
         Graphics2D g2d = (Graphics2D)g;
         g2d.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);
         g2d.setFont(new Font(UITools.FONT_DEFAULT, Font.PLAIN, 14));
-        g2d.drawString(text, textRect.x, textRect.y + (textRect.height / 2) + 2);
+        g2d.drawString(text, textRect.x, textRect.y + (textRect.height / 2) + 4);
     }
 
     @Override
     protected void paintMenuItem(Graphics g, JComponent c, Icon checkIcon, Icon arrowIcon, Color background, Color foreground, int defaultTextIconGap) {
-        arrowIcon = createCbxImage(20, 20);
+        arrowIcon = createMenuMoreImage(20, 20);
         // background = Color.decode(COLOR_BACKGROUND_SELECT);
         super.paintMenuItem(g, c, checkIcon, arrowIcon, background, foreground, defaultTextIconGap);
+        if (!componenteIniciado) { // Este repaint solo se ejecuta la primera vez ya que por alguna razón el color oscuro no lo carga bien en el icono generado
+            c.repaint();
+            componenteIniciado = true;
+        }
     }
 
     @Override
@@ -89,7 +94,7 @@ public class UIMenu extends BasicMenuUI {
         super.paint(g, c);
     }
     
-    private ImageIcon createCbxImage(int width, int height) {
+    private ImageIcon createMenuMoreImage(int width, int height) {
         BufferedImage image = new BufferedImage(width, height, BufferedImage.TYPE_INT_ARGB);
         Graphics2D g2d = (Graphics2D)image.getGraphics();
         g2d.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);
