@@ -71,7 +71,11 @@ Versiones disponibles:
 
 14-10-2021 | [MyStyles v1.0.1-beta](https://github.com/Israel-ICM/MyStyles/releases/download/v1.0.1-beta/MyStylesv1.0.1.jar)
 
-25-10-2021 | [MyStyles v1.1.0](https://github.com/Israel-ICM/MyStyles/releases/download/v1.0.1-beta/MyStylesv1.0.1.jar)
+25-10-2021 | [MyStyles v1.1.0](https://github.com/Israel-ICM/MyStyles/releases/download/1.1.0/MyStylesv1.1.0.jar)
+
+También puedes descargar el ejemplo funcional que se muestra en las capturas anteriores (Proyecto NetBeans)
+
+25-10-2021 | [MyStylesTest v1.1.0](https://github.com/Israel-ICM/MyStylesTest)
 
 ## Ejecutando las pruebas ⚙️
 Como verás a continuación el funcionamiento es bastante simple:
@@ -134,7 +138,10 @@ Para el manejo de esta libreria se agregó la sencilla funcionalidad de poder ca
 
 Cada propiedad inicia con el nombre de su componente, por ejemplo para un botón seria algo así **MetroUIComponent.setButton**Property(...), para el caso de un checkbox seria **MetroUIComponent.setCheckBox**Property(...), así para cada tipo de componente que tenga la posibilidad de poder cambiar de forma o funcionalidad.
 
-A continuación veremos un ejemplo de como podemos convertir un componente checkbox a un componente switch:
+A continuación veremos un ejemplo de como podemos convertir un componente checkbox a un componente **switch**:
+
+![switch](https://github.com/Israel-ICM/MyStyles/blob/master/captures/version1.1.0/switch.jpg)
+![switch dark](https://github.com/Israel-ICM/MyStyles/blob/master/captures/version1.1.0/switchDark.jpg)
 
 En el JFrame o JPanel asignamos primeramente el nombre al/los componentes que queremos aplicar la propiedad:
 
@@ -151,7 +158,7 @@ Una vez agregados los nombres al/los componentes aplicamos la propiedad **Checkb
 MetroUIComponent.setCheckBoxAsSwitch(jCheckBox1.getName(), "On", "Off");
 ```
 
-De igual forma podemos hacer que un botón se vea como un link de la siguiente forma:
+De igual forma podemos hacer que un botón se vea como un **link** de la siguiente forma:
 
 ```java
 jButton1.setName("myLink"); // Ojo el nombre puede ser el que nosotros queramos
@@ -160,7 +167,10 @@ jButton1.setName("myLink"); // Ojo el nombre puede ser el que nosotros queramos
 MetroUIComponent.setButtonAsLink(jButton3.getName());
 ```
 
-Como último ejemplo veremos como asignar un placeholder a un textField, passwordField o textArea
+![link](https://github.com/Israel-ICM/MyStyles/blob/master/captures/version1.1.0/link.jpg)
+![link dark](https://github.com/Israel-ICM/MyStyles/blob/master/captures/version1.1.0/linkDark.jpg)
+
+Como último ejemplo veremos como asignar un **placeholder** a un textField, passwordField o textArea
 
 ```java
 jPasswordField1.setName("myPassword");
@@ -170,6 +180,9 @@ MetroUIComponent.setPasswordFieldPlaceholder(jPasswordField1.getName(), "Passwor
 // En el caso de que el componente se encuentre en otro panel donde no se pueda utilizar jPasswordField1.getName() simplemente utilizar el nombre tal cual
 MetroUIComponent.setPasswordFieldPlaceholder("myPassword", "Password...");
 ```
+![password](https://github.com/Israel-ICM/MyStyles/blob/master/captures/version1.1.0/passwordField.jpg)
+![password dark](https://github.com/Israel-ICM/MyStyles/blob/master/captures/version1.1.0/passwordFieldDark.jpg)
+
 
 ## Soporte ✔
 
