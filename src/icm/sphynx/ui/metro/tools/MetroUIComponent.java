@@ -68,7 +68,7 @@ public class MetroUIComponent {
      * Asigna estilos al botón para que se vea como un link
      * @param nameComponent Nombre del componente al que se aplicará la propiedad
      */
-    public static void setButtonLink(String nameComponent) {
+    public static void setButtonAsLink(String nameComponent) {
         UIManager.put(BUTTON + "." + nameComponent + "." + BUTTON_LINK, true);
     }
     /**
@@ -135,7 +135,7 @@ public class MetroUIComponent {
      * @param nameComponent
      * @return 
      */
-    public static boolean getPropertyButtonLink(String nameComponent) {
+    public static boolean getPropertyButtonAsLink(String nameComponent) {
         return UIManager.getBoolean(BUTTON + "." + nameComponent + "." + BUTTON_LINK);
     }
     /**

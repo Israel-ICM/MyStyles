@@ -150,7 +150,7 @@ public class UIButton extends BasicButtonUI {
             button.setBorder(null);
         }
         // ButtonLink
-        else if (MetroUIComponent.getPropertyButtonLink(button.getName())) {
+        else if (MetroUIComponent.getPropertyButtonAsLink(button.getName())) {
             button.setBackground(null);
             button.setBorder(null);
         }
@@ -201,7 +201,7 @@ public class UIButton extends BasicButtonUI {
         super.paintText(g, c, textRect, text);
 
         // Propiedad link
-        if (MetroUIComponent.getPropertyButtonLink(button.getName()))
+        if (MetroUIComponent.getPropertyButtonAsLink(button.getName()))
             installTextStyles(c);
         else {
             c.setForeground(Color.decode(COLOR_FOREGROUND));
