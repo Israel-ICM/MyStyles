@@ -3,19 +3,61 @@ Es una librería para modificar la interfaz de cualquier programa JAVA Swing con
 
 Con esta librería convertirá un programa que se vé así:
 
-![Captura de pantalla 1](https://github.com/Israel-ICM/MyStyles/blob/master/captures/version1.0.1/simple.PNG)
+![Captura de pantalla 1](https://github.com/Israel-ICM/MyStyles/blob/master/captures/version1.1.0/screen_normal.jpg)
 
 Utilizando una simple línea de código conseguirá que se vea de la siguiente forma:
 
-![Captura de pantalla 2](https://github.com/Israel-ICM/MyStyles/blob/master/captures/version1.0.1/aplicado.PNG)
+![Captura de pantalla 2](https://github.com/Israel-ICM/MyStyles/blob/master/captures/version1.1.0/screen_light.jpg)
 
-Pudiendo también cambiar los colores primarios:
+O utilizar su modo oscuro:
 
-![Captura de pantalla 2](https://github.com/Israel-ICM/MyStyles/blob/master/captures/version1.0.1/aplicado_color.PNG)
+![Captura de pantalla dark](https://github.com/Israel-ICM/MyStyles/blob/master/captures/version1.1.0/screen_dark.jpg)
 
-A continuación veremos que también se agregan algunas funcionalidades extra como el botón para ver el password en el passwordfield o el botón para limpiar los textfield:
+Apreciarás también que se agregan algunas funcionalidades extra como el botón para ver el password en el passwordfield o el botón para limpiar los textfield o ciertas animaciones en los scroll y tambien incluyendo nuevos componentes como el switch.
 
-![Gif funcionamiento](https://github.com/Israel-ICM/MyStyles/blob/master/captures/version1.0.1/animation.gif)
+A continuación se muestran algunas capturas de los componentes en su modo dia y modo noche:
+
+### Panel de pestañas
+
+![tabbed pane](https://github.com/Israel-ICM/MyStyles/blob/master/captures/version1.1.0/TabbedPane.gif)
+![tabbed pane dark](https://github.com/Israel-ICM/MyStyles/blob/master/captures/version1.1.0/TabbedPaneDark.gif)
+
+### Cajas de texto y combobox
+
+![inputs](https://github.com/Israel-ICM/MyStyles/blob/master/captures/version1.1.0/Inputs.gif)
+![inputs dark](https://github.com/Israel-ICM/MyStyles/blob/master/captures/version1.1.0/InputsDark.gif)
+
+### Botones
+
+![buttons](https://github.com/Israel-ICM/MyStyles/blob/master/captures/version1.1.0/Buttons.gif)
+![buttons_dark](https://github.com/Israel-ICM/MyStyles/blob/master/captures/version1.1.0/ButtonsDark.gif)
+
+### Componentes de selección múltiple
+
+![selection](https://github.com/Israel-ICM/MyStyles/blob/master/captures/version1.1.0/Selection.gif)
+![selection dark](https://github.com/Israel-ICM/MyStyles/blob/master/captures/version1.1.0/SelectionDark.gif)
+
+### Componentes de progreso
+
+![progress](https://github.com/Israel-ICM/MyStyles/blob/master/captures/version1.1.0/Progress.gif)
+![progress dark](https://github.com/Israel-ICM/MyStyles/blob/master/captures/version1.1.0/ProgressDark.gif)
+
+### Contenedores, listas y tablas
+
+![contents](https://github.com/Israel-ICM/MyStyles/blob/master/captures/version1.1.0/Contents.gif)
+![contents dark](https://github.com/Israel-ICM/MyStyles/blob/master/captures/version1.1.0/ContentsDark.gif)
+
+### Diálogos
+
+![contents](https://github.com/Israel-ICM/MyStyles/blob/master/captures/version1.1.0/Dialogs.gif)
+![contents](https://github.com/Israel-ICM/MyStyles/blob/master/captures/version1.1.0/DialogsDark.gif)
+
+### Tooltips y menús
+
+![tooltip menu](https://github.com/Israel-ICM/MyStyles/blob/master/captures/version1.1.0/TooltipMenu.gif)
+![tooltip menu dark](https://github.com/Israel-ICM/MyStyles/blob/master/captures/version1.1.0/TooltipMenuDark.gif)
+![menubar](https://github.com/Israel-ICM/MyStyles/blob/master/captures/version1.1.0/MenuBar.gif)
+![menubar dark](https://github.com/Israel-ICM/MyStyles/blob/master/captures/version1.1.0/MenuBarDark.gif)
 
 ## Comenzando 🚀
 
@@ -25,9 +67,11 @@ Primeramente te aviso que el proyecto fué desarrollado con **JAVA 8** pero los 
 
 Versiones disponibles:
 
-08-10-2021 | [MyStyles v1.0.0](https://github.com/Israel-ICM/MyStyles/releases/download/v1.0.0-beta/MyStylesv1.0.0.jar)
+08-10-2021 | [MyStyles v1.0.0-beta](https://github.com/Israel-ICM/MyStyles/releases/download/v1.0.0-beta/MyStylesv1.0.0.jar)
 
-14-10-2021 | [MyStyles v1.0.1](https://github.com/Israel-ICM/MyStyles/releases/download/v1.0.1-beta/MyStylesv1.0.1.jar)
+14-10-2021 | [MyStyles v1.0.1-beta](https://github.com/Israel-ICM/MyStyles/releases/download/v1.0.1-beta/MyStylesv1.0.1.jar)
+
+25-10-2021 | [MyStyles v1.1.0](https://github.com/Israel-ICM/MyStyles/releases/download/v1.0.1-beta/MyStylesv1.0.1.jar)
 
 ## Ejecutando las pruebas ⚙️
 Como verás a continuación el funcionamiento es bastante simple:
@@ -84,6 +128,48 @@ MyStyles.COLOR_PURPLE_DARK
 MyStyles.COLOR_GREEN_LIGHT
 MyStyles.COLOR_GREEN_DARK
 ```
+### Propiedades de componentes
+
+Para el manejo de esta libreria se agregó la sencilla funcionalidad de poder cambiar un componente por otro *equivalente* solo modificando su propiedad  a partir de la clase **`MetroUIComponent`**, para saber que propiedades tiene cada componente podemos realizarlo a partir del autocompletador que tiene nuestro IDE, en este caso solo escribir **MetroUIComponent.set** y veremos la lista de propiedades.
+
+Cada propiedad inicia con el nombre de su componente, por ejemplo para un botón seria algo así **MetroUIComponent.setButton**Property(...), para el caso de un checkbox seria **MetroUIComponent.setCheckBox**Property(...), así para cada tipo de componente que tenga la posibilidad de poder cambiar de forma o funcionalidad.
+
+A continuación veremos un ejemplo de como podemos convertir un componente checkbox a un componente switch:
+
+En el JFrame o JPanel asignamos primeramente el nombre al/los componentes que queremos aplicar la propiedad:
+
+```java
+jCheckBox1.setName("mySwitch");
+// Si lo necesitamos podemos darle el mismo nombre a mas checkbox y aplicar la propiedad solo a ese nombre para que todos cambien a la vez.
+// jCheckBox2.setName("mySwitch");
+// jCheckBox3.setName("mySwitch");
+```
+Una vez agregados los nombres al/los componentes aplicamos la propiedad **Checkbox como switch (CheckBoxAsSwitch)**:
+
+```java
+// Los parámetros en este caso son el nombre del componente, texto cuando está encendido y texto cuando esta apagado
+MetroUIComponent.setCheckBoxAsSwitch(jCheckBox1.getName(), "On", "Off");
+```
+
+De igual forma podemos hacer que un botón se vea como un link de la siguiente forma:
+
+```java
+jButton1.setName("myLink"); // Ojo el nombre puede ser el que nosotros queramos
+
+// Aplicamos la propiedad botón como link
+MetroUIComponent.setButtonAsLink(jButton3.getName());
+```
+
+Como último ejemplo veremos como asignar un placeholder a un textField, passwordField o textArea
+
+```java
+jPasswordField1.setName("myPassword");
+
+MetroUIComponent.setPasswordFieldPlaceholder(jPasswordField1.getName(), "Password...");
+
+// En el caso de que el componente se encuentre en otro panel donde no se pueda utilizar jPasswordField1.getName() simplemente utilizar el nombre tal cual
+MetroUIComponent.setPasswordFieldPlaceholder("myPassword", "Password...");
+```
 
 ## Soporte ✔
 
@@ -91,18 +177,21 @@ Por el momento los componentes que son soportados por la librería son:
 
 - JButton
 - JCheckBox
+- JCheckBoxMenuItem
 - JComboBox
 - JFormattedTextField
 - JLabel
 - JList
+- JMenu
 - JMenuBar
 - JMenuItem
-- JMenu
 - JOptionPane
 - JPanel
 - JPasswordField
+- JPopupMenu
 - JProgressBar
 - JRadioButton
+- JRadioButtonMenuItem
 - JScrollBar
 - JSlider
 - JSpinner
@@ -112,6 +201,7 @@ Por el momento los componentes que son soportados por la librería son:
 - JTextArea
 - JTextField
 - JToggleButton
+- JToolTip
 
 ## Autores ✒️
 
