@@ -101,7 +101,7 @@ Ahora si queremos asignarle los estilos de la librería **MyStyles** lo único q
 ```java
 package mystylestest;
 
-import icm.sphynx.styles.MyStyles;
+import icm.sphynx.MyStyles;
 
 public class MyStylesTest {
     public static void main(String[] args) {
@@ -220,7 +220,7 @@ Por el momento los componentes que son soportados por la librería son:
 
 _Por el momento soy el único contribuidor de éste proyecto_
 
-* **Israel Condori Mañueco** - *Trabajo Inicial* - [Israel-ICM](https://www.youtube.com/channel/UCGmN_BvrLlCeSREmZ0tykSw)
+* **Israel Condori Mañueco** - [Israel-ICM](https://www.youtube.com/channel/UCGmN_BvrLlCeSREmZ0tykSw)
 
 ## ¿Quieres invitarme un café? ☕
 Puedes hacerlo haciendo click en el siguiente link:
