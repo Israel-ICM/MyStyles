@@ -6,6 +6,13 @@
     <version>1.1.1</version>
     <packaging>jar</packaging>
 
+    <distributionManagement>
+       <repository>
+         <id>github</id>
+         <name>GitHub Israel-ICM Apache Maven Packages</name>
+         <url>https://maven.pkg.github.com/Israel-ICM/MyStyles</url>
+       </repository>
+    </distributionManagement>
 
     <pluginRepositories>
         <pluginRepository>
