@@ -101,7 +101,7 @@ Ahora si queremos asignarle los estilos de la librería **MyStyles** lo único q
 ```java
 package mystylestest;
 
-import icm.sphynx.MyStyles;
+import com.sphynxs.MyStyles;
 
 public class MyStylesTest {
     public static void main(String[] args) {
@@ -111,7 +111,7 @@ public class MyStylesTest {
     }
 }
 ```
-En este ejemplo se vé como se inicializan los estilos de **METRO_UI** que es la primera librería que se creó para los primeros usos, posteriormente se crearán mas estilos, los disponibles por el momento en esta primera versión **1.0.0** son **METRO_UI** y **METRO_UI_DARK**.
+En este ejemplo se ve como se inicializan los estilos de **METRO_UI** que es el primer estilo que se creó para los primeros usos, posteriormente se crearán mas estilos, los disponibles por el momento en esta versión son **METRO_UI** y **METRO_UI_DARK**.
 
 Si lo que quieres es cambiar el color del tema lograrás hacerlo simplemente agregando la siguiente linea donde quieras, en un botón en un menú o en cualquier evento que hayas programado:
 
@@ -134,7 +134,7 @@ MyStyles.COLOR_GREEN_DARK
 ```
 ### Propiedades de componentes
 
-Para el manejo de esta libreria se agregó la sencilla funcionalidad de poder cambiar un componente por otro *equivalente* solo modificando su propiedad  a partir de la clase **`MetroUIComponent`**, para saber que propiedades tiene cada componente podemos realizarlo a partir del autocompletador que tiene nuestro IDE, en este caso solo escribir **MetroUIComponent.set** y veremos la lista de propiedades.
+Para el manejo de esta librería se agregó la sencilla funcionalidad de poder cambiar un componente por otro *equivalente* solo modificando su propiedad  a partir de la clase **`MetroUIComponent`**, para saber que propiedades tiene cada componente podemos realizarlo a partir del autocompletador que tiene nuestro IDE, en este caso solo escribir **MetroUIComponent.set** y veremos la lista de propiedades.
 
 Cada propiedad inicia con el nombre de su componente, por ejemplo para un botón seria algo así **MetroUIComponent.setButton**Property(...), para el caso de un checkbox seria **MetroUIComponent.setCheckBox**Property(...), así para cada tipo de componente que tenga la posibilidad de poder cambiar de forma o funcionalidad.
 
