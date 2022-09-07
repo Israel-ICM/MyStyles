@@ -1,10 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
-    <groupId>com.icm.sphynx</groupId>
+    <groupId>io.github.icm.sphynx</groupId>
     <artifactId>MyStyles</artifactId>
     <version>1.1.2</version>
     <packaging>jar</packaging>
+    <name>${project.groupId}:${project.artifactId}</name>
+    <description>Librería para cambiar la UI de aplicaciones Java Swing</description>
+    <url>https://github.com/Israel-ICM/MyStyles</url>
 
     <distributionManagement>
        <repository>
@@ -46,4 +49,26 @@
         <maven.compiler.source>1.8</maven.compiler.source>
         <maven.compiler.target>1.8</maven.compiler.target>
     </properties>
+    
+    <licenses>
+        <license>
+            <name>MIT License</name>
+            <url>http://www.opensource.org/licenses/mit-license.php</url>
+        </license>
+    </licenses>
+    
+    <developers>
+        <developer>
+            <name>Israel-ICM</name>
+            <email>israel.jcm@gmail.com</email>
+            <organization>ICM Sphynx</organization>
+            <organizationUrl>https://github.com/Israel-ICM</organizationUrl>
+        </developer>
+    </developers>
+    
+    <scm>
+        <connection>scm:git:git://github.com/Israel-ICM/MyStyles.git</connection>
+        <developerConnection>scm:git:ssh://github.com:Israel-ICM/MyStyles.git</developerConnection>
+        <url>https://github.com/Israel-ICM/MyStyles/tree/master</url>
+    </scm>
 </project>
