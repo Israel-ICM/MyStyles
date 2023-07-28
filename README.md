@@ -5,7 +5,7 @@ Con esta librería convertirá un programa que se vé así:
 
 ![Captura de pantalla 1](https://github.com/Israel-ICM/MyStyles/blob/master/captures/version1.1.0/screen_normal.jpg)
 
-En una que se vea de la siguiente forma:
+En uno que se vea de la siguiente forma:
 
 ![Captura de pantalla 2](https://github.com/Israel-ICM/MyStyles/blob/master/captures/version1.1.0/screen_light.jpg)
 
