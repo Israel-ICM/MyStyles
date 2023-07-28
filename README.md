@@ -220,7 +220,7 @@ Por el momento los componentes que son soportados por la librería son:
 
 _Por el momento soy el único contribuidor de éste proyecto_
 
-* **Israel Condori Mañueco** - [Israel-ICM](https://www.youtube.com/channel/UCGmN_BvrLlCeSREmZ0tykSw)
+* [Israel-ICM](https://www.youtube.com/channel/UCGmN_BvrLlCeSREmZ0tykSw)
 
 ## ¿Quieres invitarme un café? ☕
 Puedes hacerlo haciendo click en el siguiente link:
