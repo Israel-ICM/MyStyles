@@ -5,7 +5,7 @@ Con esta librería convertirá un programa que se vé así:
 
 ![Captura de pantalla 1](https://github.com/Israel-ICM/MyStyles/blob/master/captures/version1.1.0/screen_normal.jpg)
 
-Utilizando una simple línea de código conseguirá que se vea de la siguiente forma:
+En una que se vea de la siguiente forma:
 
 ![Captura de pantalla 2](https://github.com/Israel-ICM/MyStyles/blob/master/captures/version1.1.0/screen_light.jpg)
 
@@ -13,9 +13,9 @@ O utilizar su modo oscuro:
 
 ![Captura de pantalla dark](https://github.com/Israel-ICM/MyStyles/blob/master/captures/version1.1.0/screen_dark.jpg)
 
-Apreciarás también que se agregan algunas funcionalidades extra como el botón para ver el password en el passwordfield o el botón para limpiar los textfield o ciertas animaciones en los scroll y tambien incluyendo nuevos componentes como el switch.
+Apreciarás también que se agregan algunas funcionalidades extra como el botón para ver el texto escrito en el passwordfield o el botón para limpiar los textfield o ciertas animaciones en los scroll y tambien incluyendo nuevos componentes como el switch o el link.
 
-A continuación se muestran algunas capturas de los componentes en su modo dia y modo noche:
+A continuación se muestran algunas capturas de los componentes en su modo dia y noche:
 
 ### Panel de pestañas
 
@@ -73,7 +73,7 @@ Versiones disponibles:
 
 25-10-2021 | [MyStyles v1.1.0](https://github.com/Israel-ICM/MyStyles/releases/download/1.1.0/MyStylesv1.1.0.jar)
 
-También puedes descargar el ejemplo funcional que se muestra en las capturas anteriores (Proyecto NetBeans)
+También puedes descargar el ejemplo funcional que se muestra en las capturas anteriores
 
 25-10-2021 | [MyStylesTest v1.1.0](https://github.com/Israel-ICM/MyStylesTest)
 
